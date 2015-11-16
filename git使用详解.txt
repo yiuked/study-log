@@ -1,0 +1,57 @@
+初始化
+1.git init				//初始化一个本地仓库
+2.git clone xxx.git ["指定目录"]	//clone一个远程的
+
+
+操作
+0.git branch -a		//查看所有的分支(branch)
+0..git branch -r	//查看远程分支
+1.git status		//查看需要add或者commit的内容
+2.git add <文件名>	//表明这个修改过的文件已确定，可以提交到branch了
+3.git add .		//确认所有修改过的文件
+4.git commit <文件名>	//将一个文件提交
+4.git commit -a		//投交所有文件
+5.git commit --amend	//修改最后一次commit时候的信息
+6.git push origin master --force	//对于已经push过的commit信息，本地修改后，使用这个命令修改远程的commit信息
+
+日志
+git log     查看日志简报
+git log -p  查看日志详细内容(内容多时按q退出)
+
+远程操作
+
+"origin" 并无特殊含义
+远程仓库名字 "origin" 与分支名字 "master" 一样，在 Git 中并没有任何特别的含义一样。 
+同时 "master" 是当你运行 git init 时默认的起始分支名字，原因仅仅是它的广泛使用，"origin" 是当你运行 git clone 时默认的远程仓库名字。
+如果你运行 git clone -o booyah，那么你默认的远程分支名字将会是 booyah/master。
+
+git remote add origin ssh:          //xxx.git
+git remote show origin              //查看远程创建(orgin)的信息
+
+-------------------------------------------------------------------
+git fetch <远程主机名> <分支名>     //如,取回origin主机的master分支
+git diff origin/master
+git merge origin/master
+
+1.fetch只会下载远程更新，但不会更新本地
+2.使用diff对比下载的更新与本地的差异
+3.将下载的更新与本地合并，origin/master 指代要与哪个branch合并
+总结:构成一次完整的从远程下载代码并更新到本地的流程
+---------------------------------------------------------------------
+---------------------------------------------------------------------
+git pull origin master
+git pull    
+
+1.orgin master 为指定为远程仓库(orgin)的master分支
+2.如果省略参数，默认为 origin master
+说明:pull 相当于是从远程获取最新版本并merge到本地
+--------------------------------------------------------------------
+
+git push origin master              //上面命令表示，将本地的master分支推送到origin主机的master分支。如果后者不存在，则会被新建。
+git push origin master:<new branch name>  //创建新的分支
+git push origin --delete <branchName>     //删除远程分支
+
+
+
+origin 是 remote 名，git remote 可以看看有哪些 remote，git remote add 可以添加 remote...
+事实上 git push origin master 的意思是 git push origin master:master （将本地的 master 分支推送至远端的 master 分支，如果没有就新建一个）
