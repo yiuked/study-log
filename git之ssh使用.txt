@@ -1,0 +1,22 @@
+在git bash下
+ssh-keygen
+生成文件后，到JD后台的ssh配置里，添加新的一条记录，名称随意，内容为id_rsa.pub的内容
+接下来，使用
+ssh -T git@code.jd.com
+测试，如果成功，则会显示
+ **** Welcome to JD code hosting service ***
+ ...
+
+如果显示
+The authenticity of host 'code.jd.com (211.151.12.193)' can't be established.
+等错误，可以重新输入一次
+ssh -T git@code.jd.com
+在提示你输入<yes/no>?的时候，输入 yes (默认是no)
+会有更详细的错误信息
+
+通常找到.ssh目录，删除known_hosts文件则可
+
+
+此为，如果git之前连接远程仓库用的是https，要改成ssh则可找到.git/config
+将url替换成ssh地址则可
+

@@ -1,0 +1,3 @@
+Kloxo控制面板支持lighttpd和apache两种web服务器，用户可以选择其一来使用。无论用哪个web服务器，web站点的访问日志文件都是固定的，日志文件都是在/home/httpd/DOMAIN/stats/目录下面。其中DOMAIN代表的是网站的域名。
+
+如果VPS的负载很高，可以用ls -l /home/httpd/*/stats/*custom_log 命令列出所有的访问日志文件，看看哪个日志文件的大小增加的最快，很可能就是哪个网站有问题了。

@@ -1,0 +1,12 @@
+1.将php添加到环境变量中
+2.打开sublime,tools->build system->new build system
+写入以下内容:
+{ 
+    "cmd": ["php", "$file"],
+    "file_regex": "php$", 
+    "selector": "source.php" 
+}
+
+保存到默认路径：php.sublie-build
+
+3.打开php文件，按ctrl+b 运行

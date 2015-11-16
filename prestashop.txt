@@ -1,0 +1,3 @@
+1.重写类
+重写的class不能带Core后缀
+重写后删除/cache/class_index.php
