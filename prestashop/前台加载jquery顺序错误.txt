@@ -1,0 +1,2 @@
+新版的prestashop自动合并js内容然后到底部去加载，
+这个功能依赖于php_domxml，因此如果发现js加载顺序出错，请检查php_domxml是否已打开.

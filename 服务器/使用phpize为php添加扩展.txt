@@ -1,0 +1,8 @@
+以php7下添加mcrypt为列，
+官方提供的php安装包内已包含mcrypt
+#cd /usr/php-7.0.0/ext/mcrypt
+#/usr/local/php/bin/phpize
+#./configure --with-php-config=/usr/local/php/bin/php-config
+#make && make install
+
+给你的php.ini添加一条extension=mcrypt.so
