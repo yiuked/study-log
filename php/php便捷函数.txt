@@ -21,3 +21,7 @@ function loadprint( $class ) {
 }
 spl_autoload_register( 'loadprint' );
 
+
+php数组函数
+array_diff(); 比较数组的差集，在参数1而不在参数2中
+array_intersect(); 取两个数组的交集
