@@ -16,6 +16,13 @@ ssh -T git@code.jd.com
 
 通常找到.ssh目录，删除known_hosts文件则可
 
+如果出现
+Permission denied (publickey)
+那么使用
+ssh -v git@code.jd.com
+这个能够看到具体加载的是哪个公钥文件，通常是由于加载的公钥文件位置不正确影响的。
+在使用git连接远程服务器时
+不要使用sudo,否则系统会到root目录下去找公钥文件而不是当前用户
 
 此为，如果git之前连接远程仓库用的是https，要改成ssh则可找到.git/config
 将url替换成ssh地址则可
