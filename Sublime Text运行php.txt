@@ -10,3 +10,10 @@
 保存到默认路径：php.sublie-build
 
 3.打开php文件，按ctrl+b 运行
+
+
+4.添加删除空白行
+ctrl+shift+p  或者在preferences 的package controll里 搜索 install package
+打开安装面板后，搜索
+DeleteBlankLines
+安装成功后，在edit->line 就能看到删除空白行的选项了.
