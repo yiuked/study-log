@@ -38,7 +38,9 @@
  --enable-sockets \
  --enable-sysvsem \
  --enable-xml \
- --enable-zip
+ --enable-zip \
+ --disable-fileinfo
+
 
 如果配置错误，需要安装需要的模块，直接yum一并安装依赖库
 
@@ -62,3 +64,4 @@
 需要注意的是php7中www.conf这个配置文件配置phpfpm的端口号等信息，如果你修改默认的9000端口号需在这里改，再改nginx的配置
 启动
 #  /etc/init.d/php-fpm
+
