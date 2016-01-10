@@ -1,0 +1,31 @@
+# 获取远端库最新信息
+# 这一句会将远程origin的所有分支更新都下载到本地的索引库
+$ git fetch origin
+ 
+# 做diff
+# 对比工作目录与下载索引库的差别
+$ git diff master origin/master
+
+# 将origin/master合并到本地的master分支
+# 可以使用git checkout 切换本地分支
+# 以下代码是将下载的远程更新与本地分支合并
+$ git merge origin/master
+
+
+切换到master分支
+$ git checkout master
+
+Issue的意思,一般来说，这个就是版本发布说明。比如本次更新了什么功能，修复了什么bug什么的。
+一般情况下，提交 GIT 时的注释可以分成几类，可以用几个动词开始：
+
+    Added ( 新加入的需求 )
+    Fixed ( 修复 bug )
+    Changed ( 完成的任务 )
+    Updated ( 完成的任务，或者由于第三方模块变化而做的变化 )
+
+尽量将注释缩减为一句话，不要包含详细的内容。
+假如有 Issues 系统，其中可以包含 Issue 的 ID。比如：Issue #123456
+包含作者的信息。比如 by Bruce
+完整例子：
+git commit -m 'Issue #[issue number] by [username]: [Short summary of the change].'
+Related articles
