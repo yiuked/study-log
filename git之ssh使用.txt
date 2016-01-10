@@ -22,4 +22,4 @@ ssh -T git@code.jd.com
 
 
 ssh -v git@code.jd.com
-会显示具体引用的是哪个密钥文件
+会显示具体引用的是哪个密钥文件,能快速查出由ssh密钥对不上引发的问题.
