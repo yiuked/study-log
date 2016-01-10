@@ -20,3 +20,6 @@ ssh -T git@code.jd.com
 此为，如果git之前连接远程仓库用的是https，要改成ssh则可找到.git/config
 将url替换成ssh地址则可
 
+
+ssh -v git@code.jd.com
+会显示具体引用的是哪个密钥文件

@@ -62,3 +62,6 @@
 需要注意的是php7中www.conf这个配置文件配置phpfpm的端口号等信息，如果你修改默认的9000端口号需在这里改，再改nginx的配置
 启动
 #  /etc/init.d/php-fpm
+
+ps -ef|grep php-fpm
+kill -9 324

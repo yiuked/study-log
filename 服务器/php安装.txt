@@ -127,3 +127,6 @@ CentOS下yum安装mcrypt错误：No package php-mcrypt available.解决方法
     yum  update //更新yum源
     yum install libmcrypt libmcrypt-devel mcrypt mhash  就ok了
 
+
+其它方法
+http://www.shayanderson.com/linux/centos-5-or-centos-6-upgrade-php-to-php-54-or-php-55.htm

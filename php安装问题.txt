@@ -1,0 +1,4 @@
+登录 http://windows.php.net/download#php-5.6 ，下载最新的PHP。
+注意：“Non Thread Safe”是IIS专用的，“Thread Safe”才是Apache服务器用的。
+注意：“x86”是32位系统使用的，“x64”是64位系统使用的，下载时要注意。
+注意：这个PHP是基于VC11制作的，需要下载VC11运行库，下载地址已经放在“注意事项”板块中了。

@@ -1,0 +1,4 @@
+1.显示左侧文件栏
+你直接打开sublime text3程序，然后点击file->open folder打开你要显示的目录就行，
+这种问题多搜索。
+View ->Side Bar ->Show Side Bar
