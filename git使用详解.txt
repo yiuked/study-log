@@ -27,7 +27,7 @@ git log -p  查看日志详细内容(内容多时按q退出)
 
 git remote add origin ssh:          //xxx.git
 git remote add github git@github.com:xxx/xxx.git //新增加一个远程仓库
-
+git remote set-url origin git@github.com:xxx/xxx.git //修改远程仓库的链接
 git remote show origin              //查看远程创建(orgin)的信息
 
 -------------------------------------------------------------------
