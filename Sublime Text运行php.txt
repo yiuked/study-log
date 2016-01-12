@@ -17,3 +17,28 @@ ctrl+shift+p  或者在preferences 的package controll里 搜索 install package
 打开安装面板后，搜索
 DeleteBlankLines
 安装成功后，在edit->line 就能看到删除空白行的选项了.
+
+
+5.整合xdebug
+安装xdebug client注意，是带client的
+要使用Xdebug必须将要调度的内容保存为项目
+然后设置项目文件
+{
+	"folders":
+	[
+		{
+			"path": "/Users/apple/Documents/httpd/red/shoes"
+		}
+	],
+	"settings":
+  	{
+	    "xdebug": {
+	  		"path_mapping": {},   
+	  		"url": "http://127.0.0.1/red/shoes/index.php",
+	  		"super_globals": true,
+	  		"close_on_stop": true,
+	  		"port": 9000   
+	    }
+  	}
+}
+然后配置firefox的easy debug,在sublime 的tools里可以看到Xdebug选项.
