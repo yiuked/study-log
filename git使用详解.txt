@@ -44,6 +44,9 @@ git merge origin/master
 git pull origin master
 git pull    
 
+git diff HEAD\^ HEAD //查看当前版本与上一个版本的区别
+
+
 1.orgin master 为指定为远程仓库(orgin)的master分支
 2.如果省略参数，默认为 origin master
 说明:pull 相当于是从远程获取最新版本并merge到本地
