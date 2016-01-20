@@ -27,7 +27,7 @@ git log -p  查看日志详细内容(内容多时按q退出)
 
 git remote add origin ssh:          //xxx.git
 git remote add github git@github.com:xxx/xxx.git //新增加一个远程仓库
-
+git remote set-url origin git@github.com:xxx/xxx.git //修改远程仓库的链接
 git remote show origin              //查看远程创建(orgin)的信息
 
 -------------------------------------------------------------------
@@ -44,6 +44,9 @@ git merge origin/master
 git pull origin master
 git pull    
 
+git diff HEAD\^ HEAD //查看当前版本与上一个版本的区别
+
+
 1.orgin master 为指定为远程仓库(orgin)的master分支
 2.如果省略参数，默认为 origin master
 说明:pull 相当于是从远程获取最新版本并merge到本地
@@ -57,3 +60,7 @@ git push origin --delete <branchName>     //删除远程分支
 
 origin 是 remote 名，git remote 可以看看有哪些 remote，git remote add 可以添加 remote...
 事实上 git push origin master 的意思是 git push origin master:master （将本地的 master 分支推送至远端的 master 分支，如果没有就新建一个）
+
+
+git push --set-upstream origin master
+git branch --set-upstream-to=origin/master

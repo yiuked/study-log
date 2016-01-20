@@ -27,3 +27,6 @@ make install
 
 配置文件放在
 /usr/local/nginx/conf
+
+说明
+正常情况下，nginx应该是主进程以root运行,子进程以nobody运行，为了保持权限一致，php-fpm也应该如此.

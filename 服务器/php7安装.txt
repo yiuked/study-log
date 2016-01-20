@@ -38,7 +38,9 @@
  --enable-sockets \
  --enable-sysvsem \
  --enable-xml \
- --enable-zip
+ --enable-zip \
+ --disable-fileinfo
+
 
 如果配置错误，需要安装需要的模块，直接yum一并安装依赖库
 
@@ -63,5 +65,18 @@
 启动
 #  /etc/init.d/php-fpm
 
+<<<<<<< HEAD
+
+连接mysql提示 Warning: mysqli::real_connect(): (HY000/2002): No such file or directory
+检查phpinfo输出信息中
+mysql.default_socket
+mysqli.default_socket
+pdo_mysql.default_socket
+三者的值
+命令模式下启动mysql,输入status;命令
+查看UNIX socket的值是否一致，
+不一致则修改php.ini,重启nginx或者apache则可.
+=======
 ps -ef|grep php-fpm
 kill -9 324
+>>>>>>> 06874fdac6adcd7e300830b91573fe682b6d557d
