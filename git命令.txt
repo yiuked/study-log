@@ -29,3 +29,9 @@ Issue的意思,一般来说，这个就是版本发布说明。比如本次更�
 完整例子：
 git commit -m 'Issue #[issue number] by [username]: [Short summary of the change].'
 Related articles
+
+
+git 放弃本地修改 强制更新
+git fetch --all
+git reset --hard origin/master
+git fetch 只是下载远程的库的内容，不做任何的合并 git reset 把HEAD指向刚刚下载的最新的版本
