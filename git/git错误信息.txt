@@ -1,0 +1,7 @@
+1.git commit 代码时提示： Warning: Your console font probably doesn‘t support Unicode. If you experience trange characters in the output, consider switching to a TrueType font such as ucida Console!
+这是代码中含有中文导致的，且把代码改为utf-8也是解决不了的，查询了很多资料，最后终于解决啦，现分享给大家：
+依次执行以下命令：
+git config [--global] core.quotepath off
+git config [--global] --unset i18n.logoutputencoding
+git config [--global] --unset i18n.commitencoding
+再次git commit和git push应该就不会弹出这个note了。
