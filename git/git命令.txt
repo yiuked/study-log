@@ -35,3 +35,31 @@ git 放弃本地修改 强制更新
 git fetch --all
 git reset --hard origin/master
 git fetch 只是下载远程的库的内容，不做任何的合并 git reset 把HEAD指向刚刚下载的最新的版本
+
+git add 详解
+git add <path>表示 add to index only files created or modified and not those deleted 
+我通常是通过git add <path>的形式把我们<path>添加到索引库中，<path>可以是文件也可以是目录。
+git不仅能判断出<path>中，修改（不包括已删除）的文件，还能判断出新添的文件，并把它们的信息添加到索引库中。
+三、git add -u
+git add -u 表示 add to index only files modified or deleted and not those created 
+git add -u [<path>]: 把<path>中所有tracked文件中被修改过或已删除文件的信息添加到索引库。它不会处理untracted的文件。
+省略<path>表示.,即当前目录。
+四、git add -A
+git add -A: [<path>]表示把<path>中所有tracked文件中被修改过或已删除文件和所有untracted的文件信息添加到索引库。
+省略<path>表示.,即当前目录。
+五、git add -i
+我们可以通过git add -i [<path>]命令查看<path>中被所有修改过或已删除文件但没有提交的文件，
+并通过其revert子命令可以查看<path>中所有untracted的文件，同时进入一个子命令系统。
+比如：
+ git add -i
+           staged     unstaged path
+  1:        +0/-0      nothing branch/t.txt
+  2:        +0/-0      nothing branch/t2.txt
+  3:    unchanged        +1/-0 readme.txt
+
+ Commands 
+  1: [s]tatus     2: [u]pdate     3: [r]evert     4: [a]dd untracked
+  5: [p]atch      6: [d]iff       7: [q]uit       8: [h]elp
+What now>
+这里的t.txt和t2.txt表示已经被执行了git add，待提交。即已经添加到索引库中。
+readme.txt表示已经处于tracked下，它被修改了，但是还没有被执行了git add。即还没添加到索引库中。
