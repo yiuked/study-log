@@ -1,0 +1,21 @@
+yii框架使用了大量的
+new yii\xxx\xxx();
+语法。
+
+首先这个语法是5.3引入的命名空间.
+其中yii\xxx 表示类的命名空间.
+
+那么类似这个的类文件又是如何被include的呢.
+
+在入口文件引入了
+require(__DIR__ . '/../../vendor/yiisoft/yii2/Yii.php');
+在与Yii.php文件同目录下有一个classes.php文件，
+里面关联了yii框架下所有命名空间+类名与目录文件的关联性.
+且Yii.php调用了
+spl_autoload_register(['Yii', 'autoload'], true, true);
+因此，在我们的项目中，我们可以在控制器及Model等地方
+通过先使用
+use 命名空间
+
+$xxx = new yii\xxx\xxx();
+实列化任何核心类.
