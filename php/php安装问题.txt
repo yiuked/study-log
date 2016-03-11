@@ -1,0 +1,5 @@
+non-thread-safe 非 线程安全 与IIS 搭配环境
+thread-safe 线程安全 与apache 搭配的 环境
+php还有 VC6 VC9版本 区分
+VC6和VC9一个支持apache一个支持IIS
+VC9 用在apache上也没问题 
