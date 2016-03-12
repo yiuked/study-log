@@ -5,3 +5,16 @@ git config [--global] core.quotepath off
 git config [--global] --unset i18n.logoutputencoding
 git config [--global] --unset i18n.commitencoding
 再次git commit和git push应该就不会弹出这个note了。
+
+
+2.[GIT] warning: LF will be replaced by CRLF问题解决方法 
+原因分析：
+CRLF -- Carriage-Return Line-Feed 回车换行
+就是回车(CR, ASCII 13, \r) 换行(LF, ASCII 10, \n)。
+这两个ACSII字符不会在屏幕有任何输出，但在Windows中广泛使用来标识一行的结束。而在Linux/UNIX系统中只有换行符。
+也就是说在windows中的换行符为 CRLF， 而在linux下的换行符为：LF
+
+$ rm -rf .git  
+$ git config --gobal core.autocrlf false  
+$ git init  
+$ git add .  
