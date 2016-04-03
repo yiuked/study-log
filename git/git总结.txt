@@ -54,3 +54,6 @@ git checkout -- <文件或目录>
 当缓存区存在时，从缓存区恢复，当缓存区不存在时，从版本库在恢复.
 git reset HEAD readme.txt
 从版本库中直接恢复文件到缓存区和工作区
+
+add 没有commit时要撤消
+git reset .

@@ -1,0 +1,32 @@
+在Yii中，JS，CSS通常以资源包的形式调用。
+如果css/js/img放在非web目录，比如放在themes/default/dist/目录下时
+需要定义一个资源包:
+<?php
+namespace app\themes\defaulte;
+
+use yii\web\AssetBundle;
+
+class AppAsset extends AssetBundle
+{
+    public $sourcePath = '@app/themes/defaulte/dist';
+    public $css = [
+        'css/site.css',
+    ];
+    public $js = [
+
+    ];
+    public $depends = [
+        'yii\web\YiiAsset',
+        'yii\bootstrap\BootstrapAsset',
+    ];
+}
+?>
+
+然后在希望调用资源的示图文件中:
+app\themes\defaulte\AppAsset::register($this);
+进行注册.
+<?php $this->endBody() ?>
+会将资源包中的css和js加载到示图的jsFiles和cssFiles属性中
+<?php $this->endPage() ?>
+会将jsFiles和cssFiles属性中的文件替换由之前占位符占位的地方.
+js与css就这样被加载进来了
