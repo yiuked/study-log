@@ -8,3 +8,11 @@
 
 解决使用 Composer 的时候提示输入 Token
 进入 https://github.com/settings/tokens 点击 「Generate new token」 新建一个 Token，选择默认新建就行，然后就会得到一个 Token，然后输入这个值就 OK 了。
+
+
+安装扩展应用时出现:
+出现Illegal offset type in isset or empty
+执行以下命令
+$ composer selfupdate
+$ composer global update --no-plugins
+$ composer global require fxp/composer-asset-plugin:"^1.1.0" --no-plugins
