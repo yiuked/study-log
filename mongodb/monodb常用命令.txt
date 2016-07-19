@@ -30,3 +30,53 @@ auth=true
 
 4.如果安装了windows服务，现在不想用了，则可以通过以下方式删除
 >sc delete MongoDB
+
+5.建立用户过程
+如果是首次创建用户，请先将auth参数去掉后，启动mongodb
+接下来登录mongo
+
+>mongo
+MongoDB shell version: 2.7.8
+connecting to: test
+
+#切换到admin表
+>use admin
+#首次执行由于没有任何用户，因此没有任何信息
+>show collections
+>db.createUser({
+	user:"root",
+	pwd:"root",
+	#首先建立一个超级管理账户
+	roles:["userAdminAnyDatabase", "dbAdminAnyDatabase"]
+})
+#记住，此处一定要切换到自己要添加用户的数据库上进行用户添加
+#否则默认添加的用户所关联的表依然为admin
+#
+>use mydb
+>db.createUser({
+	user:"mydb",
+	pwd:"mypwd",
+	#首先建立一个超级管理账户
+	roles:["dbOwner"]
+})
+
+接下来，我们就可以使用以下命令连接mongo
+mongo -umydb -pmypwd mydb 
+
+权限，以下仅为部分做为参考，更多详细可参考
+https://docs.mongodb.com/manual/reference/built-in-roles/#built-in-roles
+
+read
+readWrite
+
+dbAdmin
+userAdmin
+dbOwner
+dbOwner 包含了dbAdmin、userAdmin、read、readWrite所有权限
+
+userAdminAnyDatabase
+dbAdminAnyDatabase
+
+6.问题收集
+
+
