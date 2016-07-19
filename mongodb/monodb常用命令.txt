@@ -1,0 +1,32 @@
+1.启动mongod并指定数据库路径
+>mongod --dbpath=E:\mongodb\db
+测试是否已启动：
+http://localhost:27017/
+
+2.如果需要安装为windows服务，加上--install则可，如
+>mongod --dbpath D:\mongodb\db --logpath=D:\mongodb\logs\mongodb.log --logappend --install
+注：以服务的形式安装必须指定日志路径
+
+3.以配置文件形式启动mongod
+建立配置文件mongod.conf，并根据配置文件中的内容建立相应的目录与文件
+
+#数据库路径
+dbpath=D:\MongoDB\db
+#日志输出文件路径
+logpath=D:\MongoDB\logs\mongodb.log
+#错误日志采用追加模式，配置这个选项后mongodb的日志会追加到现有的日志文件，而不是从新创建一个新文件
+logappend=true
+#启用日志文件，默认启用
+journal=true
+#这个选项可以过滤掉一些无用的日志信息，若需要调试使用请设置为false
+quiet=true
+#端口号 默认为27017
+port=27017
+#使用身份验证
+auth=true
+
+如果要安装为系统服务则加上 --install,否则去掉
+>mongod --config D:\MongoDB\etc\mongod.conf --install
+
+4.如果安装了windows服务，现在不想用了，则可以通过以下方式删除
+>sc delete MongoDB

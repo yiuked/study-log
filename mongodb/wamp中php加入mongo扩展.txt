@@ -1,0 +1,6 @@
+装的是WampServer Version 2.5 64位版本
+Apache 2.4.9
+PHP 5.5.12
+
+在安装php_mongo.dll扩展时，下载的64位版本,
+NTS和TS都试过，就是不成功，最后换成32位版本的，竟然通过了.
