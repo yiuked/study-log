@@ -17,4 +17,4 @@ apt-cyg install nano
 apt-cyg install wget
 
 安装其它：
-apt-cyg gcc-core g++  make  gdb  libstdc++6
+apt-cyg install gcc-core g++  make  gdb  libstdc++6
