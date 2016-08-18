@@ -10,7 +10,7 @@ VC9版本是针对IIS服务器的版本，没有对APACHE的支持，而VC6版本对IIS和apache都提供了
 
 Windows版的PHP从版本5.2.1开始有Thread Safe和NoneThread Safe之分。
 
-先从字面意思上理解，Thread Safe是线程安全，执行时会进行线程（Thread）安全检查，以防止有新要求就启动新线程的CGI执行方式而耗尽系统资源。Non Thread Safe是非线程安全，在执行时不进行线程（Thread）安全检查。
+先从字面意思上理解，Thread Safe是线程安全，执行时会进行线程（Thread）安全检查，以防止有新要求就启动新线程的CGI执行方式而耗尽系统资源。Non Thread Safe是非线程安全，在执行时不进行线程（Thread）安全检查，是单线程模式。
 
 3．PHP的两种执行方式：ISAPI和FastCGI。
 

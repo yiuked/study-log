@@ -1,0 +1,8 @@
+现象：
+ping内网正常
+ping外网IP，域名均无法正常，返回错误：connect: Network is unreachable
+使用route命令，发现不能连没有设置默认网关:
+在/etc/sysconfig/network-script/ifcfg-eth0中加入
+GATEWAY=192.168.1.1
+重启网络服务
+service network restart
