@@ -1,0 +1,2 @@
+Html::a("管理员分组", ["/admin/profile"]);
+如果首参数为字符，则直接输出，如果为数组，则生成以index.php?r=xxx的格式
