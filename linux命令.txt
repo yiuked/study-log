@@ -1,4 +1,4 @@
-1.命令1 && 命令2
+﻿1.命令1 && 命令2
 	命令1执行成功的情况则执行命令2.
 如果命令2未执行，可以使用
 echo $?
@@ -19,3 +19,17 @@ echo $?
 comm1 | comm2
 将comm1的输出流作为comm2的输入流
 comm2的输入流为 scanf 这样的参数
+
+4. 在 LINUX 命令平台输入 1-2 个字符后按 Tab 键会自动补全后面的部分(前提是要有这个东西，例如在装了 tomcat 的前提下, 输入 tomcat 的 to 按 tab)。
+a. ps 命令用于查看当前正在运行的进程。
+grep 是搜索
+例如： ps -ef | grep java
+表示查看所有进程里 CMD 是 java 的进程信息
+ps -aux | grep java
+-aux 显示所有状态
+ps
+b. kill 命令用于终止进程
+例如： kill -9 [PID]
+-9 表示强迫进程立即停止
+通常用 ps 查看进程 PID ，用 kill 命令终止进程
+网上关于这两块的内容

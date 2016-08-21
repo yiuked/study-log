@@ -1,0 +1,46 @@
+说明，根据要求选择你的开发工具.
+Visual C++ 9.0 (Visual Studio 2008 or Visual C++ 2008) for PHP 5.4.
+Visual C++ 11.0 (Visual Studio 2012) for PHP 5.5 or 5.6.
+Visual C++ 14.0 (Visual Studio 2015) for PHP 7.0+.
+
+
+	
+准备工具
+1.PHP-SDK,文件格式(php-sdk-binary-tools-YYYYMMDD.zip)，选择最新的下载.
+http://windows.php.net/downloads/php-sdk/php-sdk-binary-tools-20110915.zip
+
+2.下载PHP依赖文件,文件格式(deps-<php version>-<vc version>-<architecture>.7z)选择你要编译的版本
+http://windows.php.net/downloads/php-sdk/deps-5.5-vc11-x86.7z
+
+3.下载PHP源文件
+http://windows.php.net/downloads/releases/archives/php-5.5.12-src.zip
+
+4.安装VS,根据说明里的环境要求自行下载VS版本,我使用的php5.5.12,安装VS2012
+
+执行
+在开始菜单栏(VS2012->Visual Studio Tools)里选择
+VS2012 x86/x64 Native Tools Command Prompt
+注意一定要选择与你编译的php版本位数一至（运行时一定要使用管理员身份运行）
+c:\> mkdir php-sdk
+c:\> cd php-sdk
+将php-sdk-binary-tools-20110915.zip解压，并将文件复制到c:\php-sdk目录
+c:\php-sdk> bin\phpsdk_buildtree.bat phpdev
+
+生成的phpdev目录下没有产生vc11目录，于是复制vc9改名为vc11
+将deps-5.5-vc11-x86.7z解压
+复制到C:\php-sdk\phpdev\vc11\deps目录。
+将php-5.5.12-src.zip解压
+复制到C:\php-sdk\phpdev\vc11\php-5.5.12-src目录
+接下来
+c:\php-sdk> bin\phpsdk_setvars.bat
+c:\php-sdk> cd C:\php-sdk\phpdev\vc11\x86\php-5.5.12-src
+C:\php-sdk\phpdev\vc11\x86\php-5.5.12-src> buildconf
+C:\php-sdk\phpdev\vc11\x86\php-5.5.12-src> configure --help
+C:\php-sdk\phpdev\vc11\x86\php-5.5.12-src> configure --disable-all --enable-cli --enable-pdo=shared 
+=shared意思是以dll形式生成，否则就和php集成在一起了,如果提示bison.exe不存在，执行命令，再重新执行下面的操作（经过上面的配置后,bison.exe应该在 c:\php_sdk\bin目录下 ， 把这个目录放到环境变量中就行了）
+C:\php-sdk\phpdev\vc11\x86\php-5.5.12-src> set path=%path%;C:\php-sdk\bin
+C:\php-sdk\phpdev\vc11\x86\php-5.5.12-src> nmake
+
+
+参考文献:
+https://wiki.php.net/internals/windows/stepbystepbuild

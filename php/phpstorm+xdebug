@@ -1,0 +1,4 @@
+如果一切都正常配置，但IDE打开断点调试时依然抓不到断点，请检查
+php.ini中
+xdebug.remote_enable = on
+是否已经将off设置为on

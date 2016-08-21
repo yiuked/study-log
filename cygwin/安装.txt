@@ -1,0 +1,20 @@
+安装源请选择以下其中一个，其它的一切默认就行了
+http://mirrors.ustc.edu.cn/
+http://mirrors.163.com/
+
+安装完cygwin发现很多软件没装，怎么办，通过apt-cyg来安装，
+首先安装apt-cyg：
+lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg
+install apt-cyg /bin
+
+安装完成，可能安装其它软件时，下载速度非常慢，怎么办，先切源镜像:
+apt-cyg -m http://mirrors.163.com/cygwin/
+apt-cyg update
+
+接下来开始愉快的使用apt-cyg:
+apt-cyg install nano
+可能会提示您wget没有安装，那么安装一下wget:
+apt-cyg install wget
+
+安装其它：
+apt-cyg install gcc-core g++  make  gdb  libstdc++6
