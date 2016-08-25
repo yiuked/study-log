@@ -28,3 +28,9 @@ chkconfig –-list redis
 ./php-fpm -c /etc/php.ini -y /etc/php-fpm.conf -R
 具体参数意思可以使用
 ./php-fpm -h 查看
+
+
+$?表示上一次程序退出值，你可以自己写一个1.sh脚本如下：
+exit 2
+
+然后在命令行下执行该脚本，最后在shell中输入echo $?看看效果 

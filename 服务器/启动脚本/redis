@@ -30,7 +30,7 @@ start() {
     fi
  
     echo -n $"Starting $desc: "
-    daemon $BIN/$prog $CONFIG
+    daemon $BIN/$prog $CONFIG 
  
     RETVAL=$?
     echo
