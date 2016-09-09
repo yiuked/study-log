@@ -1,0 +1,77 @@
+以往的lamp网站向着lnmp发展, 笔者工作环境使用lnmp多年, 在这里很高兴和大家分享一下多年的lnmp网站的php安全配置，至于lamp安全后续与大家分享，其实内容上八成相同，这边着重讲php安全配置，看内容.
+1. 使用open_basedir限制虚拟主机跨目录访问
+
+[HOST=www.ttlsa.com]
+open_basedir=/data/site/www.ttlsa.com/:/tmp/
+
+[HOST=test.ttlsa.com]
+open_basedir=/data/site/test.ttlsa.com/:/tmp/
+
+如上配置的意思是www.ttlsa.com下的php程序被限制在open_basedir配置的两个目录下, 不可以访问到其他目录。如果没有做以上的配置，那么test.ttlsa.com与www.ttlsa.com的程序可以互相访问.
+如果其中一个站点有漏洞被黑客植入了webshell，那么他可以通过这个站点拿下同一台服务器的其他站点，最后挂木马.
+
+[warning]注意：目录最后一定要加上/. 比如你写/tmp，你的站点同时存在/tmp123等等以/tmp开头的目录，那么黑客也可以访问到这些目录，另外, php5.3以上支持这个写法，5.2不支持。[/warning]
+2. 禁用不安全PHP函数
+
+disable_functions = show_source,system,shell_exec,passthru,exec,popen,proc_open,proc_get_status,phpinfo
+
+禁止php执行以上php函数,以上php程序可以执行linux命令, 比如可以执行ping、netstat、mysql等等.如果你的系统有提权bug,后果你懂得.
+3. 关注软件安全资讯
+
+积极关注linux内核、php安全等信息并及时采取错误
+4. php用户只读
+
+这个方法是我最推崇的方法，但是执行之前一定要和php工程师商量. 为什么？例如站点www.ttlsa.com根目录用户与组为nobody，而运行php的用户和组为phpuser。目录权限为755，文件权限为644. 如此，php为只读，无法写入任何文件到站点目录下。也就是说用户不能上传文件，即使有漏洞, 黑客也传不了后门, 更不可能挂木马.  这么干之前告知程序员将文件缓存改为nosql内存缓存（例如memcached、redis等），上传的文件通过接口传到其他服务器（静态服务器）。
+
+[warning]备注：程序生成本地缓存是个非常糟糕的习惯，使用文件缓存速度缓慢、浪费磁盘空间、最重要一点是一般情况下服务器无法横向扩展.[/warning]
+5. 关闭php错误日志
+
+display_errors = On
+改为
+display_errors = Off
+
+程序一旦出现错误，详细错误信息便立刻展示到用户眼前，其中包含路径、有的甚至是数据库账号密码. 注入渗透密码基本上都是通过这个报错来猜取。生产环境上强烈关闭它
+6. php上传分离
+
+将文件上传到远程服务器，例如nfs等。当然也可以调用你们写好的php接口. 即使有上传漏洞，那么文件也被传到了静态服务器上。木马等文件根本无法执行.
+
+举个例子：
+php站点www.ttlsa.com，目录/data/site/www.ttlsa.com
+静态文件站点static.ttlsa.com，目录/data/site/static.ttlsa.com
+
+文件直接被传到了/data/site/static.ttlsa.com，上传的文件无法通过www.ttlsa.com来访问，只能使用static.ttlsa.com访问，但是static.ttlsa.com不支持php.
+7. 关闭php信息
+
+expose_php = On
+改为
+expose_php = Off
+
+不轻易透露自己php版本信息，防止黑客针对这个版本的php发动攻击.
+8. 禁止动态加载链接库
+
+disable_dl = On;
+改为
+enable_dl = Off;
+
+9. 禁用打开远程url
+
+allow_url_fopen = On
+改为
+allow_url_fopen = Off
+
+其实这点算不上真正的安全, 并不会导致web被入侵等问题,但是这个非常影响性能, 笔者认为它属于狭义的安全问题.
+
+以下方法将无法获取远程url内容
+
+$data = file_get_contents("http://www.baidu.com/")；
+
+以下方法可以获取本地文件内容
+
+$data = file_get_contents("1.txt");
+
+如果你的站点访问量不大、数据库也运行良好，但是web服务器负载出奇的高，请你直接检查下是否有这个方法。笔者遇到过太多这个问题，目前生产环境已全线禁用，如果php工程师需要获取远程web的内容，建议他们使用curl.
+
+php curl如何使用请查看我之前的文章《PHP使用curl替代file_get_contents》，以及php下curl与file_get_contents性能对比.
+10.结束
+
+今天lnmp站点的php安全暂时讲到这里,有问题后续将继续补充.

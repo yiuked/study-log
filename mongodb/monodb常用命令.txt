@@ -62,6 +62,26 @@ connecting to: test
 
 接下来，我们就可以使用以下命令连接mongo
 mongo -umydb -pmypwd mydb 
+也可以在登录数据库后使用
+db.auth('用户名','密码');
+来验证.
+
+
+6.修改密码(需要切换到所归属数据库下操作)
+修改数据库密码
+db.changeUserPassword("reporting", "SOh3TbYhxuLiW8ypJPxmt1oOfL")
+或者
+use test
+db.updateUser(
+   "user123",
+   {
+      pwd: "KNlZmiaNUp0B",
+      customData: { title: "Senior Manager" }
+   }
+)
+
+7.查询
+db.col.find().pretty()
 
 权限，以下仅为部分做为参考，更多详细可参考
 https://docs.mongodb.com/manual/reference/built-in-roles/#built-in-roles
