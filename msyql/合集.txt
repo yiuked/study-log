@@ -1,0 +1,31 @@
+1.在my.cnf配置文件里进行配置：
+[mysql] 
+prompt=\\u@\\h:\\d>
+就可以输出
+root@localhost:test>
+
+[mysqld]
+--log-error=file_name 记录错误日志
+
+
+2.检测mysql是否可以正常提供服务
+>mysqladmin -uroot -proot localhost ping
+>mysqld is alive
+说明正常
+
+3.获取运行基本状态
+>mysqladmin -uroot -proot localhost status
+
+4.获取运行基本状态
+>mysqladmin -uroot -proot localhost processlist
+
+
+5.mysql 有两种数据库引擎   
+一种是 MyISAM,一种是 InnoDB   
+MyISAM 发音为 "my-z[ei]m";  
+InnoDB 发音为 "in-no-db"   
+
+6.索引
+B-Tree 最常用的
+R-Tree 很少用
+Full-Text 解决Like查询效率低的情况

@@ -1,4 +1,4 @@
-1.时间验证问题
+﻿1.时间验证问题
 	字段为date型的时候 需要设置 "format" => "php:Y-m-d H:i:s"
 2.密码更新问题
 3.表格问题
@@ -13,6 +13,20 @@
 安装扩展应用时出现:
 出现Illegal offset type in isset or empty
 执行以下命令
+$ composer selfupdate
+$ composer global update --no-plugins
+$ composer global require fxp/composer-asset-plugin:"^1.2.0" --no-plugins
+
+
+如果出现
+[ReflectionException]                                                   
+Class Fxp\Composer\AssetPlugin\Repository\NpmRepository does not exist                                                                                                                                                                                            
+[ErrorException]                                                                                                                                                                          
+Declaration of Fxp\Composer\AssetPlugin\Repository\AbstractAssetsRepository::whatProvides(Composer\DependencyResolver\Pool $pool, $name) should be compatible with Composer\Repository\C  
+omposerRepository::whatProvides(Composer\DependencyResolver\Pool $pool, $name, $bypassFilters = false) 
+
+那么删除
+/vendor/Fxp目录，然后执行
 $ composer selfupdate
 $ composer global update --no-plugins
 $ composer global require fxp/composer-asset-plugin:"^1.1.0" --no-plugins

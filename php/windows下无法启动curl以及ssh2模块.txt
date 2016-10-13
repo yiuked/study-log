@@ -1,0 +1,5 @@
+复制PHP目录下的三个文件 
+libeay32.dll
+libssh2.dll
+ssleay32.dll
+到apache的bin目录下则可
