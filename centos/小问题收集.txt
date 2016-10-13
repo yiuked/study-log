@@ -6,3 +6,6 @@ ping外网IP，域名均无法正常，返回错误：connect: Network is unreachable
 GATEWAY=192.168.1.1
 重启网络服务
 service network restart
+
+查看系统类型
+cat /etc/redhat-release 
