@@ -21,12 +21,16 @@
 ##### doc
 - [知乎](?file=003-doc/01-知乎 "知乎")
 
-##### git
-- [参考资料](?file=004-git/001-参考资料 "参考资料")
-- [配置.gitignore](?file=004-git/002-配置.gitignore "配置.gitignore")
-- [git错误信息](?file=004-git/003-git错误信息 "git错误信息")
-- [git命令](?file=004-git/004-git命令 "git命令")
-- [git使用详解](?file=004-git/005-git使用详解 "git使用详解")
-- [git之ssh使用](?file=004-git/006-git之ssh使用 "git之ssh使用")
-- [git中删除项目初始文件](?file=004-git/007-git中删除项目初始文件 "git中删除项目初始文件")
-- [git总结](?file=004-git/008-git总结 "git总结")
+##### Git详解
+- [参考资料](?file=004-Git详解/001-参考资料 "参考资料")
+- [配置.gitignore](?file=004-Git详解/002-配置.gitignore "配置.gitignore")
+- [git错误信息](?file=004-Git详解/003-git错误信息 "git错误信息")
+- [git命令](?file=004-Git详解/004-git命令 "git命令")
+- [git使用详解](?file=004-Git详解/005-git使用详解 "git使用详解")
+- [git之ssh使用](?file=004-Git详解/006-git之ssh使用 "git之ssh使用")
+- [git中删除项目初始文件](?file=004-Git详解/007-git中删除项目初始文件 "git中删除项目初始文件")
+- [git总结](?file=004-Git详解/008-git总结 "git总结")
+
+##### IDE开发工具
+- [Atom](?file=005-IDE开发工具/001-Atom "Atom")
+- [Sublime-text](?file=005-IDE开发工具/002-Sublime-text "Sublime-text")
