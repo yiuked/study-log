@@ -1,0 +1,80 @@
+```
+#!/bin/bash
+#=======================================================================================
+# redis - this script starts and stops the redis-server daemon
+#
+# chkconfig:  - 80 12
+# description: Redis is a persistent key-value database
+# processname: redis-server
+# config:   /usr/local/redis/etc/redis.conf
+# pidfile:   /usr/local/redis/var/redis.pid
+#=======================================================================================
+source /etc/init.d/functions
+
+BIN="/root/redis-3.2.1/src"
+CONFIG="/root/redis-3.2.1/redis.conf"
+PIDFILE="/var/run/redis.pid"
+
+
+### Read configuration
+[ -r "$SYSCONFIG" ] && source "$SYSCONFIG"
+
+RETVAL=0
+prog="redis-server"
+desc="Redis Server"
+
+start() {
+
+    if [ -e $PIDFILE ];then
+       echo "$desc already running...."
+       exit 1
+    fi
+
+    echo -n $"Starting $desc: "
+    daemon $BIN/$prog $CONFIG
+
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch /var/lock/subsys/$prog
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stop $desc: "
+    killproc $prog
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/$prog $PIDFILE
+    return $RETVAL
+}
+
+restart() {
+  stop
+  start
+}
+
+case "$1" in
+ start)
+    start
+    ;;
+ stop)
+    stop
+    ;;
+ restart)
+    restart
+    ;;
+ condrestart)
+    [ -e /var/lock/subsys/$prog ] && restart
+    RETVAL=$?
+    ;;
+ status)
+    status $prog
+    RETVAL=$?
+    ;;
+  *)
+    echo $"Usage: $0 {start|stop|restart|condrestart|status}"
+    RETVAL=1
+esac
+
+exit $RETVAL
+```
