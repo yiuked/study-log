@@ -20,6 +20,7 @@
 
 ##### doc
 - [知乎](?file=003-doc/01-知乎 "知乎")
+- [博客](?file=003-doc/02-博客 "博客")
 
 ##### Git详解
 - [参考资料](?file=004-Git详解/001-参考资料 "参考资料")
@@ -34,6 +35,7 @@
 ##### IDE开发工具
 - [Atom](?file=005-IDE开发工具/001-Atom "Atom")
 - [Sublime-text](?file=005-IDE开发工具/002-Sublime-text "Sublime-text")
+- [Phpstom](?file=005-IDE开发工具/003-Phpstom "Phpstom")
 
 ##### 服务器
 - **启动脚本**
@@ -82,6 +84,11 @@
 
 ##### Mysql
 - [解决mySQL占用内存超大问题](?file=007-Mysql/001-解决mySQL占用内存超大问题 "解决mySQL占用内存超大问题")
+- [Mysql设置初始密码](?file=007-Mysql/002-Mysql设置初始密码 "Mysql设置初始密码")
+
+##### Python
+- [pip包管理使用指南](?file=008-Python/003-pip包管理使用指南 "pip包管理使用指南")
+- [使用Sphinx生成文档](?file=008-Python/004-使用Sphinx生成文档 "使用Sphinx生成文档")
 
 ##### doc
 - [知乎](?file=010-doc/01-知乎 "知乎")
