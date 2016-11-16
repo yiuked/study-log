@@ -81,10 +81,14 @@
 - [使用phpize为php添加扩展](?file=006-服务器/013-使用phpize为php添加扩展 "使用phpize为php添加扩展")
 - [用非root用户启动Apache或Nginx的方法](?file=006-服务器/014-用非root用户启动Apache或Nginx的方法 "用非root用户启动Apache或Nginx的方法")
 - [redis启动命令](?file=006-服务器/015-redis启动命令 "redis启动命令")
+- [Linux下查看系统版本及相关参数](?file=006-服务器/016-Linux下查看系统版本及相关参数 "Linux下查看系统版本及相关参数")
 
 ##### Mysql
 - [解决mySQL占用内存超大问题](?file=007-Mysql/001-解决mySQL占用内存超大问题 "解决mySQL占用内存超大问题")
 - [Mysql设置初始密码](?file=007-Mysql/002-Mysql设置初始密码 "Mysql设置初始密码")
+- [Mysql主从构架实列](?file=007-Mysql/003-Mysql主从构架实列 "Mysql主从构架实列")
+- [MySQL之binlog_format详解](?file=007-Mysql/004-MySQL之binlog_format详解 "MySQL之binlog_format详解")
+- [CHANGE MASTER TO 语法详解](?file=007-Mysql/005-CHANGE MASTER TO 语法详解 "CHANGE MASTER TO 语法详解")
 
 ##### Python
 - [pip包管理使用指南](?file=008-Python/003-pip包管理使用指南 "pip包管理使用指南")

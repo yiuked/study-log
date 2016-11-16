@@ -1,3 +1,5 @@
+## Mysql设置初始密码
+
 刚安装或者遗忘`Mysql`时，如何重置`Mysql`密码呢!  
 这个我们用到
 ```
@@ -27,4 +29,7 @@ mysql>update user set password=password('123456') where user='root';
 mysql>flush privileges;
 mysql>exit;
 ```
-然后重新启动`Mysql`则可.  
+然后重新启动`Mysql`,在登录`Mysql`后，需要重新设置一次密码  
+```
+>SET PASSWORD = PASSWORD('123456');
+```
