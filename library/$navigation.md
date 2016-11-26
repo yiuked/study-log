@@ -89,6 +89,7 @@
 - [Mysql主从构架实列](?file=007-Mysql/003-Mysql主从构架实列 "Mysql主从构架实列")
 - [MySQL之binlog_format详解](?file=007-Mysql/004-MySQL之binlog_format详解 "MySQL之binlog_format详解")
 - [CHANGE MASTER TO 语法详解](?file=007-Mysql/005-CHANGE MASTER TO 语法详解 "CHANGE MASTER TO 语法详解")
+- [Mysql事务与锁](?file=007-Mysql/006-Mysql事务与锁 "Mysql事务与锁")
 
 ##### Python
 - [pip包管理使用指南](?file=008-Python/003-pip包管理使用指南 "pip包管理使用指南")

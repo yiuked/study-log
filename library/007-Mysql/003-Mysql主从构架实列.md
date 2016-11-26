@@ -80,6 +80,22 @@ No query specified
 ```
 如果查询不到数据，请尝试重启`Mysql`或者，检测`my.ini`文件配置是否正确。  
 
+**获取主机(Slave)的备份**
+在主机(Master)配置完成后，需要获得主机(Master)的一个快照备份，这个备份将用于恢复到从机(Slave)，而从机(Slave)则通过这个快照的时间点开始进行对主机(Master)的复制工作。  
+由于日志文件与日志定位文件，以就是上面的:
+```
+File: mysql-bin.000001
+Position: 120
+```
+并不是一成不变的，因此需要获得一个精准的快照备份信息,因此进行备份请，需要对数据库进行全局锁操作,以防止数据在备份过程产生新数据而导致备份数据不全面问题.
+```
+mysql>FLUSH TABLES WITH READ LOCK;
+mysql>SHOW PROCESSLIST;
+```
+由于`FLUSH TABLES WITH READ LOCK`命令执行后，将无法对表进行增、删、改，仅允许读，但`FLUSH TABLES WITH READ LOCK`会等待所有的读写完后再执行，因此某些慢查询或者
+带事务锁的语句，可能会让`FLUSH TABLES WITH READ LOCK`延迟一段时间，但正是因为这样才保证了备份过程的精准性。
+
+
 ### 从机(Slave)配置
 ```
 [mysqld]
@@ -173,5 +189,10 @@ No query specified
 ```
 Slave_IO_Running: Yes
 Slave_SQL_Running: Yes
+```
+如果状态为`No`,可以通过可以尝试以启动`slave`  
+```
+mysql>start slave; #启动
+mysql>stop slave;  #停止
 ```
 此时可以尝试，在主机(Master)下新增或者修改数据，然后查看从机.
