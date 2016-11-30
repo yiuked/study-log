@@ -97,3 +97,10 @@
 
 ##### doc
 - [知乎](?file=010-doc/01-知乎 "知乎")
+
+##### Centos
+- [小问题收集](?file=011-Centos/001-小问题收集 "小问题收集")
+- [centos6.4x64安装vpn](?file=011-Centos/002-centos6.4x64安装vpn "centos6.4x64安装vpn")
+- [linux任务切换操作](?file=011-Centos/003-linux任务切换操作 "linux任务切换操作")
+- [Linux下查看文件和文件夹大小](?file=011-Centos/004-Linux下查看文件和文件夹大小 "Linux下查看文件和文件夹大小")
+- [yum使用说明](?file=011-Centos/005-yum使用说明 "yum使用说明")
