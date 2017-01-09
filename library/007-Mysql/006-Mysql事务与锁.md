@@ -114,3 +114,14 @@ possible_keys: age
 1 row in set (0.00 sec)
 ```
 得到的结果，所有`age`为22的行都被锁住，而gid值为多少，不影响被锁行的结果.  
+
+>警告，事务过程不能有网络请求，网络请求过程不可预计，有可能会导致COMMIT无法提交，从而导致事务死锁,  
+>任何不可100%肯定结果的情况，都不应该放在事务过程中，如以下
+```
+BEGIN;
+SELECT XXX FOR UPDATE;
+UPDATE XXX1
+此处发起网络请求，如CURL,file_get_contents等
+UPDATE XXX2
+COMMIT;
+```
