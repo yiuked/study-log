@@ -104,6 +104,8 @@
     - [参考资料](?file=009-PHP/001-Laravel/001-参考资料 "参考资料")
     - [路由](?file=009-PHP/001-Laravel/002-路由 "路由")
     - [中间件](?file=009-PHP/001-Laravel/003-中间件 "中间件")
+    - [术语](?file=009-PHP/001-Laravel/005-术语 "术语")
+    - [Laravel中的env](?file=009-PHP/001-Laravel/006-Laravel中的env "Laravel中的env")
 - [XDebug](?file=009-PHP/002-XDebug "XDebug")
 
 ##### doc
