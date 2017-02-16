@@ -1,55 +1,41 @@
-环境：
+环境：  
+```
 CentOS release 5.8 192.168.10.108 cat
-
 CentOS release 5.5 912.168.200.208
 主调度器：192.168.10.108 192.169.10.251
-
 备调度器：192.168.200.208 192.168.200.148
-
+```
+```
 real ip :
 192.169.10.251
 192.168.200.148
-
 vip : 192.168.10.104
+```
+#### 在主备服务器上部署`nginx`
 
- 
-
-一、在主备服务器上部署nginx
-
-1、下载
-
+1. 下载  
+```
 wget http://nginx.org/download/nginx-1.0.11.tar.gz
-
 wget http://labs.frickle.com/files/ngx_cache_purge-1.4.tar.gz
+```
 
- 
-
-2、安装
-
+2. 安装  
+```
 yum -y install zlib-devel pcre-devel openssl-devel  # 安装依赖
-
 tar –xvf ngx_cache_purge-1.4.tar.gz
-
 tar –xvf nginx-1.0.11.tar.gz
 cd nginx-1.0.11/
-
 ./configure –prefix=/usr/local/nginx –add-module=../ngx_cache_purge-1.4 –with-http_stub_status_module –with-http_ssl_module –with-http_flv_module –with-http_gzip_static_module
-
 Make && make install
-
- 
-
+```
+```
 vi /usr/local/nginx/conf/nginx.conf
-
 user nobody;
 worker_processes 8;
-
 #error_log logs/error.log error;
 error_log /data/logs/error.log crit;
-
 #error_log logs/error.log notice;
 #error_log logs/error.log info;
-
 #pid logs/nginx.pid;
 events {
 worker_connections 1024;
@@ -125,7 +111,7 @@ proxy_set_header X-Forwarded-For $remote_addr;
 proxy_pass http://real_server_pool;
 expires 1d;
 
- 
+
 
 }
 
@@ -155,7 +141,7 @@ log_format access ‘$remote_addr – $remote_user [$time_local] “$request”�
 access_log /data/logs/access.log access;
 }
 
- 
+
 
 # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
 #
@@ -207,29 +193,23 @@ access_log /data/logs/access.log access;
 # index index.html index.htm;
 # }
 #}
+```
 
- 
-
-备用调度器的nginx配置文件和主调度器的配置文件一样。
-
-启动nginx
-
+备用调度器的nginx配置文件和主调度器的配置文件一样。  
+启动`nginx`  
+```
 /usr/local/nginx/sbin/nginx
+```
 
- 
+#### 安装keepalived（在nginx的mater和backup都安装）
 
-二、安装keepalived（在nginx的mater和backup都安装）
-
- 
-
-1、  下载
-
+1. 下载  
+```
 wget http://www.keepalived.org/software/keepalived-1.1.19.tar.gz
+```
 
- 
-
-2、  安装
-
+2. 安装  
+```
 tar zxvf keepalived-1.1.19.tar.gz
 cd keepalived-1.1.19
 ./configure –prefix=/usr/local/keepalived
@@ -240,9 +220,9 @@ cp /usr/local/keepalived/sbin/keepalived /usr/sbin/
 cp /usr/local/keepalived/etc/sysconfig/keepalived /etc/sysconfig/
 cp /usr/local/keepalived/etc/rc.d/init.d/keepalived /etc/init.d/
 mkdir /etc/keepalived
+```
 
- 
-
+```
 vi /etc/keepalived/keepalived.conf
 
 vrrp_instance VI_INET1 {
@@ -287,19 +267,15 @@ connect_port 80
 }
 
 }
-
-4、配置备用调度器的keepalived,只需要将state MASTER 改为state BACKUP,降低priority 100 的值:
-
+```
+4. 配置备用调度器的`keepalived`,只需要将`state MASTER` 改为`state BACKUP`,降低`priority 100` 的值:  
+```
 state MASTER —> state BACKUP
-
 priority 100 —>  priority 99 （此值必须低于主的）
-
-主备启动
-
+```
+主备启动  
+```
 /etc/init.d/keepalived start
-
- 
-
-三、测试
-
+```
+#### 测试
 建立虚拟主机（自己测试啊    O(∩_∩)O~）
