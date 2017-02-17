@@ -73,8 +73,8 @@ memcached key的值。
 8. 缓存通过If-Modified-Since头和内容Last-Modified来回复304Not Modified请求。
 
 3. 应用实例
-nginx配置实例：
-
+`nginx`配置实例：
+```
 upstream memcacheds {
         server 10.1.240.166:22222;
 }
@@ -112,9 +112,9 @@ server  {
                 fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
         }
 }
-
-nm_ttlsa.php实例：
-
+```
+`nm_ttlsa.php`实例：  
+```
 <?php
 $fn = dirname(__FILE__)  . $_SERVER['REQUEST_URI'];
 if(file_exists($fn)) {
@@ -125,7 +125,7 @@ if(file_exists($fn)) {
 				);
 	$m->addServers($servers);
 
-	$r=$m->set($_GET['key'],$data); 
+	$r=$m->set($_GET['key'],$data);
 	header('Content-Length: '.filesize($fn)."\r\n");
 	header('Content-Type: image/gif'."\r\n");
 	header('X-cache: MISS'."\r\n");
@@ -133,6 +133,6 @@ if(file_exists($fn)) {
 }else{
 	header('Location: http://www.ttlsa.com'."\r\n");
 }
-
-4. 测试
-第一次访问：（需要经过php处理）
+```
+#### 测试  
+第一次访问：（需要经过`php`处理）
