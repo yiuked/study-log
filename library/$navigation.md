@@ -106,7 +106,9 @@
     - [中间件](?file=009-PHP/001-Laravel/003-中间件 "中间件")
     - [术语](?file=009-PHP/001-Laravel/005-术语 "术语")
     - [Laravel中的env](?file=009-PHP/001-Laravel/006-Laravel中的env "Laravel中的env")
+    - [方法函数解析](?file=009-PHP/001-Laravel/007-方法函数解析 "方法函数解析")
 - [XDebug](?file=009-PHP/002-XDebug "XDebug")
+- [PHP生僻函数与内置关键词](?file=009-PHP/003-PHP生僻函数与内置关键词 "PHP生僻函数与内置关键词")
 
 ##### doc
 - [知乎](?file=010-doc/01-知乎 "知乎")
