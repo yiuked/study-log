@@ -104,11 +104,15 @@
     - [参考资料](?file=009-PHP/001-Laravel/001-参考资料 "参考资料")
     - [路由](?file=009-PHP/001-Laravel/002-路由 "路由")
     - [中间件](?file=009-PHP/001-Laravel/003-中间件 "中间件")
-    - [术语](?file=009-PHP/001-Laravel/005-术语 "术语")
+    - [非常用函数集合](?file=009-PHP/001-Laravel/005-非常用函数集合 "非常用函数集合")
     - [Laravel中的env](?file=009-PHP/001-Laravel/006-Laravel中的env "Laravel中的env")
     - [方法函数解析](?file=009-PHP/001-Laravel/007-方法函数解析 "方法函数解析")
+    - [术语](?file=009-PHP/001-Laravel/008-术语 "术语")
 - [XDebug](?file=009-PHP/002-XDebug "XDebug")
 - [PHP生僻函数与内置关键词](?file=009-PHP/003-PHP生僻函数与内置关键词 "PHP生僻函数与内置关键词")
+- [Php之trait](?file=009-PHP/004-Php之trait "Php之trait")
+- [PHP程序员的技术成长规划](?file=009-PHP/005-PHP程序员的技术成长规划 "PHP程序员的技术成长规划")
+- [通过PHP触发后台可执行程序](?file=009-PHP/006-通过PHP触发后台可执行程序 "通过PHP触发后台可执行程序")
 
 ##### doc
 - [知乎](?file=010-doc/01-知乎 "知乎")

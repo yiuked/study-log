@@ -125,3 +125,8 @@ UPDATE XXX1
 UPDATE XXX2
 COMMIT;
 ```
+
+>查看锁状态
+```
+show status like '%lock%'
+```
