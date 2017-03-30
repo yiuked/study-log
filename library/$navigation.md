@@ -93,6 +93,7 @@
 - [CHANGE MASTER TO 语法详解](?file=007-Mysql/005-CHANGE MASTER TO 语法详解 "CHANGE MASTER TO 语法详解")
 - [Mysql事务与锁](?file=007-Mysql/006-Mysql事务与锁 "Mysql事务与锁")
 - [DDL、DML和DCL](?file=007-Mysql/007-DDL、DML和DCL "DDL、DML和DCL")
+- [Mysql5.6安装日志](?file=007-Mysql/008-Mysql5.6安装日志 "Mysql5.6安装日志")
 
 ##### Python
 - [setuptools简介](?file=008-Python/002-setuptools简介 "setuptools简介")
@@ -124,6 +125,7 @@
 - [Linux下查看文件和文件夹大小](?file=011-Centos/004-Linux下查看文件和文件夹大小 "Linux下查看文件和文件夹大小")
 - [yum使用说明](?file=011-Centos/005-yum使用说明 "yum使用说明")
 - [rpm命令](?file=011-Centos/006-rpm命令 "rpm命令")
+- [系统备份与恢复](?file=011-Centos/007-系统备份与恢复 "系统备份与恢复")
 
 ##### Neo4j图形数据库
 - [安装](?file=012-Neo4j图形数据库/001-安装 "安装")
@@ -144,3 +146,6 @@
 
 ##### 前端
 - [sass与less](?file=017-前端/001-sass与less "sass与less")
+
+##### 常遇小问题
+- [Linux下键盘背光灯不亮](?file=018-常遇小问题/001-Linux下键盘背光灯不亮 "Linux下键盘背光灯不亮")
