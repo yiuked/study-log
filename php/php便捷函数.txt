@@ -1,6 +1,7 @@
-compact($arg1,$arg2,...)    //将变量转成数组，变量名为KEY，值为VALUE
+﻿compact($arg1,$arg2,...)    //将变量转成数组，变量名为KEY，值为VALUE
 extract(array())            //将数组转成变量，KEY为变量名，VALUE为值
 http_build_query(array)     //将数组转成get参数形式
+parse_str($string,$array)   //与之相反
 
 __autoload()  
 自动载入class文件

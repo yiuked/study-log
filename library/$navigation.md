@@ -20,6 +20,7 @@
 
 ##### doc
 - [专业词](?file=003-doc/003-专业词 "专业词")
+- [ IaaS、PaaS、SaaS、CaaS、MaaS五者的区别_云计算概念大全](?file=003-doc/004- IaaS、PaaS、SaaS、CaaS、MaaS五者的区别_云计算概念大全 " IaaS、PaaS、SaaS、CaaS、MaaS五者的区别_云计算概念大全")
 - [知乎](?file=003-doc/01-知乎 "知乎")
 - [博客](?file=003-doc/02-博客 "博客")
 
@@ -93,6 +94,13 @@
 - [CHANGE MASTER TO 语法详解](?file=007-Mysql/005-CHANGE MASTER TO 语法详解 "CHANGE MASTER TO 语法详解")
 - [Mysql事务与锁](?file=007-Mysql/006-Mysql事务与锁 "Mysql事务与锁")
 - [DDL、DML和DCL](?file=007-Mysql/007-DDL、DML和DCL "DDL、DML和DCL")
+- [Mysql5.6安装日志](?file=007-Mysql/008-Mysql5.6安装日志 "Mysql5.6安装日志")
+- **Mysql总结**
+    - [快速查询](?file=007-Mysql/009-Mysql总结/000-快速查询 "快速查询")
+    - [物理文件组成](?file=007-Mysql/009-Mysql总结/001-物理文件组成 "物理文件组成")
+    - [MyISAM与Innodb](?file=007-Mysql/009-Mysql总结/002-MyISAM与Innodb "MyISAM与Innodb")
+    - [影响Mysql性能的相关因素](?file=007-Mysql/009-Mysql总结/003-影响Mysql性能的相关因素 "影响Mysql性能的相关因素")
+    - [MySQL锁机制](?file=007-Mysql/009-Mysql总结/004-MySQL锁机制 "MySQL锁机制")
 
 ##### Python
 - [setuptools简介](?file=008-Python/002-setuptools简介 "setuptools简介")
@@ -113,9 +121,14 @@
 - [Php之trait](?file=009-PHP/004-Php之trait "Php之trait")
 - [PHP程序员的技术成长规划](?file=009-PHP/005-PHP程序员的技术成长规划 "PHP程序员的技术成长规划")
 - [通过PHP触发后台可执行程序](?file=009-PHP/006-通过PHP触发后台可执行程序 "通过PHP触发后台可执行程序")
+<<<<<<< .merge_file_a07956
 - **算法**
     - [冒泡排序](?file=009-PHP/007-算法/001-冒泡排序 "冒泡排序")
     - [快速排序法](?file=009-PHP/007-算法/002-快速排序法 "快速排序法")
+=======
+- [PHP性能检测](?file=009-PHP/007-PHP性能检测 "PHP性能检测")
+- [PHP不常见异常错误合集](?file=009-PHP/008-PHP不常见异常错误合集 "PHP不常见异常错误合集")
+>>>>>>> .merge_file_a02920
 
 ##### doc
 - [知乎](?file=010-doc/01-知乎 "知乎")
@@ -127,6 +140,8 @@
 - [Linux下查看文件和文件夹大小](?file=011-Centos/004-Linux下查看文件和文件夹大小 "Linux下查看文件和文件夹大小")
 - [yum使用说明](?file=011-Centos/005-yum使用说明 "yum使用说明")
 - [rpm命令](?file=011-Centos/006-rpm命令 "rpm命令")
+- [系统备份与恢复](?file=011-Centos/007-系统备份与恢复 "系统备份与恢复")
+- [dnf](?file=011-Centos/008-dnf "dnf")
 
 ##### Neo4j图形数据库
 - [安装](?file=012-Neo4j图形数据库/001-安装 "安装")
@@ -143,7 +158,15 @@
 - [Redis对PHP的支持](?file=015-Redis/002-Redis对PHP的支持 "Redis对PHP的支持")
 
 ##### 文学
+- [真正决定你能走多远的，是你的多维竞争力](?file=016-文学/002-真正决定你能走多远的，是你的多维竞争力 "真正决定你能走多远的，是你的多维竞争力")
 - [标准](?file=016-文学/01-标准 "标准")
 
 ##### 前端
 - [sass与less](?file=017-前端/001-sass与less "sass与less")
+
+##### 运维
+- [web上线部署系统工具](?file=018-运维/001-web上线部署系统工具 "web上线部署系统工具")
+- [Docker加速器](?file=018-运维/002-Docker加速器 "Docker加速器")
+
+##### 常遇小问题
+- [Linux下键盘背光灯不亮](?file=019-常遇小问题/001-Linux下键盘背光灯不亮 "Linux下键盘背光灯不亮")
