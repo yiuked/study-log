@@ -1,13 +1,14 @@
-nginx的memcached_module模块可以直接从memcached服务器中读取内容后输出，后续的请求不再经过应用程序处理，如php-fpm、django，大大的提升动态页面的速度。nginx只负责从memcached服务器中读取数据，要往memcached写入数据还得需要后台的应用程序来完成，主动的将要缓存的页面缓存到memcached中，可以通过404重定向到后端去处理的。
-ngx_http_memcached_module可以操作任何兼用memcached协议的软件。如ttserver、membase等。
+## nginx+memcached构建页面缓存应用
+`nginx`的`memcached_module`模块可以直接从`memcached`服务器中读取内容后输出，后续的请求不再经过应用程序处理，如`php-fpm`、`django`，大大的提升动态页面的速度。`nginx`只负责从`memcached`服务器中读取数据，要往`memcached`写入数据还得需要后台的应用程序来完成，主动的将要缓存的页面缓存到`memcached`中，可以通过404重定向到后端去处理的。
+`ngx_http_memcached_module`可以操作任何兼用`memcached`协议的软件。如`ttserver`、`membase`等。
 
 结构图如下：
 
 memcached
 
-memcached的key可以通过memcached_key变量来设置，如以$uri。如果命中，那么直接输出内容，没有命中就意味着nginx需要从应用程序请求页面。同时，我们还希望该应用程序将键值对写入到memcached，以便下一个请求可以直接从memcached获取。
-如果键值不存在，nginx将报告not found错误。最好的方法是使用error_page指定和location请求处理。同时包含”Bad Gateway”错误和”Gateway Timeout”错误，如：error_page 404 502 504 = @app;。
-注意：需要设置default_type，否则可能会显示不正常。
+`memcached`的`key`可以通过`memcached_key`变量来设置，如以`$uri`。如果命中，那么直接输出内容，没有命中就意味着`nginx`需要从应用程序请求页面。同时，我们还希望该应用程序将键值对写入到`memcached`，以便下一个请求可以直接从`memcached`获取。
+如果键值不存在，`nginx`将报告`not found`错误。最好的方法是使用`error_page`指定和`location`请求处理。同时包含"Bad Gateway"错误和"Gateway Timeout"错误，如：error_page 404 502 504 = @app;。
+注意：需要设置d`efault_type`，否则可能会显示不正常。
 
 1. 模块指令说明：
 memcached_bind
