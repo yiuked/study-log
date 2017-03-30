@@ -135,6 +135,7 @@
 - [yum使用说明](?file=011-Centos/005-yum使用说明 "yum使用说明")
 - [rpm命令](?file=011-Centos/006-rpm命令 "rpm命令")
 - [系统备份与恢复](?file=011-Centos/007-系统备份与恢复 "系统备份与恢复")
+- [dnf](?file=011-Centos/008-dnf "dnf")
 
 ##### Neo4j图形数据库
 - [安装](?file=012-Neo4j图形数据库/001-安装 "安装")
