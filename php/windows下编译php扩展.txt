@@ -1,46 +1,46 @@
-ËµÃ÷£¬¸ù¾İÒªÇóÑ¡ÔñÄãµÄ¿ª·¢¹¤¾ß.
+è¯´æ˜ï¼Œæ ¹æ®è¦æ±‚é€‰æ‹©ä½ çš„å¼€å‘å·¥å…·.
 Visual C++ 9.0 (Visual Studio 2008 or Visual C++ 2008) for PHP 5.4.
 Visual C++ 11.0 (Visual Studio 2012) for PHP 5.5 or 5.6.
 Visual C++ 14.0 (Visual Studio 2015) for PHP 7.0+.
 
 
-	
-×¼±¸¹¤¾ß
-1.PHP-SDK,ÎÄ¼ş¸ñÊ½(php-sdk-binary-tools-YYYYMMDD.zip)£¬Ñ¡Ôñ×îĞÂµÄÏÂÔØ.
+
+å‡†å¤‡å·¥å…·
+1.PHP-SDK,æ–‡ä»¶æ ¼å¼(php-sdk-binary-tools-YYYYMMDD.zip)ï¼Œé€‰æ‹©æœ€æ–°çš„ä¸‹è½½.
 http://windows.php.net/downloads/php-sdk/php-sdk-binary-tools-20110915.zip
 
-2.ÏÂÔØPHPÒÀÀµÎÄ¼ş,ÎÄ¼ş¸ñÊ½(deps-<php version>-<vc version>-<architecture>.7z)Ñ¡ÔñÄãÒª±àÒëµÄ°æ±¾
+2.ä¸‹è½½PHPä¾èµ–æ–‡ä»¶,æ–‡ä»¶æ ¼å¼(deps-<php version>-<vc version>-<architecture>.7z)é€‰æ‹©ä½ è¦ç¼–è¯‘çš„ç‰ˆæœ¬
 http://windows.php.net/downloads/php-sdk/deps-5.5-vc11-x86.7z
 
-3.ÏÂÔØPHPÔ´ÎÄ¼ş
+3.ä¸‹è½½PHPæºæ–‡ä»¶
 http://windows.php.net/downloads/releases/archives/php-5.5.12-src.zip
 
-4.°²×°VS,¸ù¾İËµÃ÷ÀïµÄ»·¾³ÒªÇó×ÔĞĞÏÂÔØVS°æ±¾,ÎÒÊ¹ÓÃµÄphp5.5.12,°²×°VS2012
+4.å®‰è£…VS,æ ¹æ®è¯´æ˜é‡Œçš„ç¯å¢ƒè¦æ±‚è‡ªè¡Œä¸‹è½½VSç‰ˆæœ¬,æˆ‘ä½¿ç”¨çš„php5.5.12,å®‰è£…VS2012
 
-Ö´ĞĞ
-ÔÚ¿ªÊ¼²Ëµ¥À¸(VS2012->Visual Studio Tools)ÀïÑ¡Ôñ
+æ‰§è¡Œ
+åœ¨å¼€å§‹èœå•æ (VS2012->Visual Studio Tools)é‡Œé€‰æ‹©
 VS2012 x86/x64 Native Tools Command Prompt
-×¢ÒâÒ»¶¨ÒªÑ¡ÔñÓëÄã±àÒëµÄphp°æ±¾Î»ÊıÒ»ÖÁ£¨ÔËĞĞÊ±Ò»¶¨ÒªÊ¹ÓÃ¹ÜÀíÔ±Éí·İÔËĞĞ£©
+æ³¨æ„ä¸€å®šè¦é€‰æ‹©ä¸ä½ ç¼–è¯‘çš„phpç‰ˆæœ¬ä½æ•°ä¸€è‡³ï¼ˆè¿è¡Œæ—¶ä¸€å®šè¦ä½¿ç”¨ç®¡ç†å‘˜èº«ä»½è¿è¡Œï¼‰
 c:\> mkdir php-sdk
 c:\> cd php-sdk
-½«php-sdk-binary-tools-20110915.zip½âÑ¹£¬²¢½«ÎÄ¼ş¸´ÖÆµ½c:\php-sdkÄ¿Â¼
+å°†php-sdk-binary-tools-20110915.zipè§£å‹ï¼Œå¹¶å°†æ–‡ä»¶å¤åˆ¶åˆ°c:\php-sdkç›®å½•
 c:\php-sdk> bin\phpsdk_buildtree.bat phpdev
 
-Éú³ÉµÄphpdevÄ¿Â¼ÏÂÃ»ÓĞ²úÉúvc11Ä¿Â¼£¬ÓÚÊÇ¸´ÖÆvc9¸ÄÃûÎªvc11
-½«deps-5.5-vc11-x86.7z½âÑ¹
-¸´ÖÆµ½C:\php-sdk\phpdev\vc11\depsÄ¿Â¼¡£
-½«php-5.5.12-src.zip½âÑ¹
-¸´ÖÆµ½C:\php-sdk\phpdev\vc11\php-5.5.12-srcÄ¿Â¼
-½ÓÏÂÀ´
+ç”Ÿæˆçš„phpdevç›®å½•ä¸‹æ²¡æœ‰äº§ç”Ÿvc11ç›®å½•ï¼Œäºæ˜¯å¤åˆ¶vc9æ”¹åä¸ºvc11
+å°†deps-5.5-vc11-x86.7zè§£å‹
+å¤åˆ¶åˆ°C:\php-sdk\phpdev\vc11\depsç›®å½•ã€‚
+å°†php-5.5.12-src.zipè§£å‹
+å¤åˆ¶åˆ°C:\php-sdk\phpdev\vc11\php-5.5.12-srcç›®å½•
+æ¥ä¸‹æ¥
 c:\php-sdk> bin\phpsdk_setvars.bat
 c:\php-sdk> cd C:\php-sdk\phpdev\vc11\x86\php-5.5.12-src
 C:\php-sdk\phpdev\vc11\x86\php-5.5.12-src> buildconf
 C:\php-sdk\phpdev\vc11\x86\php-5.5.12-src> configure --help
-C:\php-sdk\phpdev\vc11\x86\php-5.5.12-src> configure --disable-all --enable-cli --enable-pdo=shared 
-=sharedÒâË¼ÊÇÒÔdllĞÎÊ½Éú³É£¬·ñÔò¾ÍºÍphp¼¯³ÉÔÚÒ»ÆğÁË,Èç¹ûÌáÊ¾bison.exe²»´æÔÚ£¬Ö´ĞĞÃüÁî£¬ÔÙÖØĞÂÖ´ĞĞÏÂÃæµÄ²Ù×÷£¨¾­¹ıÉÏÃæµÄÅäÖÃºó,bison.exeÓ¦¸ÃÔÚ c:\php_sdk\binÄ¿Â¼ÏÂ £¬ °ÑÕâ¸öÄ¿Â¼·Åµ½»·¾³±äÁ¿ÖĞ¾ÍĞĞÁË£©
+C:\php-sdk\phpdev\vc11\x86\php-5.5.12-src> configure --disable-all --enable-cli --enable-pdo=shared
+=sharedæ„æ€æ˜¯ä»¥dllå½¢å¼ç”Ÿæˆï¼Œå¦åˆ™å°±å’Œphpé›†æˆåœ¨ä¸€èµ·äº†,å¦‚æœæç¤ºbison.exeä¸å­˜åœ¨ï¼Œæ‰§è¡Œå‘½ä»¤ï¼Œå†é‡æ–°æ‰§è¡Œä¸‹é¢çš„æ“ä½œï¼ˆç»è¿‡ä¸Šé¢çš„é…ç½®å,bison.exeåº”è¯¥åœ¨ c:\php_sdk\binç›®å½•ä¸‹ ï¼Œ æŠŠè¿™ä¸ªç›®å½•æ”¾åˆ°ç¯å¢ƒå˜é‡ä¸­å°±è¡Œäº†ï¼‰
 C:\php-sdk\phpdev\vc11\x86\php-5.5.12-src> set path=%path%;C:\php-sdk\bin
 C:\php-sdk\phpdev\vc11\x86\php-5.5.12-src> nmake
 
 
-²Î¿¼ÎÄÏ×:
+å‚è€ƒæ–‡çŒ®:
 https://wiki.php.net/internals/windows/stepbystepbuild
