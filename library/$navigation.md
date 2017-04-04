@@ -121,8 +121,14 @@
 - [Php之trait](?file=009-PHP/004-Php之trait "Php之trait")
 - [PHP程序员的技术成长规划](?file=009-PHP/005-PHP程序员的技术成长规划 "PHP程序员的技术成长规划")
 - [通过PHP触发后台可执行程序](?file=009-PHP/006-通过PHP触发后台可执行程序 "通过PHP触发后台可执行程序")
+<<<<<<< .merge_file_a07956
+- **算法**
+    - [冒泡排序](?file=009-PHP/007-算法/001-冒泡排序 "冒泡排序")
+    - [快速排序法](?file=009-PHP/007-算法/002-快速排序法 "快速排序法")
+=======
 - [PHP性能检测](?file=009-PHP/007-PHP性能检测 "PHP性能检测")
 - [PHP不常见异常错误合集](?file=009-PHP/008-PHP不常见异常错误合集 "PHP不常见异常错误合集")
+>>>>>>> .merge_file_a02920
 
 ##### doc
 - [知乎](?file=010-doc/01-知乎 "知乎")
@@ -161,8 +167,15 @@
 - [sass与less](?file=017-前端/001-sass与less "sass与less")
 
 ##### 运维
-- [web上线部署系统工具](?file=018-运维/001-web上线部署系统工具 "web上线部署系统工具")
-- [Docker加速器](?file=018-运维/002-Docker加速器 "Docker加速器")
+- [Linux系统下ssh登陆很慢的解决办法](?file=018-运维/005-Linux系统下ssh登陆很慢的解决办法 "Linux系统下ssh登陆很慢的解决办法")
+- [mtr命令详解](?file=018-运维/006-mtr命令详解 "mtr命令详解")
+- **Docker**
+    - [Docker速查](?file=018-运维/007-Docker/000-Docker速查 "Docker速查")
+    - [web上线部署系统工具](?file=018-运维/007-Docker/001-web上线部署系统工具 "web上线部署系统工具")
+    - [Docker加速器](?file=018-运维/007-Docker/002-Docker加速器 "Docker加速器")
+    - [一小时Docker教程](?file=018-运维/007-Docker/003-一小时Docker教程 "一小时Docker教程")
+    - [一次完整的Docker实作](?file=018-运维/007-Docker/004-一次完整的Docker实作 "一次完整的Docker实作")
+    - [Docker数据管理](?file=018-运维/007-Docker/005-Docker数据管理 "Docker数据管理")
 
 ##### 常遇小问题
 - [Linux下键盘背光灯不亮](?file=019-常遇小问题/001-Linux下键盘背光灯不亮 "Linux下键盘背光灯不亮")
