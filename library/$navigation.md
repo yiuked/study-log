@@ -121,14 +121,12 @@
 - [Php之trait](?file=009-PHP/004-Php之trait "Php之trait")
 - [PHP程序员的技术成长规划](?file=009-PHP/005-PHP程序员的技术成长规划 "PHP程序员的技术成长规划")
 - [通过PHP触发后台可执行程序](?file=009-PHP/006-通过PHP触发后台可执行程序 "通过PHP触发后台可执行程序")
-<<<<<<< .merge_file_a07956
-- **算法**
-    - [冒泡排序](?file=009-PHP/007-算法/001-冒泡排序 "冒泡排序")
-    - [快速排序法](?file=009-PHP/007-算法/002-快速排序法 "快速排序法")
-=======
 - [PHP性能检测](?file=009-PHP/007-PHP性能检测 "PHP性能检测")
 - [PHP不常见异常错误合集](?file=009-PHP/008-PHP不常见异常错误合集 "PHP不常见异常错误合集")
->>>>>>> .merge_file_a02920
+- **算法**
+    - [冒泡排序](?file=009-PHP/009-算法/001-冒泡排序 "冒泡排序")
+    - [快速排序法](?file=009-PHP/009-算法/002-快速排序法 "快速排序法")
+- [ZMQ](?file=009-PHP/010-ZMQ "ZMQ")
 
 ##### doc
 - [知乎](?file=010-doc/01-知乎 "知乎")
@@ -142,6 +140,7 @@
 - [rpm命令](?file=011-Centos/006-rpm命令 "rpm命令")
 - [系统备份与恢复](?file=011-Centos/007-系统备份与恢复 "系统备份与恢复")
 - [dnf](?file=011-Centos/008-dnf "dnf")
+- [如何在centos7中创建左上角菜单目录启动程序](?file=011-Centos/009-如何在centos7中创建左上角菜单目录启动程序 "如何在centos7中创建左上角菜单目录启动程序")
 
 ##### Neo4j图形数据库
 - [安装](?file=012-Neo4j图形数据库/001-安装 "安装")
@@ -156,6 +155,7 @@
 ##### Redis
 - [Redis配置说明](?file=015-Redis/001-Redis配置说明 "Redis配置说明")
 - [Redis对PHP的支持](?file=015-Redis/002-Redis对PHP的支持 "Redis对PHP的支持")
+- [安装](?file=015-Redis/003-安装 "安装")
 
 ##### 文学
 - [真正决定你能走多远的，是你的多维竞争力](?file=016-文学/002-真正决定你能走多远的，是你的多维竞争力 "真正决定你能走多远的，是你的多维竞争力")
@@ -174,6 +174,7 @@
     - [一小时Docker教程](?file=018-运维/007-Docker/003-一小时Docker教程 "一小时Docker教程")
     - [一次完整的Docker实作](?file=018-运维/007-Docker/004-一次完整的Docker实作 "一次完整的Docker实作")
     - [Docker数据管理](?file=018-运维/007-Docker/005-Docker数据管理 "Docker数据管理")
+    - [Docker之Windows安装](?file=018-运维/007-Docker/006-Docker之Windows安装 "Docker之Windows安装")
 
 ##### 常遇小问题
 - [Linux下键盘背光灯不亮](?file=019-常遇小问题/001-Linux下键盘背光灯不亮 "Linux下键盘背光灯不亮")
