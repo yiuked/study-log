@@ -141,10 +141,7 @@
 - [系统备份与恢复](?file=011-Centos/007-系统备份与恢复 "系统备份与恢复")
 - [dnf](?file=011-Centos/008-dnf "dnf")
 - [如何在centos7中创建左上角菜单目录启动程序](?file=011-Centos/009-如何在centos7中创建左上角菜单目录启动程序 "如何在centos7中创建左上角菜单目录启动程序")
-<<<<<<< HEAD
-=======
 - [CentOS下挂载NTFS格式的磁盘](?file=011-Centos/010-CentOS下挂载NTFS格式的磁盘 "CentOS下挂载NTFS格式的磁盘")
->>>>>>> 97e8b9edf34b99763631fb93ed67847be84a38e2
 
 ##### Neo4j图形数据库
 - [安装](?file=012-Neo4j图形数据库/001-安装 "安装")
