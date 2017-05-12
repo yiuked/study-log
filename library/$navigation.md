@@ -126,7 +126,10 @@
 - **算法**
     - [冒泡排序](?file=009-PHP/009-算法/001-冒泡排序 "冒泡排序")
     - [快速排序法](?file=009-PHP/009-算法/002-快速排序法 "快速排序法")
-- [ZMQ](?file=009-PHP/010-ZMQ "ZMQ")
+- [Composer证书配置](?file=009-PHP/010-Composer证书配置 "Composer证书配置")
+- **ZMQ**
+    - [ZMQ](?file=009-PHP/011-ZMQ/001-ZMQ "ZMQ")
+    - [PHP-ZMQ](?file=009-PHP/011-ZMQ/002-PHP-ZMQ "PHP-ZMQ")
 
 ##### doc
 - [知乎](?file=010-doc/01-知乎 "知乎")
@@ -142,6 +145,7 @@
 - [dnf](?file=011-Centos/008-dnf "dnf")
 - [如何在centos7中创建左上角菜单目录启动程序](?file=011-Centos/009-如何在centos7中创建左上角菜单目录启动程序 "如何在centos7中创建左上角菜单目录启动程序")
 - [CentOS下挂载NTFS格式的磁盘](?file=011-Centos/010-CentOS下挂载NTFS格式的磁盘 "CentOS下挂载NTFS格式的磁盘")
+- [strace命令](?file=011-Centos/011-strace命令 "strace命令")
 
 ##### Neo4j图形数据库
 - [安装](?file=012-Neo4j图形数据库/001-安装 "安装")
@@ -166,6 +170,9 @@
 - [sass与less](?file=017-前端/001-sass与less "sass与less")
 
 ##### 运维
+- **Vagrant**
+    - [常见问题](?file=018-运维/004-Vagrant/001-常见问题 "常见问题")
+    - [Vagrant配置Laravel运行环境](?file=018-运维/004-Vagrant/002-Vagrant配置Laravel运行环境 "Vagrant配置Laravel运行环境")
 - [Linux系统下ssh登陆很慢的解决办法](?file=018-运维/005-Linux系统下ssh登陆很慢的解决办法 "Linux系统下ssh登陆很慢的解决办法")
 - [mtr命令详解](?file=018-运维/006-mtr命令详解 "mtr命令详解")
 - **Docker**
@@ -176,6 +183,7 @@
     - [一次完整的Docker实作](?file=018-运维/007-Docker/004-一次完整的Docker实作 "一次完整的Docker实作")
     - [Docker数据管理](?file=018-运维/007-Docker/005-Docker数据管理 "Docker数据管理")
     - [Docker之Windows安装](?file=018-运维/007-Docker/006-Docker之Windows安装 "Docker之Windows安装")
+    - [Windows下如何关联本地文件夹](?file=018-运维/007-Docker/007-Windows下如何关联本地文件夹 "Windows下如何关联本地文件夹")
 
 ##### 常遇小问题
 - [Linux下键盘背光灯不亮](?file=019-常遇小问题/001-Linux下键盘背光灯不亮 "Linux下键盘背光灯不亮")
