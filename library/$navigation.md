@@ -116,6 +116,8 @@
     - [Laravel中的env](?file=009-PHP/001-Laravel/006-Laravel中的env "Laravel中的env")
     - [方法函数解析](?file=009-PHP/001-Laravel/007-方法函数解析 "方法函数解析")
     - [术语](?file=009-PHP/001-Laravel/008-术语 "术语")
+    - [Passport验证](?file=009-PHP/001-Laravel/010-Passport验证 "Passport验证")
+    - [validate验证器](?file=009-PHP/001-Laravel/011-validate验证器 "validate验证器")
 - [XDebug](?file=009-PHP/002-XDebug "XDebug")
 - [PHP生僻函数与内置关键词](?file=009-PHP/003-PHP生僻函数与内置关键词 "PHP生僻函数与内置关键词")
 - [Php之trait](?file=009-PHP/004-Php之trait "Php之trait")
@@ -145,10 +147,7 @@
 - [dnf](?file=011-Centos/008-dnf "dnf")
 - [如何在centos7中创建左上角菜单目录启动程序](?file=011-Centos/009-如何在centos7中创建左上角菜单目录启动程序 "如何在centos7中创建左上角菜单目录启动程序")
 - [CentOS下挂载NTFS格式的磁盘](?file=011-Centos/010-CentOS下挂载NTFS格式的磁盘 "CentOS下挂载NTFS格式的磁盘")
-<<<<<<< HEAD
 - [strace命令](?file=011-Centos/011-strace命令 "strace命令")
-=======
->>>>>>> cf21a5a2277b25d63f44b7f5eefd691ff4f40c7b
 
 ##### Neo4j图形数据库
 - [安装](?file=012-Neo4j图形数据库/001-安装 "安装")
@@ -174,6 +173,7 @@
 
 ##### 运维
 - **Vagrant**
+    - [常用命令](?file=018-运维/004-Vagrant/000-常用命令 "常用命令")
     - [常见问题](?file=018-运维/004-Vagrant/001-常见问题 "常见问题")
     - [Vagrant配置Laravel运行环境](?file=018-运维/004-Vagrant/002-Vagrant配置Laravel运行环境 "Vagrant配置Laravel运行环境")
 - [Linux系统下ssh登陆很慢的解决办法](?file=018-运维/005-Linux系统下ssh登陆很慢的解决办法 "Linux系统下ssh登陆很慢的解决办法")
@@ -187,6 +187,7 @@
     - [Docker数据管理](?file=018-运维/007-Docker/005-Docker数据管理 "Docker数据管理")
     - [Docker之Windows安装](?file=018-运维/007-Docker/006-Docker之Windows安装 "Docker之Windows安装")
     - [Windows下如何关联本地文件夹](?file=018-运维/007-Docker/007-Windows下如何关联本地文件夹 "Windows下如何关联本地文件夹")
+- [xshell下通过rz上传文件](?file=018-运维/008-xshell下通过rz上传文件 "xshell下通过rz上传文件")
 
 ##### 常遇小问题
 - [Linux下键盘背光灯不亮](?file=019-常遇小问题/001-Linux下键盘背光灯不亮 "Linux下键盘背光灯不亮")
