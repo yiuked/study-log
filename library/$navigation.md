@@ -33,6 +33,7 @@
 - [git之ssh使用](?file=004-Git详解/006-git之ssh使用 "git之ssh使用")
 - [git中删除项目初始文件](?file=004-Git详解/007-git中删除项目初始文件 "git中删除项目初始文件")
 - [git总结](?file=004-Git详解/008-git总结 "git总结")
+- [git如何pull-request](?file=004-Git详解/009-git如何pull-request "git如何pull-request")
 
 ##### IDE开发工具
 - [Atom](?file=005-IDE开发工具/001-Atom "Atom")
