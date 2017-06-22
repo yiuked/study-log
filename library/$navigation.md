@@ -119,6 +119,7 @@
     - [术语](?file=009-PHP/001-Laravel/008-术语 "术语")
     - [Passport验证](?file=009-PHP/001-Laravel/010-Passport验证 "Passport验证")
     - [validate验证器](?file=009-PHP/001-Laravel/011-validate验证器 "validate验证器")
+    - [Api](?file=009-PHP/001-Laravel/012-Api "Api")
 - [XDebug](?file=009-PHP/002-XDebug "XDebug")
 - [PHP生僻函数与内置关键词](?file=009-PHP/003-PHP生僻函数与内置关键词 "PHP生僻函数与内置关键词")
 - [Php之trait](?file=009-PHP/004-Php之trait "Php之trait")
@@ -187,8 +188,13 @@
     - [一次完整的Docker实作](?file=018-运维/007-Docker/004-一次完整的Docker实作 "一次完整的Docker实作")
     - [Docker数据管理](?file=018-运维/007-Docker/005-Docker数据管理 "Docker数据管理")
     - [Docker之Windows安装](?file=018-运维/007-Docker/006-Docker之Windows安装 "Docker之Windows安装")
-    - [Windows下如何关联本地文件夹](?file=018-运维/007-Docker/007-Windows下如何关联本地文件夹 "Windows下如何关联本地文件夹")
+    - [laradoc安装与配置](?file=018-运维/007-Docker/007-laradoc安装与配置 "laradoc安装与配置")
+    - [Windows下如何关联本地文件夹](?file=018-运维/007-Docker/008-Windows下如何关联本地文件夹 "Windows下如何关联本地文件夹")
 - [xshell下通过rz上传文件](?file=018-运维/008-xshell下通过rz上传文件 "xshell下通过rz上传文件")
+- [常用命令](?file=018-运维/009-常用命令 "常用命令")
 
 ##### 常遇小问题
 - [Linux下键盘背光灯不亮](?file=019-常遇小问题/001-Linux下键盘背光灯不亮 "Linux下键盘背光灯不亮")
+
+##### Java
+- [Java索引速查](?file=020-Java/001-Java索引速查 "Java索引速查")
