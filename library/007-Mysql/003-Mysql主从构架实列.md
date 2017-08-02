@@ -103,6 +103,8 @@ mysql>SHOW PROCESSLIST;
 server-id=252
 replicate-do-db=myshop
 replicate-ignore-db=mysql
+replicate-do-table=prestashop #需要同步的数据库名，请保持master与salve表名一致.
+#replicate-do-table=prestashop.ps_employee #库名.表名 [同步指定的表.]
 log-slave-updates
 slave-skip-errors=all
 slave-net-timeout=60
