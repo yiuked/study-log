@@ -112,6 +112,11 @@
     - [参考资料](?file=009-PHP/001-Laravel/001-参考资料 "参考资料")
     - [路由](?file=009-PHP/001-Laravel/002-路由 "路由")
     - [中间件](?file=009-PHP/001-Laravel/003-中间件 "中间件")
+    - **内核分析**
+        - [系统框架](?file=009-PHP/001-Laravel/004-内核分析/001-系统框架 "系统框架")
+        - [Request详解](?file=009-PHP/001-Laravel/004-内核分析/002-Request详解 "Request详解")
+        - [artisan](?file=009-PHP/001-Laravel/004-内核分析/003-artisan "artisan")
+        - [api验证](?file=009-PHP/001-Laravel/004-内核分析/004-api验证 "api验证")
     - [非常用函数集合](?file=009-PHP/001-Laravel/005-非常用函数集合 "非常用函数集合")
     - [Laravel中的env](?file=009-PHP/001-Laravel/006-Laravel中的env "Laravel中的env")
     - [方法函数解析](?file=009-PHP/001-Laravel/007-方法函数解析 "方法函数解析")
@@ -132,6 +137,7 @@
 - **ZMQ**
     - [ZMQ](?file=009-PHP/011-ZMQ/001-ZMQ "ZMQ")
     - [PHP-ZMQ](?file=009-PHP/011-ZMQ/002-PHP-ZMQ "PHP-ZMQ")
+- [IO性能大比拼](?file=009-PHP/012-IO性能大比拼 "IO性能大比拼")
 
 ##### doc
 - [知乎](?file=010-doc/01-知乎 "知乎")
@@ -186,8 +192,13 @@
     - [一次完整的Docker实作](?file=018-运维/007-Docker/004-一次完整的Docker实作 "一次完整的Docker实作")
     - [Docker数据管理](?file=018-运维/007-Docker/005-Docker数据管理 "Docker数据管理")
     - [Docker之Windows安装](?file=018-运维/007-Docker/006-Docker之Windows安装 "Docker之Windows安装")
-    - [Windows下如何关联本地文件夹](?file=018-运维/007-Docker/007-Windows下如何关联本地文件夹 "Windows下如何关联本地文件夹")
+    - [laradoc安装与配置](?file=018-运维/007-Docker/007-laradoc安装与配置 "laradoc安装与配置")
+    - [Windows下如何关联本地文件夹](?file=018-运维/007-Docker/008-Windows下如何关联本地文件夹 "Windows下如何关联本地文件夹")
 - [xshell下通过rz上传文件](?file=018-运维/008-xshell下通过rz上传文件 "xshell下通过rz上传文件")
 
 ##### 常遇小问题
 - [Linux下键盘背光灯不亮](?file=019-常遇小问题/001-Linux下键盘背光灯不亮 "Linux下键盘背光灯不亮")
+
+##### Java
+- [Java索引速查](?file=020-Java/001-Java索引速查 "Java索引速查")
+- [Java找不到主类错误](?file=020-Java/002-Java找不到主类错误 "Java找不到主类错误")
