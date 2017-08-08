@@ -33,11 +33,13 @@
 - [git之ssh使用](?file=004-Git详解/006-git之ssh使用 "git之ssh使用")
 - [git中删除项目初始文件](?file=004-Git详解/007-git中删除项目初始文件 "git中删除项目初始文件")
 - [git总结](?file=004-Git详解/008-git总结 "git总结")
+- [git如何pull-request](?file=004-Git详解/009-git如何pull-request "git如何pull-request")
 
 ##### IDE开发工具
 - [Atom](?file=005-IDE开发工具/001-Atom "Atom")
 - [Sublime-text](?file=005-IDE开发工具/002-Sublime-text "Sublime-text")
 - [Phpstom](?file=005-IDE开发工具/003-Phpstom "Phpstom")
+- [PHPStorm配置SASS](?file=005-IDE开发工具/004-PHPStorm配置SASS "PHPStorm配置SASS")
 
 ##### 服务器
 - **启动脚本**
@@ -123,6 +125,7 @@
     - [术语](?file=009-PHP/001-Laravel/008-术语 "术语")
     - [Passport验证](?file=009-PHP/001-Laravel/010-Passport验证 "Passport验证")
     - [validate验证器](?file=009-PHP/001-Laravel/011-validate验证器 "validate验证器")
+    - [Api](?file=009-PHP/001-Laravel/012-Api "Api")
 - [XDebug](?file=009-PHP/002-XDebug "XDebug")
 - [PHP生僻函数与内置关键词](?file=009-PHP/003-PHP生僻函数与内置关键词 "PHP生僻函数与内置关键词")
 - [Php之trait](?file=009-PHP/004-Php之trait "Php之trait")
@@ -131,6 +134,7 @@
 - [PHP性能检测](?file=009-PHP/007-PHP性能检测 "PHP性能检测")
 - [PHP不常见异常错误合集](?file=009-PHP/008-PHP不常见异常错误合集 "PHP不常见异常错误合集")
 - **算法**
+    - [加密算法](?file=009-PHP/009-算法/000-加密算法 "加密算法")
     - [冒泡排序](?file=009-PHP/009-算法/001-冒泡排序 "冒泡排序")
     - [快速排序法](?file=009-PHP/009-算法/002-快速排序法 "快速排序法")
 - [Composer证书配置](?file=009-PHP/010-Composer证书配置 "Composer证书配置")
@@ -195,10 +199,23 @@
     - [laradoc安装与配置](?file=018-运维/007-Docker/007-laradoc安装与配置 "laradoc安装与配置")
     - [Windows下如何关联本地文件夹](?file=018-运维/007-Docker/008-Windows下如何关联本地文件夹 "Windows下如何关联本地文件夹")
 - [xshell下通过rz上传文件](?file=018-运维/008-xshell下通过rz上传文件 "xshell下通过rz上传文件")
+- [常用命令](?file=018-运维/009-常用命令 "常用命令")
 
 ##### 常遇小问题
 - [Linux下键盘背光灯不亮](?file=019-常遇小问题/001-Linux下键盘背光灯不亮 "Linux下键盘背光灯不亮")
 
 ##### Java
 - [Java索引速查](?file=020-Java/001-Java索引速查 "Java索引速查")
-- [Java找不到主类错误](?file=020-Java/002-Java找不到主类错误 "Java找不到主类错误")
+- [在线文档收集](?file=020-Java/002-在线文档收集 "在线文档收集")
+- [Java找不到主类错误](?file=020-Java/003-Java找不到主类错误 "Java找不到主类错误")
+- [JavaWeb](?file=020-Java/004-JavaWeb "JavaWeb")
+
+##### 消息与队列
+- **RabbitMQ**
+    - [快速检索](?file=021-消息与队列/001-RabbitMQ/001-快速检索 "快速检索")
+
+##### 密码学
+- [自建ssl双向加密](?file=022-密码学/001-自建ssl双向加密 "自建ssl双向加密")
+
+##### Http
+- [浏览器缓存机制](?file=023-Http/001-浏览器缓存机制 "浏览器缓存机制")

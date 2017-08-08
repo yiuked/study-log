@@ -5,3 +5,4 @@ https://atom.io/
 git-push  
 amwiki  
 activate-power-mode  
+github

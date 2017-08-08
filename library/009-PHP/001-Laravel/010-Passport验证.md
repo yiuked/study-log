@@ -183,3 +183,17 @@ Route::get('/auth/callback', function (\Illuminate\Http\Request $request) {
 
 >简化模式（implicit）  
 >客户端模式（client credentials）  
+
+### 使用过程FQA
+Q:出现异常的时候，返回类型不是JSON格式。
+A:在请求头`header`中添加'Accet:application/json'
+
+Q:通过auth:api中间件验证时，不通过，提现 `{"error":"Unauthenticated."}`
+A:当通过`oauth/token`验证成功时，返回以下格式内容
+```
+{"token_type":"Bearer","expires_in":1296000,"access_token":"xx","refresh_token":"xxx"}
+```
+拿到返回信息时，我们需要在请求`header`内添加以下键值对
+```
+Authorization: Bearer access_token
+```
