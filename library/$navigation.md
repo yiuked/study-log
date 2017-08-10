@@ -114,11 +114,6 @@
     - [参考资料](?file=009-PHP/001-Laravel/001-参考资料 "参考资料")
     - [路由](?file=009-PHP/001-Laravel/002-路由 "路由")
     - [中间件](?file=009-PHP/001-Laravel/003-中间件 "中间件")
-    - **内核分析**
-        - [系统框架](?file=009-PHP/001-Laravel/004-内核分析/001-系统框架 "系统框架")
-        - [Request详解](?file=009-PHP/001-Laravel/004-内核分析/002-Request详解 "Request详解")
-        - [artisan](?file=009-PHP/001-Laravel/004-内核分析/003-artisan "artisan")
-        - [api验证](?file=009-PHP/001-Laravel/004-内核分析/004-api验证 "api验证")
     - [非常用函数集合](?file=009-PHP/001-Laravel/005-非常用函数集合 "非常用函数集合")
     - [Laravel中的env](?file=009-PHP/001-Laravel/006-Laravel中的env "Laravel中的env")
     - [方法函数解析](?file=009-PHP/001-Laravel/007-方法函数解析 "方法函数解析")
@@ -216,6 +211,7 @@
 
 ##### 密码学
 - [自建ssl双向加密](?file=022-密码学/001-自建ssl双向加密 "自建ssl双向加密")
+- [Openssl快速生成公钥和私钥](?file=022-密码学/002-Openssl快速生成公钥和私钥 "Openssl快速生成公钥和私钥")
 
 ##### Http
 - [浏览器缓存机制](?file=023-Http/001-浏览器缓存机制 "浏览器缓存机制")
