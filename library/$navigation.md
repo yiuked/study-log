@@ -173,6 +173,7 @@
 - [Redis配置说明](?file=015-Redis/001-Redis配置说明 "Redis配置说明")
 - [Redis对PHP的支持](?file=015-Redis/002-Redis对PHP的支持 "Redis对PHP的支持")
 - [安装](?file=015-Redis/003-安装 "安装")
+- [FAQ](?file=015-Redis/004-FAQ "FAQ")
 
 ##### 文学
 - [真正决定你能走多远的，是你的多维竞争力](?file=016-文学/002-真正决定你能走多远的，是你的多维竞争力 "真正决定你能走多远的，是你的多维竞争力")
