@@ -114,6 +114,11 @@
     - [参考资料](?file=009-PHP/001-Laravel/001-参考资料 "参考资料")
     - [路由](?file=009-PHP/001-Laravel/002-路由 "路由")
     - [中间件](?file=009-PHP/001-Laravel/003-中间件 "中间件")
+    - **内核分析**
+        - [系统框架](?file=009-PHP/001-Laravel/004-内核分析/001-系统框架 "系统框架")
+        - [Request详解](?file=009-PHP/001-Laravel/004-内核分析/002-Request详解 "Request详解")
+        - [artisan](?file=009-PHP/001-Laravel/004-内核分析/003-artisan "artisan")
+        - [api验证](?file=009-PHP/001-Laravel/004-内核分析/004-api验证 "api验证")
     - [非常用函数集合](?file=009-PHP/001-Laravel/005-非常用函数集合 "非常用函数集合")
     - [Laravel中的env](?file=009-PHP/001-Laravel/006-Laravel中的env "Laravel中的env")
     - [方法函数解析](?file=009-PHP/001-Laravel/007-方法函数解析 "方法函数解析")
@@ -200,6 +205,8 @@
 - [Linux下键盘背光灯不亮](?file=019-常遇小问题/001-Linux下键盘背光灯不亮 "Linux下键盘背光灯不亮")
 
 ##### Java
+- **Servlet**
+    - [过虑器](?file=020-Java/0001-Servlet/001-过虑器 "过虑器")
 - [Java索引速查](?file=020-Java/001-Java索引速查 "Java索引速查")
 - [在线文档收集](?file=020-Java/002-在线文档收集 "在线文档收集")
 - [Java找不到主类错误](?file=020-Java/003-Java找不到主类错误 "Java找不到主类错误")
@@ -216,3 +223,7 @@
 ##### Http
 - [浏览器缓存机制](?file=023-Http/001-浏览器缓存机制 "浏览器缓存机制")
 - [Http状态码](?file=023-Http/002-Http状态码 "Http状态码")
+
+##### 数据结构
+- **排序**
+    - [常用排序算法](?file=024-数据结构/0001-排序/001-常用排序算法 "常用排序算法")
