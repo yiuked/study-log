@@ -89,6 +89,12 @@
 - [CURL操作详解](?file=006-服务器/017-CURL操作详解 "CURL操作详解")
 
 ##### Mysql
+- **Mysql总结**
+    - [快速查询](?file=007-Mysql/0001-Mysql总结/000-快速查询 "快速查询")
+    - [物理文件组成](?file=007-Mysql/0001-Mysql总结/001-物理文件组成 "物理文件组成")
+    - [MyISAM与Innodb](?file=007-Mysql/0001-Mysql总结/002-MyISAM与Innodb "MyISAM与Innodb")
+    - [影响Mysql性能的相关因素](?file=007-Mysql/0001-Mysql总结/003-影响Mysql性能的相关因素 "影响Mysql性能的相关因素")
+    - [MySQL锁机制](?file=007-Mysql/0001-Mysql总结/004-MySQL锁机制 "MySQL锁机制")
 - [解决mySQL占用内存超大问题](?file=007-Mysql/001-解决mySQL占用内存超大问题 "解决mySQL占用内存超大问题")
 - [Mysql设置初始密码](?file=007-Mysql/002-Mysql设置初始密码 "Mysql设置初始密码")
 - [Mysql主从构架实列](?file=007-Mysql/003-Mysql主从构架实列 "Mysql主从构架实列")
@@ -97,12 +103,7 @@
 - [Mysql事务与锁](?file=007-Mysql/006-Mysql事务与锁 "Mysql事务与锁")
 - [DDL、DML和DCL](?file=007-Mysql/007-DDL、DML和DCL "DDL、DML和DCL")
 - [Mysql5.6安装日志](?file=007-Mysql/008-Mysql5.6安装日志 "Mysql5.6安装日志")
-- **Mysql总结**
-    - [快速查询](?file=007-Mysql/009-Mysql总结/000-快速查询 "快速查询")
-    - [物理文件组成](?file=007-Mysql/009-Mysql总结/001-物理文件组成 "物理文件组成")
-    - [MyISAM与Innodb](?file=007-Mysql/009-Mysql总结/002-MyISAM与Innodb "MyISAM与Innodb")
-    - [影响Mysql性能的相关因素](?file=007-Mysql/009-Mysql总结/003-影响Mysql性能的相关因素 "影响Mysql性能的相关因素")
-    - [MySQL锁机制](?file=007-Mysql/009-Mysql总结/004-MySQL锁机制 "MySQL锁机制")
+- [Mysql索引详解](?file=007-Mysql/009-Mysql索引详解 "Mysql索引详解")
 
 ##### Python
 - [setuptools简介](?file=008-Python/002-setuptools简介 "setuptools简介")
@@ -178,6 +179,8 @@
 - [sass与less](?file=017-前端/001-sass与less "sass与less")
 
 ##### 运维
+- **Walle**
+    - [环境配置](?file=018-运维/0001-Walle/001-环境配置 "环境配置")
 - **Vagrant**
     - [常用命令](?file=018-运维/004-Vagrant/000-常用命令 "常用命令")
     - [常见问题](?file=018-运维/004-Vagrant/001-常见问题 "常见问题")
@@ -213,6 +216,7 @@
 ##### 密码学
 - [自建ssl双向加密](?file=022-密码学/001-自建ssl双向加密 "自建ssl双向加密")
 - [Openssl快速生成公钥和私钥](?file=022-密码学/002-Openssl快速生成公钥和私钥 "Openssl快速生成公钥和私钥")
+- [各种SSL证书之间的区别](?file=022-密码学/003-各种SSL证书之间的区别 "各种SSL证书之间的区别")
 
 ##### Http
 - [浏览器缓存机制](?file=023-Http/001-浏览器缓存机制 "浏览器缓存机制")
