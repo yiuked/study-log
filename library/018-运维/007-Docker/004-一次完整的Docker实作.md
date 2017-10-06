@@ -15,7 +15,7 @@ c60055a51d74:Downloading [>                                                 ] 53
 755da0cdb7d2:Download complete  
 969d017f67e6:Download complete  
 37c9a9113595:Download complete  
-a3d9f8479786:Download complete                                                                  
+a3d9f8479786:Download complete  
 …  
 ```
 运行docker images命令看看下载的images：  
@@ -44,6 +44,27 @@ e3a913872698       ubuntu:14.04       "bash"              11seconds ago      Up 
 db1c25753e97       ubuntu:14.04       "bash"              21seconds ago      Up 21 secon
 ```
 image和container之间的关系类似程序与进程之间的关系，一个静若处子，一个动如脱兔。比如程序QQ，运行一次就是1个QQ进程，再运行一个QQ就是第2个QQ进程。同样道理，一个image也可以运行多份Container。
+#### 3. 如何进入正在运行中的容器
+**docker attach**  
+使用方法：`docker attach  [container name]`  
+适用范围：`docker`宿主机内部登录容器   
+优点：快捷方便  
+缺点：1.`exit`后直接退出该`container`
+     2.多屏同步 这相当于同一时间最多只能有一个终端连接容器  
+
+**docker exec***  
+使用方法：`docker exec -it [container name] [command]`  
+适用范围：docker宿主机内部登录容器  
+优点：快捷方便  
+缺点：外部终端无法使用这种方法登录容器  
+使用参数介绍：  
+```
+-i, --interactive               Keep STDIN open even if not attached ————交互
+-t, --tty                        Allocate a pseudo-TTY————分配伪终端
+```
+一般情况会使用`-it`这个组合命令，如果单用也只能单独使用`-i`命令   
+-i 参数不会产生伪终端，但是会有正确的返回  
+>使用-it时，则和我们平常操作console界面类似。而且也不会像attach方式因为退出，导致整个容器退出。这种方式可以替代ssh或者nsenter、nsinit方式，在容器内进行操作。
 
 #### 3. 构建自己的image
 现在想在Ubuntu 14.04中增加Vim和GCC，构建一个增量image，因为目前的Ubuntu image里面没有这样的命令：  

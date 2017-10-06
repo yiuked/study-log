@@ -239,9 +239,9 @@ con03
 ```
 # docker ps -a
 CONTAINER ID        IMAGE                    COMMAND                CREATED             STATUS                      PORTS                                             NAMES
-efc9bda4a2ff        csphere/test:0.1         "/usr/local/bin/run    4 minutes ago       Up 17 seconds                                                                 con03               
+efc9bda4a2ff        csphere/test:0.1         "/usr/local/bin/run    4 minutes ago       Up 17 seconds con03               
 99aa6ee25adc        busybox:latest           "/bin/sh"              14 minutes ago      Exited (0) 12 minutes ago                                                     con02               
-831c93de9b9f        busybox:latest           "/bin/sh"              2 hours ago         Up 27 minutes                                                                 con01
+831c93de9b9f        busybox:latest           "/bin/sh"              2 hours ago         Up 27 minutes con01
 # docker rm con02     #容器停止的状态
 # docker rm -f con03  #容器开启的状态
 ```
@@ -268,8 +268,8 @@ docker push 192.168.1.2/csphere/nginx:1.7
 # docker search centos/nginx
 NAME                                     DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
 johnnyzheng/centos-nginx-php-wordpress                                                   1                    [OK]
-sergeyzh/centos6-nginx                                                                   1                    [OK]
-hzhang/centos-nginx                                                                      1                    [OK]
+sergeyzh/centos6-nginx   1                    [OK]
+hzhang/centos-nginx      1                    [OK]
 ```
 
 4. 查看本地镜像列表
