@@ -41,6 +41,7 @@
 - [Sublime-text](?file=005-IDE开发工具/002-Sublime-text "Sublime-text")
 - [Phpstom](?file=005-IDE开发工具/003-Phpstom "Phpstom")
 - [PHPStorm配置SASS](?file=005-IDE开发工具/004-PHPStorm配置SASS "PHPStorm配置SASS")
+- [vim](?file=005-IDE开发工具/005-vim "vim")
 
 ##### 服务器
 - **启动脚本**
@@ -206,6 +207,8 @@
 - [xshell下通过rz上传文件](?file=018-运维/008-xshell下通过rz上传文件 "xshell下通过rz上传文件")
 - [常用命令](?file=018-运维/009-常用命令 "常用命令")
 - [Linux防火墙最佳实践](?file=018-运维/010-Linux防火墙最佳实践 "Linux防火墙最佳实践")
+- [SSL相关配置](?file=018-运维/011-SSL相关配置 "SSL相关配置")
+- [中小型企业日志部署](?file=018-运维/012-中小型企业日志部署 "中小型企业日志部署")
 
 ##### 常遇小问题
 - [Linux下键盘背光灯不亮](?file=019-常遇小问题/001-Linux下键盘背光灯不亮 "Linux下键盘背光灯不亮")
@@ -223,6 +226,7 @@
 ##### 消息与队列
 - **RabbitMQ**
     - [快速检索](?file=021-消息与队列/001-RabbitMQ/001-快速检索 "快速检索")
+    - [经典文章收集](?file=021-消息与队列/001-RabbitMQ/002-经典文章收集 "经典文章收集")
 
 ##### 密码学
 - [自建ssl双向加密](?file=022-密码学/001-自建ssl双向加密 "自建ssl双向加密")
