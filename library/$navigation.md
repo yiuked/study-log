@@ -116,11 +116,6 @@
     - [参考资料](?file=009-PHP/001-Laravel/001-参考资料 "参考资料")
     - [路由](?file=009-PHP/001-Laravel/002-路由 "路由")
     - [中间件](?file=009-PHP/001-Laravel/003-中间件 "中间件")
-    - **内核分析**
-        - [系统框架](?file=009-PHP/001-Laravel/004-内核分析/001-系统框架 "系统框架")
-        - [Request详解](?file=009-PHP/001-Laravel/004-内核分析/002-Request详解 "Request详解")
-        - [artisan](?file=009-PHP/001-Laravel/004-内核分析/003-artisan "artisan")
-        - [api验证](?file=009-PHP/001-Laravel/004-内核分析/004-api验证 "api验证")
     - [非常用函数集合](?file=009-PHP/001-Laravel/005-非常用函数集合 "非常用函数集合")
     - [Laravel中的env](?file=009-PHP/001-Laravel/006-Laravel中的env "Laravel中的env")
     - [方法函数解析](?file=009-PHP/001-Laravel/007-方法函数解析 "方法函数解析")
@@ -128,6 +123,7 @@
     - [Passport验证](?file=009-PHP/001-Laravel/010-Passport验证 "Passport验证")
     - [validate验证器](?file=009-PHP/001-Laravel/011-validate验证器 "validate验证器")
     - [Api](?file=009-PHP/001-Laravel/012-Api "Api")
+    - [数据库备份、恢复、迁移](?file=009-PHP/001-Laravel/013-数据库备份、恢复、迁移 "数据库备份、恢复、迁移")
 - [XDebug](?file=009-PHP/002-XDebug "XDebug")
 - [PHP生僻函数与内置关键词](?file=009-PHP/003-PHP生僻函数与内置关键词 "PHP生僻函数与内置关键词")
 - [Php之trait](?file=009-PHP/004-Php之trait "Php之trait")
@@ -144,6 +140,8 @@
     - [ZMQ](?file=009-PHP/011-ZMQ/001-ZMQ "ZMQ")
     - [PHP-ZMQ](?file=009-PHP/011-ZMQ/002-PHP-ZMQ "PHP-ZMQ")
 - [IO性能大比拼](?file=009-PHP/012-IO性能大比拼 "IO性能大比拼")
+- [PHP内存共享与信号控制](?file=009-PHP/013-PHP内存共享与信号控制 "PHP内存共享与信号控制")
+- [随机抽红包](?file=009-PHP/014-随机抽红包 "随机抽红包")
 
 ##### doc
 - [知乎](?file=010-doc/01-知乎 "知乎")
@@ -160,6 +158,7 @@
 - [如何在centos7中创建左上角菜单目录启动程序](?file=011-Centos/009-如何在centos7中创建左上角菜单目录启动程序 "如何在centos7中创建左上角菜单目录启动程序")
 - [CentOS下挂载NTFS格式的磁盘](?file=011-Centos/010-CentOS下挂载NTFS格式的磁盘 "CentOS下挂载NTFS格式的磁盘")
 - [strace命令](?file=011-Centos/011-strace命令 "strace命令")
+- [iptables的配置](?file=011-Centos/012-iptables的配置 "iptables的配置")
 
 ##### Neo4j图形数据库
 - [安装](?file=012-Neo4j图形数据库/001-安装 "安装")
@@ -207,6 +206,7 @@
     - [Docker-Compose应用](?file=018-运维/007-Docker/010-Docker-Compose应用 "Docker-Compose应用")
 - [xshell下通过rz上传文件](?file=018-运维/008-xshell下通过rz上传文件 "xshell下通过rz上传文件")
 - [常用命令](?file=018-运维/009-常用命令 "常用命令")
+- [Linux防火墙最佳实践](?file=018-运维/010-Linux防火墙最佳实践 "Linux防火墙最佳实践")
 
 ##### 常遇小问题
 - [Linux下键盘背光灯不亮](?file=019-常遇小问题/001-Linux下键盘背光灯不亮 "Linux下键盘背光灯不亮")
