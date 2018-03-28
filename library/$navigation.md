@@ -160,6 +160,7 @@
 - [CentOS下挂载NTFS格式的磁盘](?file=011-Centos/010-CentOS下挂载NTFS格式的磁盘 "CentOS下挂载NTFS格式的磁盘")
 - [strace命令](?file=011-Centos/011-strace命令 "strace命令")
 - [iptables的配置](?file=011-Centos/012-iptables的配置 "iptables的配置")
+- [常用命令2](?file=011-Centos/013-常用命令2 "常用命令2")
 
 ##### Neo4j图形数据库
 - [安装](?file=012-Neo4j图形数据库/001-安装 "安装")
@@ -209,6 +210,7 @@
 - [Linux防火墙最佳实践](?file=018-运维/010-Linux防火墙最佳实践 "Linux防火墙最佳实践")
 - [SSL相关配置](?file=018-运维/011-SSL相关配置 "SSL相关配置")
 - [中小型企业日志部署](?file=018-运维/012-中小型企业日志部署 "中小型企业日志部署")
+- [计划任务](?file=018-运维/013-计划任务 "计划任务")
 
 ##### 常遇小问题
 - [Linux下键盘背光灯不亮](?file=019-常遇小问题/001-Linux下键盘背光灯不亮 "Linux下键盘背光灯不亮")
