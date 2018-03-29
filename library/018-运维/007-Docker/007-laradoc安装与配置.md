@@ -18,3 +18,8 @@ cp env-example .env
 ```shell
 docker-compose up -d nginx mysql redis beanstalkd
 ```
+
+4. 进入容器
+```shell
+docker-compose exec httpd /bin/bash
+```
