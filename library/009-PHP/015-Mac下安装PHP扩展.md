@@ -58,3 +58,24 @@ $ php -m|grep pcntl
 pcntl
 ```
 有输出，则表明已安装成功。
+
+### 延伸扩展
+`extension`意为基于`php`引擎的扩展  
+`zend_extension`意为基于`zend`引擎的扩展  
+>注：`php`是基于`zend`引擎的.  
+
+不同的扩展安装后，在`php.ini`里是用`extension`还是`zend_extension`，是取决于该扩展，有的扩展可能只能用`zend_extension`，如`xdebug`，
+也有的扩展可以用`extension`或`zend_extension`，如`mmcache`。  
+
+>注：上面的结论不保证准确。`zend_extension`加载`php`扩展时需用全路径，而`extension`加载时可以用相对`extension_dir`的路径。  
+
+根据 PHP 版本，zend_extension 指令可以是以下之一：
+```
+zend_extension (non ZTS, non debug build)
+zend_extension_ts ( ZTS, non debug build)
+zend_extension_debug (non ZTS, debug build)
+zend_extension_debug_ts ( ZTS, debug build)
+
+ZTS：ZEND Thread Safety
+```
+参考地址：http://blog.sina.com.cn/s/blog_788fd8560100vx03.html
