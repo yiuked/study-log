@@ -22,6 +22,7 @@
 - [专业词](?file=003-doc/003-专业词 "专业词")
 - [ IaaS、PaaS、SaaS、CaaS、MaaS五者的区别_云计算概念大全](?file=003-doc/004- IaaS、PaaS、SaaS、CaaS、MaaS五者的区别_云计算概念大全 " IaaS、PaaS、SaaS、CaaS、MaaS五者的区别_云计算概念大全")
 - [开发效率快指什么](?file=003-doc/005-开发效率快指什么 "开发效率快指什么")
+- [金融](?file=003-doc/006-金融 "金融")
 - [知乎](?file=003-doc/01-知乎 "知乎")
 - [博客](?file=003-doc/02-博客 "博客")
 
@@ -35,6 +36,7 @@
 - [git中删除项目初始文件](?file=004-Git详解/007-git中删除项目初始文件 "git中删除项目初始文件")
 - [git总结](?file=004-Git详解/008-git总结 "git总结")
 - [git如何pull-request](?file=004-Git详解/009-git如何pull-request "git如何pull-request")
+- [语义化版本 2.0.0](?file=004-Git详解/010-语义化版本 2.0.0 "语义化版本 2.0.0")
 
 ##### IDE开发工具
 - [Atom](?file=005-IDE开发工具/001-Atom "Atom")
