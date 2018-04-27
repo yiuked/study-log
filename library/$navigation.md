@@ -23,6 +23,7 @@
 - [ IaaS、PaaS、SaaS、CaaS、MaaS五者的区别_云计算概念大全](?file=003-doc/004- IaaS、PaaS、SaaS、CaaS、MaaS五者的区别_云计算概念大全 " IaaS、PaaS、SaaS、CaaS、MaaS五者的区别_云计算概念大全")
 - [开发效率快指什么](?file=003-doc/005-开发效率快指什么 "开发效率快指什么")
 - [金融](?file=003-doc/006-金融 "金融")
+- [区块链](?file=003-doc/007-区块链 "区块链")
 - [知乎](?file=003-doc/01-知乎 "知乎")
 - [博客](?file=003-doc/02-博客 "博客")
 
@@ -37,6 +38,7 @@
 - [git总结](?file=004-Git详解/008-git总结 "git总结")
 - [git如何pull-request](?file=004-Git详解/009-git如何pull-request "git如何pull-request")
 - [语义化版本 2.0.0](?file=004-Git详解/010-语义化版本 2.0.0 "语义化版本 2.0.0")
+- [gogs](?file=004-Git详解/011-gogs "gogs")
 
 ##### IDE开发工具
 - [Atom](?file=005-IDE开发工具/001-Atom "Atom")
@@ -47,11 +49,13 @@
 
 ##### 服务器
 - **启动脚本**
+    - [chkconfig简介](?file=006-服务器/001-启动脚本/000-chkconfig简介 "chkconfig简介")
     - [错误解决](?file=006-服务器/001-启动脚本/001-错误解决 "错误解决")
     - [memcached](?file=006-服务器/001-启动脚本/002-memcached "memcached")
     - [nginx](?file=006-服务器/001-启动脚本/004-nginx "nginx")
     - [php-fpm](?file=006-服务器/001-启动脚本/007-php-fpm "php-fpm")
     - [redis](?file=006-服务器/001-启动脚本/008-redis "redis")
+    - [mysql](?file=006-服务器/001-启动脚本/009-mysql "mysql")
 - **nginx优化**
     - [基于cookies的nginx灰度发布](?file=006-服务器/002-nginx优化/001-基于cookies的nginx灰度发布 "基于cookies的nginx灰度发布")
     - [如何安装nginx第三方模块](?file=006-服务器/002-nginx优化/002-如何安装nginx第三方模块 "如何安装nginx第三方模块")
@@ -119,11 +123,6 @@
     - [参考资料](?file=009-PHP/001-Laravel/001-参考资料 "参考资料")
     - [路由](?file=009-PHP/001-Laravel/002-路由 "路由")
     - [中间件](?file=009-PHP/001-Laravel/003-中间件 "中间件")
-    - **内核分析**
-        - [系统框架](?file=009-PHP/001-Laravel/004-内核分析/001-系统框架 "系统框架")
-        - [Request详解](?file=009-PHP/001-Laravel/004-内核分析/002-Request详解 "Request详解")
-        - [artisan](?file=009-PHP/001-Laravel/004-内核分析/003-artisan "artisan")
-        - [api验证](?file=009-PHP/001-Laravel/004-内核分析/004-api验证 "api验证")
     - [非常用函数集合](?file=009-PHP/001-Laravel/005-非常用函数集合 "非常用函数集合")
     - [Laravel中的env](?file=009-PHP/001-Laravel/006-Laravel中的env "Laravel中的env")
     - [方法函数解析](?file=009-PHP/001-Laravel/007-方法函数解析 "方法函数解析")
