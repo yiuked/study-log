@@ -114,6 +114,7 @@
 - [Mysql索引详解](?file=007-Mysql/009-Mysql索引详解 "Mysql索引详解")
 
 ##### Python
+- [python命名编码规范](?file=008-Python/000-python命名编码规范 "python命名编码规范")
 - [setuptools简介](?file=008-Python/002-setuptools简介 "setuptools简介")
 - [pip包管理使用指南](?file=008-Python/003-pip包管理使用指南 "pip包管理使用指南")
 - [使用Sphinx生成文档](?file=008-Python/004-使用Sphinx生成文档 "使用Sphinx生成文档")
@@ -220,6 +221,7 @@
 - [SSL相关配置](?file=018-运维/011-SSL相关配置 "SSL相关配置")
 - [中小型企业日志部署](?file=018-运维/012-中小型企业日志部署 "中小型企业日志部署")
 - [计划任务](?file=018-运维/013-计划任务 "计划任务")
+- [linux指定nologin用户执行命令](?file=018-运维/014-linux指定nologin用户执行命令 "linux指定nologin用户执行命令")
 
 ##### 常遇小问题
 - [Linux下键盘背光灯不亮](?file=019-常遇小问题/001-Linux下键盘背光灯不亮 "Linux下键盘背光灯不亮")
