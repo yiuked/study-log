@@ -113,6 +113,7 @@
 - [DDL、DML和DCL](?file=007-Mysql/007-DDL、DML和DCL "DDL、DML和DCL")
 - [Mysql5.6安装日志](?file=007-Mysql/008-Mysql5.6安装日志 "Mysql5.6安装日志")
 - [Mysql索引详解](?file=007-Mysql/009-Mysql索引详解 "Mysql索引详解")
+- [问题总结](?file=007-Mysql/010-问题总结 "问题总结")
 
 ##### Python
 - [python命名编码规范](?file=008-Python/000-python命名编码规范 "python命名编码规范")
