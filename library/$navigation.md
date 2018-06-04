@@ -39,6 +39,7 @@
 - [git如何pull-request](?file=004-Git详解/009-git如何pull-request "git如何pull-request")
 - [语义化版本 2.0.0](?file=004-Git详解/010-语义化版本 2.0.0 "语义化版本 2.0.0")
 - [gogs](?file=004-Git详解/011-gogs "gogs")
+- [git规范](?file=004-Git详解/012-git规范 "git规范")
 
 ##### IDE开发工具
 - [Atom](?file=005-IDE开发工具/001-Atom "Atom")
