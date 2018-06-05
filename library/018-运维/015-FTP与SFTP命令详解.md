@@ -56,9 +56,26 @@ usage: sftp [-1246aCfpqrv] [-B buffer_size] [-b batchfile] [-c cipher]
        host            指定主机名称或要连接到的远程主机的 IP 地址。
 ```
 
-### 交互命令
-`SFTP`与`ftp`的连接命令差别非常大，参数几乎都不一样，但它们在与服务器的交互命令上，是
-一致的。
+### FTP交互命令
+`FTP`交互命令与`SFTP`很相似，但功能上却存在比较大的差异,而且`FTP`命令几乎没有任何的
+提示信息，功能大多数靠猜想。
+```
+ftp> ?
+命令可能是缩写的。  命令为:
+
+!               delete          literal         prompt          send
+?               debug           ls              put             status
+append          dir             mdelete         pwd             trace
+ascii           disconnect      mdir            quit            type
+bell            get             mget            quote           user
+binary          glob            mkdir           recv            verbose
+bye             hash            mls             remotehelp
+cd              help            mput            rename
+close           lcd             open            rmdir
+```
+### SFTP交互命令
+`SFTP`与`ftp`的交互命令相比，功能强大了不少，而且每条命令有详细的解释，当然具体的可选
+参数仍然没有标明。
 ```
 sftp> help
 Available commands:
@@ -96,12 +113,13 @@ version                            Show SFTP version
 ?                                  Synonym for help
 ```
 我较关注的下载与上传命令`get`、`put`、`mget`、`mput`,其中可以看到可选参数`[-afPpRr]`,
-对于此参数，一直比较疑惑，也无更多的说明。仔细收集一下，做以下总结:
+对于此参数，一直比较疑惑，也无更多的说明,而且在`FTP`命令里，是没有这些的。
+仔细收集一下，做以下总结:
 ```
 -a
--f
+-f 强制执行
 -P
--p
--R
--r 表示下载或者上整个目录
+-p 继续源文件权限类型
+-R 表示下载或者上整个目录，递归包含子目录
+-r 表示下载或者上整个目录，不包含子目录
 ```
