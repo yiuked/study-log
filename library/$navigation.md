@@ -120,6 +120,7 @@
 - [setuptools简介](?file=008-Python/002-setuptools简介 "setuptools简介")
 - [pip包管理使用指南](?file=008-Python/003-pip包管理使用指南 "pip包管理使用指南")
 - [使用Sphinx生成文档](?file=008-Python/004-使用Sphinx生成文档 "使用Sphinx生成文档")
+- [常用python包整理](?file=008-Python/005-常用python包整理 "常用python包整理")
 
 ##### PHP
 - **Laravel**
