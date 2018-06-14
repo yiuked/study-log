@@ -268,3 +268,4 @@
 ##### 考核
 - **PMP**
     - [PMPBOK指南](?file=026-考核/0001-PMP/01-PMPBOK指南 "PMPBOK指南")
+    - [PMBOK笔记](?file=026-考核/0001-PMP/02-PMBOK笔记 "PMBOK笔记")
