@@ -127,11 +127,6 @@
     - [参考资料](?file=009-PHP/001-Laravel/001-参考资料 "参考资料")
     - [路由](?file=009-PHP/001-Laravel/002-路由 "路由")
     - [中间件](?file=009-PHP/001-Laravel/003-中间件 "中间件")
-    - **内核分析**
-        - [系统框架](?file=009-PHP/001-Laravel/004-内核分析/001-系统框架 "系统框架")
-        - [Request详解](?file=009-PHP/001-Laravel/004-内核分析/002-Request详解 "Request详解")
-        - [artisan](?file=009-PHP/001-Laravel/004-内核分析/003-artisan "artisan")
-        - [api验证](?file=009-PHP/001-Laravel/004-内核分析/004-api验证 "api验证")
     - [非常用函数集合](?file=009-PHP/001-Laravel/005-非常用函数集合 "非常用函数集合")
     - [Laravel中的env](?file=009-PHP/001-Laravel/006-Laravel中的env "Laravel中的env")
     - [方法函数解析](?file=009-PHP/001-Laravel/007-方法函数解析 "方法函数解析")
@@ -186,9 +181,12 @@
 
 ##### Nodejs
 - [Node内置关键词](?file=013-Nodejs/001-Node内置关键词 "Node内置关键词")
+- [npm常用命令](?file=013-Nodejs/002-npm常用命令 "npm常用命令")
 
 ##### Mongodb
-- [Monodb常用命令](?file=014-Mongodb/001-Monodb常用命令 "Monodb常用命令")
+- [Mongodb常用命令](?file=014-Mongodb/001-Mongodb常用命令 "Mongodb常用命令")
+- [Mongodb特性](?file=014-Mongodb/002-Mongodb特性 "Mongodb特性")
+- [Php开启Mongodb扩展](?file=014-Mongodb/003-Php开启Mongodb扩展 "Php开启Mongodb扩展")
 
 ##### Redis
 - [Redis配置说明](?file=015-Redis/001-Redis配置说明 "Redis配置说明")
@@ -274,10 +272,6 @@
 ##### 考核
 - **PMP**
     - [未整理](?file=026-考核/0001-PMP/000-未整理 "未整理")
-    - **第五版**
-        - [项目引论](?file=026-考核/0001-PMP/0001-第五版/01-项目引论 "项目引论")
-        - [项目影响和项目生命周期](?file=026-考核/0001-PMP/0001-第五版/02-项目影响和项目生命周期 "项目影响和项目生命周期")
-        - [项目管理过程](?file=026-考核/0001-PMP/0001-第五版/03-项目管理过程 "项目管理过程")
     - [开班宣讲](?file=026-考核/0001-PMP/003-开班宣讲 "开班宣讲")
     - [学习时间进度](?file=026-考核/0001-PMP/004-学习时间进度 "学习时间进度")
     - [PMPBOK指南](?file=026-考核/0001-PMP/01-PMPBOK指南 "PMPBOK指南")
