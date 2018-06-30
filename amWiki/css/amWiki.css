@@ -147,7 +147,7 @@ footer{position:relative;width:100%;height:15px;}
 	.header .menu_icon.close svg{top:14px;left:10px;width:18px;height:18px;}
 
 	.container{position:relative;margin:50px auto 0;overflow:hidden;background:#fff;border:none;}
-	
+
 	/* ---------- menu ---------- */
 	.container .nav{display:none;position:fixed;left:0;top:50px;z-index:9999;width:100%;height:100%;padding-bottom:30px;background:rgba(0,0,0,0.8);overflow-y:scroll;}
 	.container .nav.on{display:block;}
@@ -179,7 +179,7 @@ footer{position:relative;width:100%;height:15px;}
     footer{position:relative;width:100%;height:0;}
     .signature{position:absolute;right:12px;bottom:6px;color:#ccc;}
     .signature a{color:#aaa;}
-    
+
 	/* ---------- backTop ---------- */
 	.back-top{border-radius:50%;bottom:32px;}
 	.back-top:hover .back-text{display:none;}
@@ -286,7 +286,7 @@ footer{position:relative;width:100%;height:15px;}
     @page{margin:2cm;size:A4 portrait;}
 }
 @media print {
-    
+
     /* ---------- main ---------- */
     body{color:black;background:#fff;}
     .header{display:none;}
@@ -309,13 +309,13 @@ footer{position:relative;width:100%;height:15px;}
     .main .main-sibling{display:none;}
     .back-top{display:none;}
     .signature{display:none;}
-    
+
     /* ---------- increment ---------- */
     .main{counter-reset:chapternum1;}
     h2{counter-reset:chapternum2;}
     h2:before{counter-increment:chapternum1;content:counter(chapternum1) " ";}
     h3:before{counter-increment:chapternum2;content:counter(chapternum1) "." counter(chapternum2) " ";}
-    
+
 }
 
 @charset "utf-8";
