@@ -1,3 +1,4 @@
 library/\$navigation.md
 images/*.DS_Store
 library/$navigation.md
+/library/$navigation.md
