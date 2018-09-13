@@ -96,6 +96,7 @@
 - [redis启动命令](?file=006-服务器/015-redis启动命令 "redis启动命令")
 - [Linux下查看系统版本及相关参数](?file=006-服务器/016-Linux下查看系统版本及相关参数 "Linux下查看系统版本及相关参数")
 - [CURL操作详解](?file=006-服务器/017-CURL操作详解 "CURL操作详解")
+- [linux下gcc升级](?file=006-服务器/018-linux下gcc升级 "linux下gcc升级")
 
 ##### Mysql
 - **Mysql总结**
