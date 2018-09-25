@@ -178,7 +178,6 @@
 - [strace命令](?file=011-Centos/011-strace命令 "strace命令")
 - [iptables的配置](?file=011-Centos/012-iptables的配置 "iptables的配置")
 - [常用命令2](?file=011-Centos/013-常用命令2 "常用命令2")
-- [awk详解](?file=011-Centos/014-awk详解 "awk详解")
 
 ##### Neo4j图形数据库
 - [安装](?file=012-Neo4j图形数据库/001-安装 "安装")
@@ -236,6 +235,8 @@
 - [linux指定nologin用户执行命令](?file=018-运维/014-linux指定nologin用户执行命令 "linux指定nologin用户执行命令")
 - [FTP与SFTP命令详解](?file=018-运维/015-FTP与SFTP命令详解 "FTP与SFTP命令详解")
 - [windows小贴士](?file=018-运维/016-windows小贴士 "windows小贴士")
+- [awk详解](?file=018-运维/017-awk详解 "awk详解")
+- [vim详解](?file=018-运维/018-vim详解 "vim详解")
 
 ##### 常遇小问题
 - [Linux下键盘背光灯不亮](?file=019-常遇小问题/001-Linux下键盘背光灯不亮 "Linux下键盘背光灯不亮")
