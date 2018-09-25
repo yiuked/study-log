@@ -96,6 +96,7 @@
 - [redis启动命令](?file=006-服务器/015-redis启动命令 "redis启动命令")
 - [Linux下查看系统版本及相关参数](?file=006-服务器/016-Linux下查看系统版本及相关参数 "Linux下查看系统版本及相关参数")
 - [CURL操作详解](?file=006-服务器/017-CURL操作详解 "CURL操作详解")
+- [linux下gcc升级](?file=006-服务器/018-linux下gcc升级 "linux下gcc升级")
 
 ##### Mysql
 - **Mysql总结**
@@ -239,6 +240,8 @@
 - [linux指定nologin用户执行命令](?file=018-运维/014-linux指定nologin用户执行命令 "linux指定nologin用户执行命令")
 - [FTP与SFTP命令详解](?file=018-运维/015-FTP与SFTP命令详解 "FTP与SFTP命令详解")
 - [windows小贴士](?file=018-运维/016-windows小贴士 "windows小贴士")
+- [awk详解](?file=018-运维/017-awk详解 "awk详解")
+- [vim详解](?file=018-运维/018-vim详解 "vim详解")
 
 ##### 常遇小问题
 - [Linux下键盘背光灯不亮](?file=019-常遇小问题/001-Linux下键盘背光灯不亮 "Linux下键盘背光灯不亮")
