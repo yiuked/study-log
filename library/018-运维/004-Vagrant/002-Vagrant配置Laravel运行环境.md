@@ -173,3 +173,15 @@ Bringing machine 'homestead-7' up with 'virtualbox' provider...
 众里寻它千百度，最后还是在网上找到解决方法.
 打开`VirtualBox` -> 选中vagrant启动的虚拟机 -> 设置 -> 网卡1 -> 高级 -> 选中接入网线  
 然后在`VirtualBox`中正常关闭虚拟机，重新 `vagrant up` 这一次，终于成功了.
+
+### 后续
+在给同事配置时启用过程卡在了下面这个步骤：
+```
+default: SSH auth method: private key
+```
+1. 遇到这个问题，打开Oracle VM,选择相关连的虚拟机，然后点菜单栏上的"显示",查看到以下结果:
+```
+a start job is runing for raise netwrok interfaces
+```
+该过程一直处于加载中，时长了，就超时了。
+2. 在Oracle VM中选择正常退出系统，然后检查网络配置项中的高级选项,其中有一栏“接入网络”把它沟上，然后重试就正常了.
