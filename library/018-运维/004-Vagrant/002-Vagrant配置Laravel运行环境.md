@@ -188,3 +188,32 @@ a start job is runing for raise netwrok interfaces
 
 
 ### 导出
+找到VBOX的安装目录，执行虚拟机列表查看：
+```
+ ./VBoxManage.exe list vms
+```
+通过以下命令导出虚拟机的镜像文件:
+```
+vagrant package --base homestaed-7 --output ./zsjr_task.box
+# --base 为要导出的镜像文件
+# --output 保存路径及文件名
+```
+经过数分钟后，导出BOX文件，那么如何使用这个文件呢？我想继续使用homestaed中的yml配置。
+```
+vagrant add zsjr/task ./zsjr_task.box
+```
+再查看是否已导入成功:
+```
+vagrant box list
+```
+导入成功后，修改homestaemd.yml文件,新增
+```
+name: task
+box: zsjr/task
+```
+修改完成后，执行启用命令:
+```
+vagrant up
+```
+如果中途出现验证私钥不通过，找到homestaed根目录`.vagrant\machines\homestaed-7\virtualbox\private_key`,
+将它复制到`.vagrant\machines\task\virtualbox\private_key`则可。
