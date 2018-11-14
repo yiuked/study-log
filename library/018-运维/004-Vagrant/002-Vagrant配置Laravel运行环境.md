@@ -200,7 +200,7 @@ vagrant package --base homestaed-7 --output ./zsjr_task.box
 ```
 经过数分钟后，导出BOX文件，那么如何使用这个文件呢？我想继续使用homestaed中的yml配置。
 ```
-vagrant add zsjr/task ./zsjr_task.box
+vagrant box add zsjr/task ./zsjr_task.box
 ```
 再查看是否已导入成功:
 ```
