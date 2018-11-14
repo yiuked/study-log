@@ -185,3 +185,6 @@ a start job is runing for raise netwrok interfaces
 ```
 该过程一直处于加载中，时长了，就超时了。
 2. 在Oracle VM中选择正常退出系统，然后检查网络配置项中的高级选项,其中有一栏“接入网络”把它沟上，然后重试就正常了.
+
+
+### 导出
