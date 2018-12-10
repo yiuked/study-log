@@ -176,3 +176,11 @@ select sum(account) as account from `orders` where type=1 and `status`=1;
 ```
 create index type_status_account (`type`,`status`,`account`);
 ```
+
+9. group by 索引
+* 如果执行
+```
+# 为`TEST_TYPE`添加索引
+SELECT COL1 FROM `TEST` GROUP BY `TEST_TYPE`
+```
+这种情况下索引是有效果的,如果未添加索引会产生临时表`Using temporary`
