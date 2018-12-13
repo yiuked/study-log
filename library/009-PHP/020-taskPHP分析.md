@@ -1,9 +1,12 @@
+```
 任务列表:config.php中task_list.
 任务名:config.php中task_list的key值.
 distribute进程：用于调度列表中任务的进程.
 worker进程：用于执行列表中的任务,调用方式`php main.php worker "app\tasks\message\WeChatTask" `
-
+```
 缓存:
+
+```  
 键值                   键值
 listen[任务名]          [true|false] # true为任务启用中，false任务取消
 task_worker_[任务名]   任务的基本信息，如时间等
@@ -11,7 +14,7 @@ task_exec_[任务名]     待执行队列
 task_list              会存储config.php里task_list的所有任务,只保存【任务名】.
 close_worker
 task_sleep
-
+```
 1.当应用启用时，启动distribute进程,该进程读取【任务列表】，
   将列表中的每条任务存储在`task_worker_[任务名]`中，值为
   ```
