@@ -20,6 +20,7 @@ wget http://labs.frickle.com/files/ngx_cache_purge-1.4.tar.gz
 ```
 
 2. 安装  
+
 ```
 yum -y install zlib-devel pcre-devel openssl-devel  # 安装依赖
 tar –xvf ngx_cache_purge-1.4.tar.gz
@@ -209,6 +210,7 @@ wget http://www.keepalived.org/software/keepalived-1.1.19.tar.gz
 ```
 
 2. 安装  
+
 ```
 tar zxvf keepalived-1.1.19.tar.gz
 cd keepalived-1.1.19
