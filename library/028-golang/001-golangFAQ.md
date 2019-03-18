@@ -21,7 +21,7 @@ func (variable_name variable_data_type) function_name() [return_type]{
 }
 func (file *File) Read(b []byte) (n int, err Error)
 ```
-这类函数称为方法，
+这类函数称为方法，它表示在对应的类型或者结构体上新增一个方法
 ```
 package main
 
