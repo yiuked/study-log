@@ -11,6 +11,7 @@ DB interface
 MYSQL  MSSQL
 ```
 ### 接口类型
+* **空接口类型**
 
 ### 接口实现
 声明Mysql与Mssql两种类型，两种类型均实现了Dbinter接口。
