@@ -26,4 +26,9 @@ cat <数据备份文件名>_qp.xb | xbstream -x -v -C /var/lib/mysql
 innobackupex --decompress --remove-original /var/lib/mysql
 ## 恢复备份文件
 innobackupex --defaults-file=/var/lib/mysql/backup-my.cnf --apply-log /var/lib/mysql
+## 修改数据库文件夹权限
+chown -R mysql:mysql /var/lib/mysql
+## 启动数据库
+mysqld_safe --defaults-file=/var/lib/mysql/backup-my.cnf --user=mysql --datadir=/var/lib/mysql &
+
 ```
