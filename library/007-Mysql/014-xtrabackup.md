@@ -40,7 +40,7 @@ mysql_upgrade -u root -p --force
 mysqld_safe --defaults-file=/var/lib/mysql/backup-my.cnf --user=mysql --datadir=/var/lib/mysql &
 
 ```
-迁移成功后，启动MYSQL正常
+迁移成功后，启动MYSQL正常,但是在执行SQL
 ```
  Table 'performance_schema.session_status' doesn't exist
  [Err] 1682 - Native table 'performance_schema'.'session_status' has the wrong structure
