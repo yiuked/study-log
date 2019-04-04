@@ -1,4 +1,12 @@
 ## 通过Nginx实现负载均衡
+
+>1. [通过Nginx实现负载均衡](#通过Nginx实现负载均衡 "通过Nginx实现负载均衡")
+	1. [一、概述](#一、概述 "一、概述")
+	1. [二、安装与配置Nginx](#二、安装与配置Nginx "二、安装与配置Nginx")
+	1. [三、配置负载均衡](#三、配置负载均衡 "三、配置负载均衡")
+	1. [四、负载均衡调度策略](#四、负载均衡调度策略 "四、负载均衡调度策略")
+	1. [五、实现SSL](#五、实现SSL "五、实现SSL")
+
 ### 一、概述
 `Nginx`负载均衡的应用很广，很多场景下都在使用这种架构。  
 
@@ -115,6 +123,7 @@ yum install nginx
       server_name yoursite.com;
       error_log /var/log/yoursite.com-error.log;
       location / {
+          proxy_set_header Host  $host; # 设置Header中的Host
           proxy_pass http://balancer;
       }
 
@@ -148,11 +157,29 @@ yum install nginx
       server_name yoursite.com;
       error_log /var/log/yoursite.com-error.log;
       location / {
+          proxy_set_header Host  $host; # 设置Header中的Host
           proxy_pass http://balancer;
       }
 
   }
   ```
+> 由于负载均衡通过中间节点进行了转发，因此业务端最终接受到的参数与实际参数可能存在差异，如客户端IP地址、Host。  
+同时 ，也可以通过转发节点进行header重写：
+```
+location / {
+    proxy_set_header Host  $host; # 设置Header中的Host
+    proxy_pass http://balancer;
+}
+```
+以上通过重写Host,那么业务受理机，可以接受来处多个负载均衡转发节点转发过来的请求。
+```
+location / {
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_pass http://balancer;
+}
+```
+客户端的IP地址如果不进行Header重写，会在转发节点丢失。
 
 ### 四、负载均衡调度策略
 负载均衡的策略控制主要在以下代码中控制
