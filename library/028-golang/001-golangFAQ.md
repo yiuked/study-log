@@ -21,28 +21,28 @@ func (variable_name variable_data_type) function_name() [return_type]{
 }
 func (file *File) Read(b []byte) (n int, err Error)
 ```
-这类函数称为方法，它表示在对应的类型或者结构体上新增一个方法
-```
-package main
+这类函数称为方法，它表示在对应的类型或者结构体上新增一个方法:
+  ```
+  package main
 
-import (
-   "fmt"  
-)
+  import (
+     "fmt"  
+  )
 
-/* 定义结构体 */
-type Circle struct {
-  radius float64
-}
+  /* 定义结构体 */
+  type Circle struct {
+    radius float64
+  }
 
-func main() {
-  var c1 Circle
-  c1.radius = 10.00
-  fmt.Println("圆的面积 = ", c1.getArea())
-}
+  func main() {
+    var c1 Circle
+    c1.radius = 10.00
+    fmt.Println("圆的面积 = ", c1.getArea())
+  }
 
-//该 method 属于 Circle 类型对象中的方法
-func (c Circle) getArea() float64 {
-  //c.radius 即为 Circle 类型对象中的属性
-  return 3.14 * c.radius * c.radius
-}
-```
+  //该 method 属于 Circle 类型对象中的方法
+  func (c Circle) getArea() float64 {
+    //c.radius 即为 Circle 类型对象中的属性
+    return 3.14 * c.radius * c.radius
+  }
+  ```
