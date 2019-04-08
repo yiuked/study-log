@@ -46,3 +46,21 @@ func (file *File) Read(b []byte) (n int, err Error)
     return 3.14 * c.radius * c.radius
   }
   ```
+
+5. 函数中的三个点`...`是什么意思。  
+`...`主要有两个用途，第一个当函数有不确定性参数时，第二个是对传入参数进行切片，如下
+```
+# 表示可以接受任意个任意类型的参数，如果需要固定类型，可表示为：`args ...string`等
+func cart(args ...interface{}) {
+	for _, v:= range args{
+		fmt.Println(v)
+	}
+}
+# 假设 func cart(args ...string){},当传入product时，会被切为三个参数。
+var product = []string{
+        "price",
+        "name",
+        "quitity"
+    }
+cart(product...) //切片被打散传入
+```
