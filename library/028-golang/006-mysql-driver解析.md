@@ -46,9 +46,11 @@ for i := range rawResult {
 }
 
 if rows.Next() {
-  // 传一个内存地址数组进行切割后，分散传入.
-  err = rows.Scan(dest...)
+	// 传一个内存地址数组进行切割后，分散传入,每个内存地址保存一个字段值。
+	err = rows.Scan(dest...)
+	// 将存在内存地址中的值，传给result
   for i, raw := range rawResult {
+		// 将值以key=>value的形式进行存储.
     if raw == nil {
       result[cols[i]] = ""
     } else {
