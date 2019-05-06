@@ -95,3 +95,23 @@ var token Token
 token.ExpireAt = time.Now().In(locZone).Add(time.Second * 60)
 db.Save(&token)
 ```
+9. golang中如何实现时间添加或者减少?
+```
+  // 当前时间基础上增加1小时
+  durdm,_ := time.ParseDuration("1h")
+  ta = time.Now().Add(durdm)
+
+  // 当前时间基础上减少1小时
+  dur,_ := time.ParseDuration("-1h")
+  ta = time.Now().Add(dur)
+
+  // 当前时间基础上减少5分钟
+  durmi,_ := time.ParseDuration("-5m")
+  ta = time.Now().Add(durmi)
+
+  // 当前时间基础上减少60秒
+  durs,_ := time.ParseDuration("-60s")
+  ta = time.Now().Add(durs)
+```
+ParseDuration 可以将一个字符串转为Duration格式,
+可以使用的格式包含:"ns", "us" (or "µs"), "ms", "s", "m", "h".
