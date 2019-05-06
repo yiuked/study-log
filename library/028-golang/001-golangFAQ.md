@@ -74,3 +74,24 @@ Go语言中，使用的时间格式为:
 刚好为01-02-03-04-05-06，我不明白这样的设置到底哪好记了，24小时制的15怎么解释，
 多大数的开发语言在格式化日期时，都类似于yyyymmddhhmmii这种格式基本记住一次，后续不会忘记,
 而go的时间格式化，只要你过一段时间不接触，估计又得查文档了.
+
+7. 字符串与数字间的转化
+```
+int, err := strconv.Atoi(string) // 字符串转
+int64, err := strconv.ParseInt(string, 10, 64) // string转成int64  
+string := strconv.Itoa(int) // int转成string
+string := strconv.FormatInt(int64,10) //int64转成string
+```
+
+8. golang连接mysql时parseTime和loc是什么意思？
+```
+root:@tcp(localhost:3306)/test?charset=utf8&parseTime=true&loc=Asia%2FShanghai
+#parseTime 是查询结果是否自动解析为时间。
+#loc 是配置操作数据库的时区。
+```
+使用gorm时，在代码内设置的时区不会生效,必须在连接数据库时设置loc
+```
+var token Token
+token.ExpireAt = time.Now().In(locZone).Add(time.Second * 60)
+db.Save(&token)
+```
