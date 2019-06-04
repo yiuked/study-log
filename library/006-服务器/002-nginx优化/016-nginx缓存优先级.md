@@ -15,18 +15,20 @@ header(“Cache-Control: max-age=60″);
 其次对需要注意的一点：源服务器的expires和nginx cache的expires配置项的冲突进行说明，场景如下
 
 （1）源服务器端有php文件ta1.php内容如下：
+```php
 <?php
 header("Expires: Fri, 07 Sep 2013 08:05:18 GMT");
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
 header("Cache-Control: max-age=60");
 echo "ta1";
 ?>
-
+```
 （2）在nginx cache服务器端的配置信息如下：
+```
 …….
 proxy_cache_path  /data0/proxy_cache_dir  levels=1:2   keys_zone=cache_one:200m inactive=5s max_size=30g;
 ……..
- 
+
 location ~ .*\.(php|jsp|cgi)$
 {
     proxy_read_timeout 10s;
@@ -50,16 +52,20 @@ location ~ .*\.(php|jsp|cgi)$
     expires 30s;
 }
 ………….
-
+```
 从上面两项可以看出nginx cache 服务器中expires的配置是30s，该expires的值直接决定了在浏览器端看到的max-age以及expires的值。而源服务器断的代码中设置的响应头中的max-age为60，expires为Fri, 07 Sep 2013 08:05:18 GMT。这是源服务器的设置于nginx-cache的设置冲突了，那么着两个属性应该怎么设置呢？
 
 这时client端的max-age与expires的值按照nginx cache中的expires配置项的设置，即:
+```
 Expires  Fri, 07 Sep 2012 08:59:16 GMT
 Cache-Controlmax-age=30
+```
 
 而nginx cache端的缓存的max-age与expire的值按照源服务器上的代码的设置。即：
+```
 Expires  Fri, 07 Sep 2013 08:05:18 GMT
 Cache-Controlmax-age=60
+```
 
 现在步入正题：
 
@@ -69,6 +75,7 @@ inactive配置项、源服务器设置的Expires、源服务器设置的Max-Age�
 
 实例1：
 服务器端php代码：
+```php
 <?php
 header("Expires: Fri, 07 Sep 2012 08:03:18 GMT");//其实是3分钟之后
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
@@ -76,7 +83,7 @@ header("Cache-Control: max-age=180");//2分钟
 //header("Cache-Control: post-check=0, pre-check=0", false);
 echo "ta1";
 ?>
-
+```
 nginx cache 配置项
 inactive 4m//4分钟
 proxy_cache_valid 1m//1分钟
@@ -89,6 +96,7 @@ proxy_cache_valid 1m//1分钟
 实例2：
 
 服务器端php代码：
+```php
 <?php
 header("Expires: Fri, 07 Sep 2012 08:03:18 GMT");//3分钟之后
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
@@ -96,7 +104,7 @@ header("Cache-Control: max-age=180");//2分钟
 //header("Cache-Control: post-check=0, pre-check=0", false);
 echo "ta1";
 ?>
-
+```
 nginx cache 配置项
 inactive 10s//10秒钟
 proxy_cache_valid 1m//1分钟
@@ -110,6 +118,7 @@ proxy_cache_valid 1m//1分钟
 实例3：
 
 服务器端php代码：
+```php
 <?php
 header("Expires: Fri, 07 Sep 1977 08:03:18 GMT");//直接过期
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
@@ -117,7 +126,7 @@ header("Cache-Control: max-age=120");//2分钟
 //header("Cache-Control: post-check=0, pre-check=0", false);
 echo "ta1";
 ?>
-
+```
 nginx cache 配置项
 inactive 4m//4分钟
 proxy_cache_valid 1m//1分钟
@@ -148,6 +157,7 @@ proxy_cache_valid 1m//1分钟
 实例5：
 
 服务器端php代码：
+```
 <?php
 header("Expires: Fri, 07 Sep 2012 08:03:18 GMT");//3分钟之后
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
@@ -155,7 +165,7 @@ header("Cache-Control: max-age=120");//2分钟
 //header("Cache-Control: post-check=0, pre-check=0", false);
 echo "ta1";
 ?>
-
+```
 nginx cache 配置项
 inactive 4m//4分钟
 #下面两行用于消除服务器端配置的Expires响应头的影响
@@ -169,6 +179,7 @@ proxy_cache_valid 1m//1分钟
 实例6：
 
 服务器端php代码：
+```
 <?php
 header("Expires: Fri, 07 Sep 2012 08:03:18 GMT");//3分钟之后
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
@@ -176,14 +187,17 @@ header("Cache-Control: max-age=50");//50秒钟
 //header("Cache-Control: post-check=0, pre-check=0", false);
 echo "ta1";
 ?>
+```
 
 nginx cache 配置项
 
 inactive 4m//4分钟
 #下面两行用于消除服务器端配置的Expires响应头的影响
+```
 proxy_ignore_headers “Expires”;
 proxy_hide_header “Expires”;
 proxy_cache_valid 2m//2分钟
+```
 现象：第一次访问页面ta1.php之后，各个时间的访问结果：
 
 50秒钟之后 ：   MISS//这说明服务器端配置的max-age起作用

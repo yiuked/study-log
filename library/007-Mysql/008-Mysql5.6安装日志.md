@@ -1,3 +1,4 @@
+```
 准备中...                          ################################# [100%]
 正在升级/安装...
    1:atom-1.14.4-0.1                  ################################# [100%]
@@ -98,3 +99,4 @@ Support MySQL by buying support/licenses at http://shop.mysql.com
 New default config file was created as /usr/my.cnf and
 will be used by default by the server when you start it.
 You may edit this file to change server settings
+```
