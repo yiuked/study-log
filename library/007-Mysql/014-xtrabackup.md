@@ -22,6 +22,8 @@ wget可能下载不了，可直接通过其它下载工具下载。
 ```
 ## 解包
 cat <数据备份文件名>_qp.xb | xbstream -x -v -C /var/lib/mysql
+## 切换到解包目录【重要】
+cd /var/lib/mysql
 ## 解压
 innobackupex --decompress --remove-original /var/lib/mysql
 ## 恢复备份文件
