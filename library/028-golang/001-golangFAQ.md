@@ -6,3 +6,21 @@
 
 3. defer函数
 > defer函数后面执行的函数，在当前函数return前执行，常用于函数退出前的内存资源注销等。
+
+4. 实例化对象
+> p := &People{}
+
+5. 构造函数
+> go中没有构造函数，网上有很多使用`New类名`的方式，替换构造函数，如:  
+>  ```
+>  type Array struct {
+>  	arr  []interface{}
+>  	size int
+>  }
+>
+>  func NewArray() *Array {
+>  	var arr = &Array{}
+>  	arr.size = 5
+>  	return arr
+>  }
+>  ```
