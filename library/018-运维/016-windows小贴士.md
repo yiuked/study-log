@@ -43,3 +43,18 @@ vagrant halt
 pause
 exit
 ```
+
+* Windows中，带空格的目录常常不太好在程序中执行，需要对目录进行转化，比如加分号、转成URL编码、转义等。  
+使用`dir /x`命令，查看目录的缩写，然后将缩写带入程序中执行更为方便:
+ ```
+2017/01/23  18:04    <DIR>          WINDOW~3     Windows Defender
+2016/07/21  18:07    <DIR>          WI3CF2~1     Windows Kits
+2016/06/27  12:57    <DIR>          WINDOW~1     Windows Mail
+2019/03/14  09:05    <DIR>          WI54FB~1     Windows Media Player
+2009/07/14  13:32    <DIR>          WINDOW~2     Windows NT
+2016/06/27  12:57    <DIR>          WINDOW~4     Windows Photo Viewer
+2016/06/27  12:57    <DIR>          WIBFE5~1     Windows Portable Devices
+2016/06/27  12:57    <DIR>          WI4223~1     Windows Sidebar
+2016/06/08  09:54    <DIR>          WIRESH~1     Wireshark
+2016/11/14  09:27    <DIR>          YIWANP~1     yiwanplayer
+ ```
