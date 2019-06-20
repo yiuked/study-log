@@ -20,10 +20,10 @@ cp qpress /usr/bin
 ```
 wget可能下载不了，可直接通过其它下载工具下载。
 ```
-## 解包
+## 如果此前用过innobackupx会创建文件失败，建立直接清除/var/lib/mysql/下面所有文件
+rm -rf /var/lib/mysql/*
+## 解包 如果解包失败进行重新解包时，一定要清除/var/lib/mysql/已解包的文件，否则进行解压时会提示文件被损失。
 cat <数据备份文件名>_qp.xb | xbstream -x -v -C /var/lib/mysql
-## 切换到解包目录【重要】
-cd /var/lib/mysql
 ## 解压
 innobackupex --decompress --remove-original /var/lib/mysql
 ## 恢复备份文件
@@ -45,8 +45,11 @@ vi /var/lib/mysql/backup-my.cnf
 #innodb_page_size
 #innodb_log_block_size
 # 保存后，切换到linux 的root账户
-mysql_upgrade -u root -p --force
+$service mysql start
+$mysql_upgrade -u root -p --force
+$service mysql stop
+$service mysql start
 
-## 启动数据库(vagrant 上测试不成功)
+## 如果默认启用配置文件不对，可以参考以下命令：
 mysqld_safe --defaults-file=/var/lib/mysql/backup-my.cnf --user=mysql --datadir=/var/lib/mysql &
 ```
