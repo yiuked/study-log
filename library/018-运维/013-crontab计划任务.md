@@ -124,3 +124,20 @@ env >> test.log
 ```
 PATH=$PTAH:[缺少的目录]
 ```
+
+### 当PHP文件中引require时，提示文件找不到？
+如果计划任务是这么写的
+```
+* * * * * php /var/php/cron.php
+```
+其中`cron.php`中通过require引入关联路径文件
+```
+<?php
+require "../config/config.php";
+```
+那么你很可能会得到一个错误的信息，就是config.php文件找不到。
+脚本会把根目录`/`当成当前路径，以`/`为中心进行关联，因此找不到文件。
+此时，需要在执行脚本前进入到文件所在路径
+```
+* * * * * cd /var/php && php /var/php/cron.php
+```
