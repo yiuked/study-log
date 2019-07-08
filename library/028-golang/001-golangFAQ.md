@@ -116,11 +116,10 @@ db.Save(&token)
 ParseDuration 可以将一个字符串转为Duration格式,
 可以使用的格式包含:"ns", "us" (or "µs"), "ms", "s", "m", "h".
 
-
 10. 实例化对象
 > p := &People{}
 
-5. 构造函数
+11. 构造函数
 > go中没有构造函数，网上有很多使用`New类名`的方式，替换构造函数，如:  
 >  ```
 >  type Array struct {
@@ -135,3 +134,5 @@ ParseDuration 可以将一个字符串转为Duration格式,
 >  }
 >  ```
 
+12. make函数与new函数
+> new 的作用是初始化一个指向类型的指针(*T)，make 的作用是为 slice，map 或 chan 初始化并返回引用(T)。
