@@ -88,7 +88,7 @@ yiuked@localhost:/mnt/c/Users/Administrator$ ps -ajx
 通过&实现守护进程，加nohup与不加的区别在于，加了nohup，进程产生的标准输入与输出不会显示在终端干扰用户。
 当终端关闭时，程序都不会退出，而是不init进程接管。  
 
-无法是通过`&`或者是`nohup + &`都只是通过孤儿进程的形式达到守护进程的效果，与httpd,nginx存中的守护进程有本质的区别。
+无论是通过`&`或者是`nohup + &`都只是通过孤儿进程的形式达到守护进程的效果，与httpd,nginx存中的守护进程有本质的区别。
 
 
 ### Liunx启动过程
