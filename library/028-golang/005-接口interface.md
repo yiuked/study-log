@@ -74,4 +74,22 @@ func main() {
 }
 ```
 
-### 接口应用
+### 函数接口
+函数接口不能直接实列化，只能将其它函数转化为自己的类型
+```
+// 函数定义为类型
+type FuncCaller func(interface{})
+
+// 实现Invoker的Call
+func (f FuncCaller) Call(p interface{}) {
+	// 调用f函数本体
+	f(p)
+}
+
+func main() {
+	fu := FuncCaller(func(v interface{}) {
+		fmt.Println("from function", v)
+	})
+	fu.Call("test")
+}
+```
