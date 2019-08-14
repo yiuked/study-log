@@ -12,3 +12,9 @@ ${MAKE}  // 就是预设的 make 这个命令的名称（或者路径）。
 
 Redis GDB调试
 https://cloud.tencent.com/developer/article/1481545
+
+CLion调试redis源码
+https://blog.csdn.net/u013656184/article/details/88812572
+
+
+Clion只能编译CMake项目，不能调试Makefile
