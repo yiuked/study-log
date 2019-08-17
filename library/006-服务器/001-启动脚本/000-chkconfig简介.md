@@ -3,17 +3,17 @@
 
 想列出系统所有的服务启动情况：
 ```shell
-# chkconfig –list
+# chkconfig –-list
 ```
 想列出mysqld服务设置情况：
 ```shell
-#chkconfig –list mysqld
+#chkconfig –-list mysqld
 ```
 设定mysqld在等级3和5为开机运行服务：
 ```shell
-# chkconfig –level 35 mysqld on
+# chkconfig –-level 35 mysqld on
 ```
-> –level 35表示操作只在等级3和5执行  
+> level 35表示操作只在等级3和5执行  
 > on表示启动，off表示关闭  
 
 设定mysqld在各等级为on：
@@ -30,11 +30,11 @@
 * 等级6表示：重新启动
 
 ### 如何增加一个服务：
-* 首先，服务脚本必须存放在`/etc/ini.d/`目录下；
-* 其次，需要用`chkconfig –add servicename`来在`chkconfig`工具服务列表中增加此服务，此时服务会被在`/etc/rc.d/rcN.d`中赋予`K/S`入口了。
+* 首先，服务脚本必须存放在`/etc/init.d/`目录下；
+* 其次，需要用`chkconfig –-add servicename`来在`chkconfig`工具服务列表中增加此服务，此时服务会被在`/etc/rc.d/rcN.d`中赋予`K/S`入口了。
 * 最后，你就可以上面教的方法修改服务的默认启动等级了。
 
 ### 删除一个服务：
 ```shell
-# chkconfig –del servicename
+# chkconfig -–del servicename
 ```
