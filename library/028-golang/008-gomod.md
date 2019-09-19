@@ -9,3 +9,15 @@ vendor      make vendored copy of dependencies (将依赖复制到vendor下)
 verify      verify dependencies have expected content (验证依赖项是否具有预期的内容)
 why         explain why packages or modules are needed (解释为什么需要软件包或模块)
 ```
+
+
+阿里云Go Module代理仓库服务
+```
+https://mirrors.aliyun.com/goproxy/
+```
+### 使用帮助
+1. 使用go1.11以上版本并开启go module机制
+2. 导出GOPROXY环境变量
+```
+export GOPROXY=https://mirrors.aliyun.com/goproxy/
+```
