@@ -11,6 +11,7 @@ hyperledger/fabric-couchdb     0.4.15              8de128a55539        6 months 
 hyperledger/fabric-baseos      amd64-0.4.15        9d6ec11c60ff        6 months ago        145MB
 ```
 容器镜像文件
+
 ```
 fabric-samples/
 ├── balance-transfer

@@ -135,4 +135,18 @@ ParseDuration 可以将一个字符串转为Duration格式,
 >  ```
 
 12. make函数与new函数
-> new 的作用是初始化一个指向类型的指针(*T)，make 的作用是为 slice，map 或 chan 初始化并返回引用(T)。
+> new 的作用是初始化一个指向类型的指针(`*T`)，`make` 的作用是为 `slice`，`map` 或 `chan` 初始化并返回引用(`T`)。
+
+13. 如何实列化一个[]struct结构体
+在我们程序中可能会看到以下类型的结构体
+```go
+// 定义
+type Name []struct{
+	RealName string
+  // 实列化
+}
+name := Name{
+  {"张三"},
+  {"李四"},
+}
+```
