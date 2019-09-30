@@ -9,3 +9,8 @@ Peers: 维护账本的网络节点，通常在Hyperledger Fabric架构中存在�
 成员：访问和使用账本的网络节点。
 成员管理： 每个membership（MSP组织）可以有自己的fabric-ca作为第三方认证机构，与背书策略对应。成员都需要在MSP中注册
 链：基本上，一个链由1个通道+ 1个账本+ N个成员组成。非链的成员无法访问该链上的交易。链的成员可以由应用程序动态指定。
+
+
+
+hyperledger CA 包下载下来后，里面的Makefile文件依然是从线下去读取packege，因此需要把
+解压后的hyperledger-ca目录copy到GOPATH目录中
