@@ -21,3 +21,6 @@ https://mirrors.aliyun.com/goproxy/
 ```
 export GOPROXY=https://mirrors.aliyun.com/goproxy/
 ```
+
+如果不使用gomod,我们添加模块时，需要手动下载依赖插件到`GOPATH`中,
+`GOPATH`的`src`目录用于存放来自各点的依赖文件。
