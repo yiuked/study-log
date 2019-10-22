@@ -1,6 +1,8 @@
+### 概述
+云数据库 MySQL 备份系统改造已发布上线，新版本备份系统，无论是物理备份还是逻辑备份，都会进行压缩与打包。具体流程是：先经过 qpress 压缩，后经过 xbstream 打包（xbstream 为 Percona 的一种打包/解包工具）。备份文件后缀名以.xb结尾。
+
 ### 安装
 https://www.percona.com/doc/percona-xtrabackup/2.4/installation/apt_repo.html
-
 
 ### 备份
 ```
@@ -12,11 +14,11 @@ sudo innobackupex --user=dbuser --password=dbpass /var/backup/
 ```
 mysqld -v|grep data_dir
 ```
-安装qpress
+安装qpress,qpree是一款免费的解压缩工具，阿里的MYSQL备份文件采用qpress进行压缩
 ```
 wget http://www.quicklz.com/qpress-11-linux-x64.tar
 tar xvf qpress-11-linux-x64.tar
-cp qpress /usr/bin
+sudo cp qpress /usr/bin
 ```
 wget可能下载不了，可直接通过其它下载工具下载。
 ```
