@@ -49,6 +49,10 @@ vi /var/lib/mysql/backup-my.cnf
 # 保存后，切换到linux 的root账户
 $service mysql start
 $mysql_upgrade -u root -p --force
+# #如果此处不知道root账户密码，使用其它可登录mysql的账户登录然后，重置密码，
+# mysql -u myuser -p mypass
+# mysql>update user set password=password('new password') where user='root';
+# #更新完如果还不行，试试mysql_upgrade -h 127.0.0.1 -u root -p --force，因此默认是使用localhost登录
 $service mysql stop
 $service mysql start
 
