@@ -35,14 +35,14 @@ tree ./
 ├── ca-cert.pem
 ├── fabric-ca-server
 ├── fabric-ca-server-config.yaml          # CA server配置文件
-├── fabric-ca-server.db
+├── fabric-ca-server.db                   # 存储发放证书信息的sqlite3数据库
 ├── IssuerPublicKey                       # 颁布者公钥
 ├── IssuerRevocationPublicKey             # 颁布者吊销公钥
 └── msp
     └── keystore
         ├── c430084e7c0ccfeb691a2d78eb1b5f657523da0b66904c9820143677a5084080_sk
         ├── IssuerRevocationPrivateKey    # 颁布者吊销私钥
-        └── IssuerSecretKey               # 颁布者密钥
+        └── IssuerSecretKey               # 颁布者密钥(非私钥)
 ```
 
 
