@@ -29,10 +29,10 @@ fabric-ca-server start -b admin:adminpw
 ### 配置
 初始化后，会生成以下目录结构:
 ```
-fabric-ca-server start -b admin:adminpw
+fabric-ca-server init -b admin:adminpw
 ...
 tree ./
-├── ca-cert.pem
+├── ca-cert.pem                           # 生成的证书文件
 ├── fabric-ca-server
 ├── fabric-ca-server-config.yaml          # CA server配置文件
 ├── fabric-ca-server.db                   # 存储发放证书信息的sqlite3数据库
@@ -43,6 +43,17 @@ tree ./
         ├── c430084e7c0ccfeb691a2d78eb1b5f657523da0b66904c9820143677a5084080_sk
         ├── IssuerRevocationPrivateKey    # 颁布者吊销私钥
         └── IssuerSecretKey               # 颁布者密钥(非私钥)
+```
+查看证书文件信息：
+```
+# openssl x509 -in ca-cert.pem -inform pem -noout -text
+Certificate:
+    Data:
+        ...
+    Signature Algorithm: ecdsa-with-SHA256
+        ...
+    Signature Algorithm: ecdsa-with-SHA256
+        ...
 ```
 
 
