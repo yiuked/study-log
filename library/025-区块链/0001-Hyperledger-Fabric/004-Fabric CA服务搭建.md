@@ -26,6 +26,25 @@ cd $GOPATH/bin
 fabric-ca-server start -b admin:adminpw
 ```
 
+### 配置
+初始化后，会生成以下目录结构:
+```
+fabric-ca-server start -b admin:adminpw
+...
+tree ./
+├── ca-cert.pem
+├── fabric-ca-server
+├── fabric-ca-server-config.yaml          # CA server配置文件
+├── fabric-ca-server.db
+├── IssuerPublicKey                       # 颁布者公钥
+├── IssuerRevocationPublicKey             # 颁布者吊销公钥
+└── msp
+    └── keystore
+        ├── c430084e7c0ccfeb691a2d78eb1b5f657523da0b66904c9820143677a5084080_sk
+        ├── IssuerRevocationPrivateKey    # 颁布者吊销私钥
+        └── IssuerSecretKey               # 颁布者密钥
+```
+
 
 ### 参考文献:  
 1.[Fabric CA 官方用户指南（中文版）](https://blog.csdn.net/greedystar/article/details/80344984)
