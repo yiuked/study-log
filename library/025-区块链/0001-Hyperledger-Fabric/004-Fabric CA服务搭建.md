@@ -55,7 +55,18 @@ Certificate:
     Signature Algorithm: ecdsa-with-SHA256
         ...
 ```
-
+编辑CA server配置文件
+```
+vim fabric-ca-server-config.yaml
+...
+# 监听端口号
+port:7054
+...
+# 配置MySQLl连接(默认为SQLLite)
+db:
+type: mysql
+datasource: root:rootpw@tcp(localhost:3306)/fabric_ca?parseTime=true&tls=custom
+```
 
 ### 参考文献:  
 1.[Fabric CA 官方用户指南（中文版）](https://blog.csdn.net/greedystar/article/details/80344984)
