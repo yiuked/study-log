@@ -1,6 +1,9 @@
 中文文档
 https://hyperledgercn.github.io/hyperledgerDocs/
 
+超级账本 fabric多机部署步骤（solo）
+https://www.jianshu.com/p/7dd4e1bee6d8
+
 
 Orderers: 即Consenter，共识插件，提供共识服务的网络节点，负责接受交易信息进行排序，以及对交易进行切割并打包，打包后返回批量交易。例如，使用Kafka或PBFT(SBFT)，单节点使用solo单节点。
 Peers: 维护账本的网络节点，通常在Hyperledger Fabric架构中存在各种角色，如endorser和committer。
