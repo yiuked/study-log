@@ -2,8 +2,7 @@
 `configtxgen`模块用来生成`orderer`的初始化文件和`channel`的初始化文件。
 ```
 Usage of ./configtxgen:
-  -asOrg string
-        Performs the config generation as a particular organization (by name), only including values in the write set that org (likely) has privilege to set
+  -asOrg string 以某个特定组织生成配置
   -channelCreateTxBaseProfile string
         Specifies a profile to consider as the orderer system channel current state to allow modification of non-application parameters during channel create tx generation. Only valid in conjuction with 'outputCreateChannelTx'.
   -channelID string
