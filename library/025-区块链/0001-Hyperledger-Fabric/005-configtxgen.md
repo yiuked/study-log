@@ -14,7 +14,7 @@ configtxgen（Configuration Transaction Generator）工具是一个很重要的�
 * 生成创建应用Channel需要的配置信息，并支持检查交易内容；
 * 生成节点与Channel关联的配置信息。
 
-默认情况下，configtxgen工具会依次尝试从$FABRIC_CFG_PATH环境变量指定的路径，当前路径和 /etc/hyperledger/fabric路径下查找configtx.yaml配置文件并读入，作为默认的配置。环境变量中以CONFIGTX_ 前缀开头的变量也会被作为配置项。
+默认情况下，configtxgen工具会依次尝试从`$FABRIC_CFG_PATH`环境变量指定的路径，当前路径和 /etc/hyperledger/fabric路径下查找configtx.yaml配置文件并读入，作为默认的配置。环境变量中以CONFIGTX_ 前缀开头的变量也会被作为配置项。
 
 `configtxgen`模块用来生成`orderer`的初始化文件和`channel`的初始化文件。
 ```
