@@ -45,6 +45,15 @@ Usage of ./configtxgen:
 ```
 > 在YAML文件中，&KEY所定位的字段信息，可以通过'<<：KEY'语法来引用，相当于导入定位部分的内容。
 
+1. 生成创世块
+```
+./configtxgen -channelID 36sn -profile SampleDevModeSolo -outputBlock ../channel-artifacts/mygenesis.block
+```
+```
+./configtxgen -profile SampleDevModeSolo -outputCreateChannelTx ../channel-artifacts/channel.tx -channelID 36sn
+```
+2. 生成channel配置
+
 ### 参考文献:
 1. [configtxgen生成通道配置](https://blog.csdn.net/xiaohuanglv/article/details/89033298)
 2. [Fabric实战（5）Fabric模块配置参数详解-configtxgen](https://blog.csdn.net/xiaohuanglv/article/details/89033298)
