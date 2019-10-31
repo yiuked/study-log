@@ -4,12 +4,23 @@
 ### 安装
 https://www.percona.com/doc/percona-xtrabackup/2.4/installation/apt_repo.html
 
-### 备份
+### 无压缩备份
 ```
 sudo innobackupex --user=dbuser --password=dbpass /var/backup/
 ```
 
-### 还原
+### 无压缩还原
+```
+# 请谨慎操作，该操作会删旧库
+sudo rm -rf /var/lib/mysql/*
+sudu cp -r /var/backup/20xxx/* /var/lib/mysql/
+
+innobackupex --defaults-file=/var/lib/mysql/backup-my.cnf --apply-log /var/lib/mysql
+## 修改数据库文件夹权限
+chown -R mysql:mysql /var/lib/mysql
+```
+
+### 有压缩还原
 查看mysql数据存储目录
 ```
 mysqld -v|grep data_dir
