@@ -47,12 +47,25 @@ Usage of ./configtxgen:
 
 1. 生成创世块
 ```
-./configtxgen -channelID 36sn -profile SampleDevModeSolo -outputBlock ../channel-artifacts/mygenesis.block
+./configtxgen -channelID 36sn -profile OneOrgsOrdererGenesis -outputBlock ../channel-artifacts/mygenesis.block
 ```
-```
-./configtxgen -profile SampleDevModeSolo -outputCreateChannelTx ../channel-artifacts/channel.tx -channelID 36sn
-```
+
 2. 生成channel配置
+```
+./configtxgen -profile OneOrgsChannel -outputCreateChannelTx ../channel-artifacts/channel.tx -channelID 36sn
+```
+
+3. 生成channel关联的锚点文件
+```
+./configtxgen -profile OneOrgsChannel -outputAnchorPeersUpdate ../channel-artifacts/anchors.tx -channelID 36sn -asOrg Org1MSP
+```
+
+4. 启动orderer(启动之前需要配置orderer.yaml)
+```
+# configtx.yaml与orderer.yaml必须在同一目录
+export FABRIC_CFG_PATH=/home/vagrant/fabric/config
+./orderer start
+```
 
 ### 参考文献:
 1. [configtxgen生成通道配置](https://blog.csdn.net/xiaohuanglv/article/details/89033298)
