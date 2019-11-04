@@ -67,6 +67,11 @@ export FABRIC_CFG_PATH=/home/vagrant/fabric/config
 ./orderer start
 ```
 
+5. 启用子节点
+```
+./peer node start
+```
+
 ### 参考文献:
 1. [configtxgen生成通道配置](https://blog.csdn.net/xiaohuanglv/article/details/89033298)
 2. [Fabric实战（5）Fabric模块配置参数详解-configtxgen](https://blog.csdn.net/xiaohuanglv/article/details/89033298)
