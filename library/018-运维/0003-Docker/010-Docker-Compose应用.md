@@ -13,3 +13,8 @@ docker-compose cannot execute binary file
 请检查docker的版本，可能是docker的版本与compose不一匹配导致，更新一下docker则可。
 fig可取代compose
 http://www.fig.sh/
+
+#### 合并yaml文件，并启动合并后的内容
+```
+docker-compose -f 1.yaml -f 2.yaml up -d 2>&1
+```
