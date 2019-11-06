@@ -72,6 +72,16 @@ export FABRIC_CFG_PATH=/home/vagrant/fabric/config
 ./peer node start
 ```
 
+6. 通过peer节点安装链码
+```
+./peer chaincode install -n example -v 0.0.1 -p chaincode/chaincode_example02
+```
+
+7. 实列化链码
+```
+./peer chaincode instantiate -o orderer.36sn.com:7050 -C first-channel -n example -v 0.0.1 -c '{"Args":["init","a","100","b","200"]}' -P 'OR ('\''Org1MSP.member'\'')'
+```
+
 ### 参考文献:
 1. [configtxgen生成通道配置](https://blog.csdn.net/xiaohuanglv/article/details/89033298)
 2. [Fabric实战（5）Fabric模块配置参数详解-configtxgen](https://blog.csdn.net/xiaohuanglv/article/details/89033298)
