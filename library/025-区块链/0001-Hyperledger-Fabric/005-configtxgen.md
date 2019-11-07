@@ -74,7 +74,7 @@ export FABRIC_CFG_PATH=/home/vagrant/fabric/config
 
 6. 通过peer节点创建channel管道
 ```
-peer channel create -o orderer.36sn.com:7500 -c first-channel -f ./channel-artifacts/channel.tx
+peer channel create -o orderer.36sn.com:7050 -c first-channel -f ./channel-artifacts/channel.tx
 ```
 
 7. 通过peer节点加入channel管道
@@ -82,27 +82,27 @@ peer channel create -o orderer.36sn.com:7500 -c first-channel -f ./channel-artif
 peer channel join -b mygenesis.block
 
 ```
-7. 通过peer节点更新锚点信息
+8. 通过peer节点更新锚点信息
 ```
-peer channel update -o orderer.36sn.com:7500 -c first-channel -f ./channel-artifacts/anchors.tx
+peer channel update -o orderer.36sn.com:7050 -c first-channel -f ./channel-artifacts/anchors.tx
 ```
 
-8. 通过peer节点安装链码
+9. 通过peer节点安装链码
 ```
 ./peer chaincode install -n example -v 0.0.1 -p chaincode/chaincode_example02
 ```
 
-9. 实列化链码
+10. 实列化链码
 ```
 ./peer chaincode instantiate -o orderer.36sn.com:7050 -C first-channel -n example -v 0.0.1 -c '{"Args":["init","a","100","b","200"]}' -P 'OR ('\''Org1MSP.member'\'')'
 ```
 
-10. 查询已安装的链码
+11. 查询已安装的链码
 ```
 peer chaincode list --installed
 ```
 
-11. 查询已实列化的链码
+12. 查询已实列化的链码
 ```
 peer chaincode -C first-channel list --instantiated
 ```
