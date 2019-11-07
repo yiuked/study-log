@@ -34,7 +34,7 @@ $dokcer inspect cfb
 ```
 $dokcer logs cfb
 ```
-查看容器输出内容
+查看容器标准输出的日志
 
 ```
 $dokcer export cfb>centos_cfb.tar
