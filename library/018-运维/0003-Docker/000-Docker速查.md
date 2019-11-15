@@ -46,3 +46,6 @@ $docker import centos_8d35.tar local/centos
 ```
 导入容器，准确的说应该是导入镜像，容器是无法导入的，当我们通过export导出容器快照，我们可
 以通过import导入为镜像。
+
+
+使用 docker network ls 查看docker容器中网络
