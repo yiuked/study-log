@@ -150,3 +150,7 @@ func main() {
 该客户端完成两个功能
   * 账户余额查询
   * 由A账户向B账户转款
+
+
+http://cw.hubwiz.com/card/c/fabric-chaincode-node/1/2/20/
+https://help.aliyun.com/document_detail/140545.html?spm=a2c4g.11186623.6.730.6d022f52aO4nFR
