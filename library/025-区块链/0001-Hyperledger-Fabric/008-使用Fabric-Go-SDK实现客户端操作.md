@@ -152,6 +152,11 @@ func main() {
   * 由A账户向B账户转款
 
 
+
+
+
 http://cw.hubwiz.com/card/c/fabric-chaincode-node/1/2/20/
 https://help.aliyun.com/document_detail/140545.html?spm=a2c4g.11186623.6.730.6d022f52aO4nFR
 https://www.jianshu.com/p/c155e738f4f6
+
+https://github.com/dhqiao/light/blob/ef925c9d47ecc1a24f8b551c9b0bb5d15db37a29/service/chain/ledger.go
