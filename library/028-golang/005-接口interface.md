@@ -75,7 +75,7 @@ func main() {
 ```
 
 ### 函数接口
-函数接口不能直接实列化，只能将其它函数转化为自己的类型
+1. 函数接口不能直接实列化，只能将其它函数转化为自己的类型
 ```
 // 函数定义为类型
 type FuncCaller func(interface{})
@@ -91,5 +91,29 @@ func main() {
 		fmt.Println("from function", v)
 	})
 	fu.Call("test")
+}
+```
+
+2.
+```
+type Cart struct{
+  Window string
+  Safe   int
+}
+
+type ContextOption func(c *Cart) error
+
+func WithWindow(window string) ContextOption {
+	return func(c *Cart) error {
+		c.Window = window
+		return nil
+	}
+}
+
+func WithSafe(safe string) ContextOption {
+	return func(c *Cart) error {
+		o.Safe = safe
+		return nil
+	}
 }
 ```
