@@ -158,3 +158,10 @@ name := Name{
 
 
 15. [Go语言的 MakeFile编写](https://studygolang.com/articles/14919?fr=sidebar)
+
+
+16. checksum mismatch
+```
+rm go.sum
+go mod vendor
+```
