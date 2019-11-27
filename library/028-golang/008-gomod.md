@@ -56,3 +56,62 @@ go env -w GOSUMDB="sum.golang.google.cn"
 go env -w GOSUMDB="sum.golang.org"
 ```
 -w 标记 要求一个或多个形式为 NAME=VALUE 的参数， 并且覆盖默认的设置
+
+
+### GOPROXY比较
+使用比较的多的代理有:
+```
+https://mirrors.aliyun.com/goproxy/
+https://goproxy.io/
+https://goproxy.cn/
+```
+
+其中，阿里云的代码更新速度是最快的,`goproxy.io`则可以通过包的路径查看以往所有发布的包:
+https://goproxy.io/github.com/hyperledger/fabric/@v/
+但更新速度不及阿里云，因此如果你自己上传mod到github.com建议设置为阿里云。
+
+### 包结构
+设计一个可以通过github.com引用的包，从go.mod开始
+```
+module github/xxx/mod
+
+go 1.11
+
+require ...
+```
+
+一个完整的包，在传到github.com，到我们实际引用时，包含以下内容:
+```
+v0.0.0-20191126081958-5b58008c4a75.info
+v0.0.0-20191126081958-5b58008c4a75.lock
+v0.0.0-20191126081958-5b58008c4a75.mod
+v0.0.0-20191126081958-5b58008c4a75.zip
+v0.0.0-20191126081958-5b58008c4a75.ziphash
+```
+包含五个文件，文件名分别由四部分组成，[版本号(可自定义)]-[日期(可自定义)]-[github版本号].[后缀]，
+当然，这种格式并不是固定的，这取决于我们编写的`go.mod`文件，如下:
+```
+module github/xxx/mod
+
+go 1.11
+
+require (
+	github.com/hyperledger/fabric v1.4.0
+	github.com/hyperledger/fabric-sdk-go v0.0.0-20190306235112-f198238ee7da
+)
+```
+对应的文件如下:
+```
+v1.4.0.info
+v1.4.0.lock
+v1.4.0.mod
+v1.4.0.zip
+v1.4.0.ziphash
+v0.0.0-20190306235112-f198238ee7da.info
+v0.0.0-20190306235112-f198238ee7da.lock
+v0.0.0-20190306235112-f198238ee7da.mod
+v0.0.0-20190306235112-f198238ee7da.zip
+v0.0.0-20190306235112-f198238ee7da.ziphash
+```
+总结，当存在具体的版本号tag时，以github.com上的版本tag可以直接引用，当无版本tag时，
+以`v0.0.0-20190306235112-[12位版本hash]`
