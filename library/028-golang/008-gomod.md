@@ -77,7 +77,10 @@ module github/xxx/mod
 
 go 1.11
 
-require ...
+require github.com/xx/mymod v0.0.1
+
+# 如果本地调试，可以通过替换的方式直接加载本地mod
+replace github.com/xx/mymod v0.0.1 => ./mymod
 ```
 
 一个完整的包，在传到github.com，到我们实际引用时，包含以下内容:
