@@ -165,3 +165,11 @@ name := Name{
 rm go.sum
 go mod vendor
 ```
+
+17. golang.org/x/net
+```
+mkdir -p $GOPATH/src/golang.org/x/
+cd $GOPATH/src/golang.org/x/
+git clone https://github.com/golang/net.git net
+go install net
+```
