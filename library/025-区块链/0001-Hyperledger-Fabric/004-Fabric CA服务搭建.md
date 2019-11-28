@@ -13,6 +13,8 @@ go get -u github.com/hyperledger/fabric-ca/cmd/fabric-ca-client
 >1.将在`$GOPATH/bin`中安装`fabric-ca-server`和`fabric-ca-client`二进制文件。  
  2.并克隆`fabric-ca`源码到`$GOPATH/src/github.com/hyperledger/fabric-ca/`目录下。
 
+>直接下载二进制文件点[这里](https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric-ca)
+
 ### 启动
 下载文件中，为我们提供了两种启动方式，一种是基于docker,另一种则是原生的启动方式。
 1. docker启动:
