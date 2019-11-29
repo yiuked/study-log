@@ -1,12 +1,25 @@
-## Fabric CA服务器搭建
->1. [Fabric CA服务器搭建](#Fabric CA服务器搭建 "Fabric CA服务器搭建")
-	1. [下载](#下载 "下载")
+# Fabric CA服务器搭建
+>1. [概述](#概述 "概述")
+1. [下载](#下载 "下载")
+1. [服务端](#服务端 "服务端")
 	1. [启动服务端](#启动服务端 "启动服务端")
 	1. [配置服务端](#配置服务端 "配置服务端")
-	1. [客户端申请证书](#客户端申请证书 "客户端申请证书")
+	1. [客户端](#客户端 "客户端")
+	1. [生成`Fabric CA`管理员凭证:](#生成`Fabric CA`管理员凭证: "生成`Fabric CA`管理员凭证:")
+	1. [设计联盟间的关系](#设计联盟间的关系 "设计联盟间的关系")
+1. [RESTful接口](#RESTful接口 "RESTful接口")
 	1. [参考文献:](#参考文献: "参考文献:")
 
-### 下载
+
+## 概述
+Fabric CA 用于管理参与联盟各组织下的MSP证书管理。它的工作流程分为：
+1. 设计联盟间的关系。
+2. 生成每个组织的MSP证书。
+3. 生成每个组织下的管理员MSP证书。
+4. 使用每个组织下的管理员生成相对的子账户。
+
+
+## 下载
 安装服务端
 ```
 go get -u github.com/hyperledger/fabric-ca/cmd/fabric-ca-server
@@ -21,6 +34,7 @@ go get -u github.com/hyperledger/fabric-ca/cmd/fabric-ca-client
 
 >直接下载二进制文件点[这里](https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric-ca)
 
+## 服务端
 ### 启动服务端
 下载文件中，为我们提供了两种启动方式，一种是基于docker,另一种则是原生的启动方式。
 1. docker启动:
@@ -81,16 +95,21 @@ datasource: root:rootpw@tcp(localhost:3306)/fabric_ca?parseTime=true&tls=custom
 ./fabric-ca-server start -b admin:admin --cafiles ca/ca1/fabric-ca-server-config.yaml
 ```
 
-### 加入客户端
+### 客户端
+客户端生成用户凭证的过程：
+```
+登录用户(register)->生成凭证(enroll)
+```
+### 生成`Fabric CA`管理员凭证:
 ```
 export FABRIC_CA_CLIENT_HOME=/home/vagrant/fabric-ca/client
-./fabric-ca-client enroll -u http://admin:admin@localhost:7054 -M $FABRIC_CA_CLIENT_HOME/msp
+./fabric-ca-client enroll -u http://admin:admin@localhost:7054 -M $FABRIC_CA_CLIENT_HOME/ca-files/admin
 ```
-客户端加入后，则可在客户端发起注册请求，当前我们使用的账户类似于超级管理员账户，
-它可以注册、注销任何`order、peer、user`类型的证书.
+`Fabric CA`管理员账户在`Fabric CA Server` 启动时，已经进行登记，因此可直接进行`enroll`生成凭证。
 
+### 设计联盟间的关系
 
-### RESTful接口
+## RESTful接口
 Fabric CA提供的`RESTful`接口，可通过`http/https`访问。
 
 | 请求URL | 方法类型 | 描述
@@ -104,3 +123,4 @@ Fabric CA提供的`RESTful`接口，可通过`http/https`访问。
 
 ### 参考文献:  
 1.[Fabric CA 官方用户指南（中文版）](https://blog.csdn.net/greedystar/article/details/80344984)
+2.[超级账本HyperLedger的Fabric-CA的使用（两个组织一个Orderer三个Peer)](https://blog.csdn.net/lijiaocn/article/details/80261529)
