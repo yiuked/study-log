@@ -90,6 +90,17 @@ export FABRIC_CA_CLIENT_HOME=/home/vagrant/fabric-ca/client
 它可以注册、注销任何`order、peer、user`类型的证书.
 
 
+### RESTful接口
+Fabric CA提供的`RESTful`接口，可通过`http/https`访问。
+
+| 请求URL | 方法类型 | 描述
+| :-------- | :------ | :---
+| /api/v1/cainfo | GET | 获取CA信息
+| /api/v1/enroll | POST | 获取注册证书
+| /api/v1/reenroll | POST | 重新获取注册证书
+| /api/v1/register | POST | 获取CA信息
+| /api/v1/revoke | POST | 用户注销
+| /api/v1/tcert | POST | 批量获取交易证书
 
 ### 参考文献:  
 1.[Fabric CA 官方用户指南（中文版）](https://blog.csdn.net/greedystar/article/details/80344984)
