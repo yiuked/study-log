@@ -1,4 +1,10 @@
 ## Fabric CA服务器搭建
+>1. [Fabric CA服务器搭建](#Fabric CA服务器搭建 "Fabric CA服务器搭建")
+	1. [下载](#下载 "下载")
+	1. [启动服务端](#启动服务端 "启动服务端")
+	1. [配置服务端](#配置服务端 "配置服务端")
+	1. [客户端申请证书](#客户端申请证书 "客户端申请证书")
+	1. [参考文献:](#参考文献: "参考文献:")
 
 ### 下载
 安装服务端
@@ -15,7 +21,7 @@ go get -u github.com/hyperledger/fabric-ca/cmd/fabric-ca-client
 
 >直接下载二进制文件点[这里](https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric-ca)
 
-### 启动
+### 启动服务端
 下载文件中，为我们提供了两种启动方式，一种是基于docker,另一种则是原生的启动方式。
 1. docker启动:
 ```
@@ -28,7 +34,7 @@ cd $GOPATH/bin
 fabric-ca-server start -b admin:adminpw
 ```
 
-### 配置
+### 配置服务端
 初始化后，会生成以下目录结构:
 ```
 fabric-ca-server init -b admin:adminpw
@@ -72,14 +78,17 @@ datasource: root:rootpw@tcp(localhost:3306)/fabric_ca?parseTime=true&tls=custom
 默认读取当前目录下的`fabric-ca-server-config.yaml`文件，如果需要读取其它的配置文件，
 需要在启动时，设置对应的配置文件:
 ```
-./fabric-ca-server start -b admin:adminpw --cafiles ca/ca1/fabric-ca-server-config.yaml
+./fabric-ca-server start -b admin:admin --cafiles ca/ca1/fabric-ca-server-config.yaml
 ```
 
-### 客户端申请证书
+### 加入客户端
 ```
 export FABRIC_CA_CLIENT_HOME=/home/vagrant/fabric-ca/client
-fabric-ca-client enroll -u http://admin:adminc@localhost:7054 -M $FABRIC_CA_CLIENT_HOME/org1
+fabric-ca-client enroll -u http://admin:admin@localhost:7054 -M $FABRIC_CA_CLIENT_HOME/msp
 ```
+客户端加入后，则可在客户端发起注册请求，当前我们使用的账户类似于超级管理员账户，
+它可以注册、注销任何`order、peer、user`类型的证书.
+
 
 ### 参考文献:  
 1.[Fabric CA 官方用户指南（中文版）](https://blog.csdn.net/greedystar/article/details/80344984)
