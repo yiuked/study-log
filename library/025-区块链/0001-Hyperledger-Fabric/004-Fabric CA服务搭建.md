@@ -84,10 +84,11 @@ datasource: root:rootpw@tcp(localhost:3306)/fabric_ca?parseTime=true&tls=custom
 ### 加入客户端
 ```
 export FABRIC_CA_CLIENT_HOME=/home/vagrant/fabric-ca/client
-fabric-ca-client enroll -u http://admin:admin@localhost:7054 -M $FABRIC_CA_CLIENT_HOME/msp
+./fabric-ca-client enroll -u http://admin:admin@localhost:7054 -M $FABRIC_CA_CLIENT_HOME/msp
 ```
 客户端加入后，则可在客户端发起注册请求，当前我们使用的账户类似于超级管理员账户，
 它可以注册、注销任何`order、peer、user`类型的证书.
+
 
 
 ### 参考文献:  
