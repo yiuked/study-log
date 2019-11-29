@@ -69,6 +69,13 @@ db:
 type: mysql
 datasource: root:rootpw@tcp(localhost:3306)/fabric_ca?parseTime=true&tls=custom
 ```
+默认读取当前目录下的`fabric-ca-server-config.yaml`文件，如果需要读取其它的配置文件，
+需要在启动时，设置对应的配置文件:
+```
+fabric-ca-server start -b admin:adminpw --cafiles ca/ca1/fabric-ca-server-config.yaml
+```
+
+
 
 ### 参考文献:  
 1.[Fabric CA 官方用户指南（中文版）](https://blog.csdn.net/greedystar/article/details/80344984)
