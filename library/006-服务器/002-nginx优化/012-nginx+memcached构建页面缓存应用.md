@@ -11,10 +11,13 @@ memcached
 注意：需要设置d`efault_type`，否则可能会显示不正常。
 
 1. 模块指令说明：
-memcached_bind
-语法: memcached_bind address | off;
-默认值: none
-配置段: http, server, location
+`memcached_bind`
+语法:
+```
+memcached_bind address | off;
+```
+默认值: `none`
+配置段: `http, server, location`
 指定从哪个IP来连接memcached服务器
 
 memcached_buffer_size

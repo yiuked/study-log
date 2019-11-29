@@ -20,8 +20,8 @@ $ composer global require fxp/composer-asset-plugin:"^1.2.0" --no-plugins
 
 如果出现
 [ReflectionException]                                                   
-Class Fxp\Composer\AssetPlugin\Repository\NpmRepository does not exist                                                                                                                                                                                            
-[ErrorException]                                                                                                                                                                          
+Class Fxp\Composer\AssetPlugin\Repository\NpmRepository does not exist                                                            
+[ErrorException]                                          
 Declaration of Fxp\Composer\AssetPlugin\Repository\AbstractAssetsRepository::whatProvides(Composer\DependencyResolver\Pool $pool, $name) should be compatible with Composer\Repository\C  
 omposerRepository::whatProvides(Composer\DependencyResolver\Pool $pool, $name, $bypassFilters = false) 
 

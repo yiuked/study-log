@@ -1,66 +1,70 @@
-Nginx 的配置文件使用的就是一门微型的编程语言，
-许多真实世界里的 Nginx 配置文件其实就是一个一个的小程序。
-当然，是不是“图灵完全的”暂且不论，至少据我观察，
-它在设计上受 Perl 和 Bourne Shell 这两种语言的影响很大。
-在这一点上，相比 Apache 和 Lighttpd 等其他 Web 服务器的配置记法，
-不能不说算是 Nginx 的一大特色了。既然是编程语言，一般也就少不了“变量”这种东西
-（当然，Haskell 这样奇怪的函数式语言除外了）。
+`Nginx` 的配置文件使用的就是一门微型的编程语言，许多真实世界里的 Nginx 配置文件其实就是一个一个的小程序。
+当然，是不是“图灵完全的”暂且不论，至少据我观察，它在设计上受 `Perl` 和 `Bourne Shell` 这两种语言的影响很大。
+在这一点上，相比 `Apache` 和 `Lighttpd` 等其他 `Web` 服务器的配置记法，不能不说算是 `Nginx` 的一大特色了。
+既然是编程语言，一般也就少不了“变量”这种东西`（当然，Haskell` 这样奇怪的函数式语言除外了）。  
 
-熟悉 Perl、Bourne Shell、C/C++ 等命令式编程语言的朋友肯定知道，变量说白了就是存放“值”的容器。
-而所谓“值”，在许多编程语言里，既可以是 3.14 这样的数值，也可以是 hello world 这样的字符串，
+熟悉 `Perl、Bourne Shell、C/C++` 等命令式编程语言的朋友肯定知道，变量说白了就是存放“值”的容器。
+而所谓“值”，在许多编程语言里，既可以是 3.14 这样的数值，也可以是 `hello world` 这样的字符串，
 甚至可以是像数组、哈希表这样的复杂数据结构。然而，
-在 Nginx 配置中，变量只能存放一种类型的值，
+在 `Nginx` 配置中，变量只能存放一种类型的值，
 因为也只存在一种类型的值，那就是字符串。
 
-比如我们的 nginx.conf 文件中有下面这一行配置：
-set $a "hello world";
+比如我们的` nginx.conf` 文件中有下面这一行配置：
+`set $a "hello world";`
 
-我们使用了标准 ngx_rewrite 模块的 set 配置指令对变量 $a 进行了赋值操作。
-特别地，我们把字符串 hello world 赋给了它。
+我们使用了标准 `ngx_rewrite` 模块的 set 配置指令对变量 `$a` 进行了赋值操作。
+特别地，我们把字符串 h`ello world` 赋给了它。
 
-我们看到，Nginx 变量名前面有一个 $ 符号，这是记法上的要求。
-所有的 Nginx 变量在 Nginx 配置文件中引用时都须带上 $ 前缀。这种表示方法和 Perl、PHP 这些语言是相似的。
+`我们看到，Nginx` 变量名前面有一个 `$` 符号，这是记法上的要求。
+所有的 `Nginx` 变量在 `Nginx` 配置文件中引用时都须带上 `$` 前缀。这种表示方法和 `Perl、PHP` 这些语言是相似的。
 
-虽然 $ 这样的变量前缀修饰会让正统的 Java 和 C# 程序员不舒服，
+虽然 `$` 这样的变量前缀修饰会让正统的 `Java` 和 `C#` 程序员不舒服，
 但这种表示方法的好处也是显而易见的，那就是可以直接把变量嵌入到字符串常量中以构造出新的字符串：
+
+```
 set $a hello;
 set $b "$a, $a";
-
-这里我们通过已有的 Nginx 变量 $a 的值，来构造变量 $b 的值，于是这两条指令顺序执行完之后，$a 的值是 hello，而 $b 的值则是 hello, hello. 这种技术在 Perl 世界里被称为“变量插值”（variable interpolation），它让专门的字符串拼接运算符变得不再那么必要。我们在这里也不妨采用此术语。
+```
+这里我们通过已有的 `Nginx` 变量 `$a` 的值，来构造变量 `$b` 的值，于是这两条指令顺序执行完之后，`$a` 的值是 `hello` ，而 `$b` 的值则是 `hello`, `hello`. 这种技术在 `Perl` 世界里被称为“变量插值”（`variable interpolation`），它让专门的字符串拼接运算符变得不再那么必要。我们在这里也不妨采用此术语。
 
 我们来看一个比较完整的配置示例：
-server {
-listen 8080;
-location /test {
-set $foo hello;
-echo "foo: $foo";
-}
-}
 
-这个例子省略了 nginx.conf 配置文件中最外围的 http 配置块以及 events 配置块。
-使用 curl 这个 HTTP 客户端在命令行上请求这个 /test 接口，我们可以得到
+```
+server {
+  listen 8080;
+  location /test {
+    set $foo hello;
+    echo "foo: $foo";
+  }
+}
+```
+这个例子省略了 `nginx.conf` 配置文件中最外围的 `http` 配置块以及 `events` 配置块。
+使用 `curl` 这个 `HTTP` 客户端在命令行上请求这个 `/test` 接口，我们可以得到
+```
 $ curl 'http://localhost:8080/test'
 foo: hello
+```
+这里我们使用第三方 `ngx_echo` 模块的 `echo` 配置指令将 `$foo` 变量的值作为当前请求的响应体输出。
 
-这里我们使用第三方 ngx_echo 模块的 echo 配置指令将 $foo 变量的值作为当前请求的响应体输出。
+我们看到，`echo` 配置指令的参数也支持“变量插值”。不过，需要说明的是，并非所有的配置指令都支持“变量插值”。事实上，指令参数是否允许“变量插值”，取决于该指令的实现模块。
 
-我们看到，echo 配置指令的参数也支持“变量插值”。不过，需要说明的是，并非所有的配置指令都支持“变量插值”。事实上，指令参数是否允许“变量插值”，取决于该指令的实现模块。
-
-如果我们想通过 echo 指令直接输出含有“美元符”（$）的字符串，那么有没有办法把特殊的 $ 字符给转义掉呢？答案是否定的（至少到目前最新的 Nginx 稳定版 1.0.10）。不过幸运的是，我们可以绕过这个限制，比如通过不支持“变量插值”的模块配置指令专门构造出取值为 $ 的 Nginx 变量，然后再在 echo 中使用这个变量。看下面这个例子：
+如果我们想通过 `echo` 指令直接输出含有“美元符”（`$`）的字符串，那么有没有办法把特殊的 `$` 字符给转义掉呢？答案是否定的（至少到目前最新的 `Nginx` 稳定版 `1.0.10`）。不过幸运的是，我们可以绕过这个限制，比如通过不支持“变量插值”的模块配置指令专门构造出取值为 `$` 的 `Nginx` 变量，然后再在 `echo` 中使用这个变量。看下面这个例子：
+```  
 geo $dollar {
-default "$";
+  default "$";
 }
 server {
-listen 8080;
-location /test {
-echo "This is a dollar sign: $dollar";
+  listen 8080;
+    location /test {
+    echo "This is a dollar sign: $dollar";
+  }
 }
-}
-
+```
 测试结果如下：
+```
 $ curl 'http://localhost:8080/test'
 This is a dollar sign: $
-
+```
 这里用到了标准模块 ngx_geo 提供的配置指令 geo 来为变量 $dollar 赋予字符串 “$”，这样我们在下面需要使用美元符的地方，就直接引用我们的 $dollar 变量就可以了。其实 ngx_geo 模块最常规的用法是根据客户端的 IP 地址对指定的 Nginx 变量进行赋值，这里只是借用它以便“无条件地”对我们的 $dollar 变量赋予“美元符”这个值。
 
 在“变量插值”的上下文中，还有一种特殊情况，即当引用的变量名之后紧跟着变量名的构成字符时（比如后跟字母、数字以及下划线），我们就需要使用特别的记法来消除歧义，例如：
@@ -108,14 +112,14 @@ echo "foo = [$foo]";
 下面是在命令行上用 curl 工具访问这两个接口的结果：
 $ curl 'http://localhost:8080/foo'
 foo = []
- 
+
 $ curl 'http://localhost:8080/bar'
 foo = [32]
- 
+
 $ curl 'http://localhost:8080/foo'
 foo = []
 
- 
+
 
 从这个例子我们可以看到，set 指令因为是在 location /bar 中使用的，所以赋值操作只会在访问 /bar 的请求中执行。而请求 /foo 接口时，我们总是得到空的 $foo 值，因为用户变量未赋值就输出的话，得到的便是空字符串。
 
@@ -129,12 +133,12 @@ nginx变量使用方法详解(2)
 关于 Nginx 变量的另一个常见误区是认为变量容器的生命期，是与 location 配置块绑定的。其实不然。我们来看一个涉及“内部跳转”的例子：
 server {
     listen 8080;
- 
+
     location /foo {
         set $a hello;
         echo_exec /bar;
     }
- 
+
     location /bar {
         echo "a = [$a]";
     }
@@ -150,14 +154,14 @@ a = [hello]
 
 从上面这个例子我们看到，一个请求在其处理过程中，即使经历多个不同的 location 配置块，它使用的还是同一套 Nginx 变量的副本。这里，我们也首次涉及到了“内部跳转”这个概念。值得一提的是，标准 ngx_rewrite 模块的 rewrite 配置指令其实也可以发起“内部跳转”，例如上面那个例子用 rewrite 配置指令可以改写成下面这样的形式：
 server {
- 
+
     listen 8080;
- 
+
     location /foo {
         set $a hello;
         rewrite ^ /bar;
     }
- 
+
     location /bar {
         echo "a = [$a]";
     }
@@ -179,11 +183,11 @@ location /test {
 $ curl 'http://localhost:8080/test'
 uri = /test
 request_uri = /test
- 
+
 $ curl 'http://localhost:8080/test?a=3&b=4'
 uri = /test
 request_uri = /test?a=3&b=4
- 
+
 $ curl 'http://localhost:8080/test/hello%20world?a=3&b=4'
 uri = /test/hello world
 request_uri = /test/hello%20world?a=3&b=4
@@ -198,11 +202,11 @@ location /test {
 $ curl 'http://localhost:8080/test'
 name:
 class:
- 
+
 $ curl 'http://localhost:8080/test?name=Tom&class=3'
 name: Tom
 class: 3
- 
+
 $ curl 'http://localhost:8080/test?name=hello%20world&class=9'
 name: hello%20world
 class: 9
@@ -211,7 +215,7 @@ class: 9
 $ curl 'http://localhost:8080/test?NAME=Marry'
 name: Marry
 class:
- 
+
 $ curl 'http://localhost:8080/test?Name=Jimmy'
 name: Jimmy
 class:
@@ -263,7 +267,7 @@ location /test {
 $ curl 'http://localhost:8080/test'
 original args:
 args: a=3&b=4
- 
+
 $ curl 'http://localhost:8080/test?a=0&b=1&c=2'
 original args: a=0&b=1&c=2
 args: a=3&b=4
@@ -288,15 +292,15 @@ a: 5
 我们再来看一个通过修改 $args 变量影响标准的 HTTP 代理模块 ngx_proxy 的例子：
 server {
     listen 8080;
- 
+
     location /test {
         set $args "foo=1&bar=2";
         proxy_pass http://127.0.0.1:8081/args;
     }
 }
- 
+
 server {
- 
+
     listen 8081;
     location /args {
         echo "args: $args";
@@ -323,11 +327,11 @@ public:
     const string get_name() {
         return m_name;
     }
- 
+
     void set_name(const string name) {
         m_name = name;
     }
- 
+
 private:
     string m_name;
 };
@@ -507,7 +511,7 @@ location /main {
     echo "main args: $args";
     echo_location /sub "a=1&b=2";
 }
- 
+
 location /sub {
     echo "sub args: $args";
 }
@@ -525,7 +529,7 @@ location /main {
     echo "main uri: $uri";
     echo_location /sub;
 }
- 
+
 location /sub {
     echo "sub uri: $uri";
 }
@@ -544,7 +548,7 @@ location /main {
     echo "main method: $request_method";
     echo_location /sub;
 }
- 
+
 location /sub {
     echo "sub method: $request_method";
 }
@@ -563,7 +567,7 @@ location /main {
     echo_location /sub;
     echo "main method: $request_method";
 }
- 
+
 location /sub {
     echo "sub method: $request_method";
 }
@@ -580,7 +584,7 @@ location /main {
     echo "main method: $echo_request_method";
     echo_location /sub;
 }
- 
+
 location /sub {
     echo "sub method: $echo_request_method";
 }
@@ -600,15 +604,15 @@ map $uri $tag {
     /main       1;
     /sub        2;
 }
- 
+
 server {
     listen 8080;
- 
+
     location /main {
         auth_request /sub;
         echo "main tag: $tag";
     }
- 
+
     location /sub {
         echo "sub tag: $tag";
     }
@@ -635,7 +639,7 @@ nginx变量使用方法详解(7)
 location /foo {
     echo "foo = [$foo]";
 }
- 
+
 location /bar {
     set $foo 32;
     echo "foo = [$foo]";
@@ -798,6 +802,6 @@ nginx变量使用方法详解(8)
 
 在下一个系列的教程，即 Nginx 配置指令的执行顺序系列 中，我们将深入探讨 Nginx 配置指令的执行顺序以及请求的各个处理阶段，因为很多 Nginx 用户都搞不清楚他们书写的众多配置指令之间究竟是按照何种时间顺序执行的，也搞不懂为什么这些指令实际执行的顺序经常和配置文件里的书写顺序大相径庭。
 
- 
+
 
 [link_post name=”nginx%e5%8f%98%e9%87%8f%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95%e8%af%a6%e8%a7%a31″]|[link_post name=”nginx%e5%8f%98%e9%87%8f%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95%e8%af%a6%e8%a7%a32″]|[link_post name=”nginx%e5%8f%98%e9%87%8f%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95%e8%af%a6%e8%a7%a33″]|[link_post name=”nginx%e5%8f%98%e9%87%8f%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95%e8%af%a6%e8%a7%a34″]|[link_post name=”nginx%e5%8f%98%e9%87%8f%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95%e8%af%a6%e8%a7%a35″]|[link_post name=”nginx%e5%8f%98%e9%87%8f%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95%e8%af%a6%e8%a7%a36″]|[link_post name=”nginx%e5%8f%98%e9%87%8f%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95%e8%af%a6%e8%a7%a37″]|[link_post name=”nginx%e5%8f%98%e9%87%8f%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95%e8%af%a6%e8%a7%a38″]

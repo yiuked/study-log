@@ -130,3 +130,5 @@ COMMIT;
 ```
 show status like '%lock%'
 ```
+
+* MYSQL的DML操作除`SELECT`,如`INSERT,DELETE,UPDATE`都是自带事务的的语句.

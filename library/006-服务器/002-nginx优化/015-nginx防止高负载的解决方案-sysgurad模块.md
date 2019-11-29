@@ -2,22 +2,27 @@
 1. 安装nginx sysguard模块
 
 1.1 下载文件
+```
 # wget http://nginx.org/download/nginx-1.4.2.tar.gz
 # wget https://github.com/alibaba/nginx-http-sysguard/archive/master.zip \
 -O nginx-http-sysguard-master.zip
 # unzip nginx-http-sysguard-master.zip
 # tar -xzvf nginx-1.4.2.tar.gz
-
-1.2 打sysgrard补丁
+```
+* 打sysgrard补丁
 这边没找到nginx-1.4.2对应的补丁，只有1.2.9和1.3.9的，索性试试1.3.9的吧，应该差不多.
+```
 # cd nginx-1.4.2
 # patch -p1 < ../nginx-http-sysguard-master/nginx_sysguard_1.3.9.patch
-
-1.3 安装nginx
+```
+* 安装nginx
+```
 # ./configure --prefix=/usr/local/nginx-1.4.2 \
 --with-http_stub_status_module --add-module=../nginx-http-sysguard
 # make
 # make install
+```
+
 2. sysguard指令
 
 语法: sysguard [on | off]
@@ -44,38 +49,42 @@
 默认值: sysguard_log_level error
 配置段: http, server, location
 定义sysguard的日志级别
+
 3. sysguard使用实例
 
 3.1 nginx配置
+```
 server {
     listen       80;
     server_name  www.ttlsa.com www.heytool.com;
     access_log  /data/logs/nginx/www.ttlsa.com.access.log  main;
- 
+
     index index.html index.php index.html;
     root /data/site/www.ttlsa.com;
- 
+
     sysguard on;
-    
+
 # 为了方便测试，load阀值为0.01，平时大家一般都在5或10+
     sysguard_load load=0.01 action=/loadlimit;
     sysguard_mem swapratio=20% action=/swaplimit;
- 
+
     location / {
- 
+
     }
- 
+
     location /loadlimit {
         return 503;
     }
- 
+
     location /swaplimit {
         return 503;
     }
 }
+```
 
 3.2 测试
 负载OK的情况下,访问nginx
+```
 # uptime
  16:23:37 up 6 days,  8:04,  2 users,  load average: 0.00, 0.01, 0.05
 # curl -I www.ttlsa.com
@@ -85,10 +94,11 @@ Date: Thu, 03 Oct 2013 16:27:13 GMT
 Content-Type: text/html
 Content-Length: 162
 Connection: keep-alive
-
+```
 因为站点下没有文件，所以返回了403，实际上没关系.
 
 负载超过阀值的情况下，访问nginx
+```
 # uptime
  16:25:59 up 6 days,  8:06,  2 users,  load average: 0.05, 0.04, 0.05
 # curl -I www.ttlsa.com
@@ -98,7 +108,7 @@ Date: Thu, 03 Oct 2013 16:26:19 GMT
 Content-Type: text/html
 Content-Length: 206
 Connection: keep-alive
-
+```
 swap超过阀值的功能我就不再测试了。大家回家可以自己动手测试一下.
 结束语
 

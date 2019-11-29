@@ -1,7 +1,0 @@
-@echo off
-cd /d D:\laravel\vagrant\Homestead
-vagrant halt
-set /p time=倒数关机秒数:
-Shutdown -s -t %time%
-pause
-exit
