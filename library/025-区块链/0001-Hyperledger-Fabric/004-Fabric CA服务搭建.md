@@ -102,12 +102,14 @@ datasource: root:rootpw@tcp(localhost:3306)/fabric_ca?parseTime=true&tls=custom
 ```
 ### 生成`Fabric CA`管理员凭证:
 ```
-export FABRIC_CA_CLIENT_HOME=/home/vagrant/fabric-ca/client
-./fabric-ca-client enroll -u http://admin:admin@localhost:7054 -M $FABRIC_CA_CLIENT_HOME/ca-files/admin
+export FABRIC_CA_CLIENT_HOME=/home/vagrant/fabric-ca/client/ca-file/admin
+./fabric-ca-client enroll -u http://admin:admin@localhost:7054
 ```
 `Fabric CA`管理员账户在`Fabric CA Server` 启动时，已经进行登记，因此可直接进行`enroll`生成凭证。
 
 ### 设计联盟间的关系
+
+
 
 ## RESTful接口
 Fabric CA提供的`RESTful`接口，可通过`http/https`访问。
