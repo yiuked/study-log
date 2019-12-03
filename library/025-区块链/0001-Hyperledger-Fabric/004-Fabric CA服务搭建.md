@@ -92,6 +92,7 @@ datasource: root:rootpw@tcp(localhost:3306)/fabric_ca?parseTime=true&tls=custom
 默认读取当前目录下的`fabric-ca-server-config.yaml`文件，如果需要读取其它的配置文件，
 需要在启动时，设置对应的配置文件:
 ```
+export FABRIC_CA_SERVER_HOME=/home/vagrant/fabric-ca/server/ca-files
 ./fabric-ca-server start -b admin:admin --cafiles ca/ca1/fabric-ca-server-config.yaml
 ```
 
@@ -126,3 +127,4 @@ Fabric CA提供的`RESTful`接口，可通过`http/https`访问。
 ### 参考文献:  
 1.[Fabric CA 官方用户指南（中文版）](https://blog.csdn.net/greedystar/article/details/80344984)
 2.[超级账本HyperLedger的Fabric-CA的使用（两个组织一个Orderer三个Peer)](https://blog.csdn.net/lijiaocn/article/details/80261529)
+3.[Hyperledger Fabric 1.4 特性调研之Operations Service（二）](https://www.jianshu.com/p/6cf812a9dc50)
