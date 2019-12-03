@@ -1,6 +1,10 @@
 ### Docker compose 应用
 #### 安装
-Mac下，如果安装了docker则需要再安装了，默认已集成了compose
+Mac下，如果安装了docker则需要再安装了，默认已集成了compose,
+centos下安装docker-compose:
+```
+yum install docker-compose
+```
 
 #### 操作
 如果修改了docker-compose.yml文件，需要运行`docker-compose down`后，再运行`docker-compose up -d`来进行重构。
