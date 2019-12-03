@@ -69,6 +69,7 @@ https://goproxy.cn/
 其中，阿里云的代码更新速度是最快的,`goproxy.io`则可以通过包的路径查看以往所有发布的包:
 https://goproxy.io/github.com/hyperledger/fabric/@v/
 但更新速度不及阿里云，因此如果你自己上传mod到github.com建议设置为阿里云。
+> 如果出现不能验证问题,请关闭验证服务:`go env -w GOSUMDB=off`
 
 ### 包结构
 设计一个可以通过github.com引用的包，从go.mod开始
