@@ -96,20 +96,39 @@ export FABRIC_CA_SERVER_HOME=/home/vagrant/fabric-ca/server/ca-files
 ./fabric-ca-server start -b admin:admin --cafiles ca/ca1/fabric-ca-server-config.yaml
 ```
 
-### 客户端
-客户端生成用户凭证的过程：
+## 客户端
+### FABRIC_CA_CLIENT_HOME
 ```
-登录用户(register)->生成凭证(enroll)
+export FABRIC_CA_CLIENT_HOME=/home/vagrant/fabric-ca/client/ca-file
 ```
-### 生成`Fabric CA`管理员凭证:
+`fabric-ca-client`会读取`FABRIC_CA_CLIENT_HOME`下面的`fabric-ca-client-config.yaml`作为配置文件
+并会读取配置文件中`mspdir`目录的凭证作为当前操作的凭证，若未设置此目录，
+则在当前生成`fabric-ca-client-config.yaml`。
+
+### 生成管理员凭证
+在进行客户端的一系列操作前，首先需要获得管理员凭证,获取一个用户的凭证过程如下：
 ```
-export FABRIC_CA_CLIENT_HOME=/home/vagrant/fabric-ca/client/ca-file/admin
-./fabric-ca-client enroll -u http://admin:admin@localhost:7054
+注册用户(register)->返回注册信息(password)->获取凭证(enroll)->通过凭证执行其它操作
+```
+而管理员账户为内置用户，在服务端进行初始化时已经注册，因此可以直接进行enroll获取凭证:
+```
+./fabric-ca-client enroll -u http://admin:admin@localhost:7054 -M ${FABRIC_CA_CLIENT_HOME}/admin
 ```
 `Fabric CA`管理员账户在`Fabric CA Server` 启动时，已经进行登记，因此可直接进行`enroll`生成凭证。
 
 ### 设计联盟间的关系
-
+联盟成员是联盟基础，而`Fabric CA`正是为联盟成员服务，因此在续费我们的操作之前我们先来设计联盟之间的关系：
+```
+./fabric-ca-client affiliation list   # 查询联盟列表
+./fabric-ca-client affiliation add    # 添加联盟
+./fabric-ca-client affiliation remove # 删除联盟（删除联盟需要服务端设置允许删除,具体怎么设，文档没说，不行可以删除数据库嘛`affiliations`表）
+```
+联盟可以设置子联盟,子联盟则是以父联盟做前缀，如下:
+```
+./fabric-ca-client affiliation add com.36sn       # 父联盟
+./fabric-ca-client affiliation add com.36sn.org1  # 子联盟
+./fabric-ca-client affiliation add com.36sn.org2  # 子联盟
+```
 
 
 ## RESTful接口
