@@ -51,9 +51,9 @@ fabric-ca-server start -b admin:adminpw
 ### 配置服务端
 初始化后，会生成以下目录结构:
 ```
-fabric-ca-server init -b admin:adminpw
+fabric-ca-server init -b admin:adminpw -H `pwd`/ca-files
 ...
-tree ./
+tree ./ca-files
 ├── ca-cert.pem                           # 生成的证书文件
 ├── fabric-ca-server
 ├── fabric-ca-server-config.yaml          # CA server配置文件
@@ -92,8 +92,7 @@ datasource: root:rootpw@tcp(localhost:3306)/fabric_ca?parseTime=true&tls=custom
 默认读取当前目录下的`fabric-ca-server-config.yaml`文件，如果需要读取其它的配置文件，
 需要在启动时，设置对应的配置文件:
 ```
-export FABRIC_CA_SERVER_HOME=/home/vagrant/fabric-ca/server/ca-files
-./fabric-ca-server start -b admin:admin --cafiles ca/ca1/fabric-ca-server-config.yaml
+./fabric-ca-server start -b admin:admin -H `pwd`/ca-files
 ```
 
 ## 客户端
