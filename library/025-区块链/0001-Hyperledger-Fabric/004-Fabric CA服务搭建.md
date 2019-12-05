@@ -54,7 +54,7 @@ fabric-ca-server start -b admin:adminpw
 fabric-ca-server init -b admin:adminpw -H `pwd`/ca-files
 ...
 tree ./ca-files
-├── ca-cert.pem                           # 生成的证书文件
+├── ca-cert.pem                           # 生成的证书文件与客户端的`cacerts/`下文件一致，用于建立TLS通道
 ├── fabric-ca-server
 ├── fabric-ca-server-config.yaml          # CA server配置文件
 ├── fabric-ca-server.db                   # 存储发放证书信息的sqlite3数据库
@@ -172,3 +172,4 @@ Fabric CA提供的`RESTful`接口，可通过`http/https`访问。
 2. [超级账本HyperLedger的Fabric-CA的使用（两个组织一个Orderer三个Peer)](https://blog.csdn.net/lijiaocn/article/details/80261529)
 3. [Hyperledger Fabric 1.4 特性调研之Operations Service（二）](https://www.jianshu.com/p/6cf812a9dc50)
 https://www.cnblogs.com/llongst/p/9786024.html
+https://blog.csdn.net/weixin_34419326/article/details/89058910
