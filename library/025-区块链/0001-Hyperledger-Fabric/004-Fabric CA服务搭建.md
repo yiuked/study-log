@@ -139,7 +139,7 @@ tree ./msp
 ```
 ./fabric-ca-client affiliation list   # 查询联盟列表
 ./fabric-ca-client affiliation add    # 添加联盟
-./fabric-ca-client affiliation remove # 删除联盟（删除联盟需要服务端设置允许删除,具体怎么设，文档没说，不行可以删除数据库嘛`affiliations`表）
+./fabric-ca-client affiliation remove # 删除联盟（删除联盟需要服务端设置允许删除,--cfg.affiliations.allowremove --cfg.identities.allowremove）
 ```
 联盟可以设置子联盟,子联盟则是以父联盟做前缀，如下:
 ```
@@ -171,3 +171,4 @@ Fabric CA提供的`RESTful`接口，可通过`http/https`访问。
 1. [Fabric CA 官方用户指南（中文版）](https://blog.csdn.net/greedystar/article/details/80344984)
 2. [超级账本HyperLedger的Fabric-CA的使用（两个组织一个Orderer三个Peer)](https://blog.csdn.net/lijiaocn/article/details/80261529)
 3. [Hyperledger Fabric 1.4 特性调研之Operations Service（二）](https://www.jianshu.com/p/6cf812a9dc50)
+https://www.cnblogs.com/llongst/p/9786024.html
