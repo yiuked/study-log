@@ -105,6 +105,25 @@ export FABRIC_CA_CLIENT_HOME=/home/vagrant/fabric-ca/client/ca-file
 并会读取配置文件中`mspdir`目录的凭证作为当前操作的凭证，若未设置此目录，
 则在当前生成`fabric-ca-client-config.yaml`。
 
+### 建立SSL通信
+为了保障客户端与服务端的数据传输安装，我们可以在操作之前获取SSL通信的证书文件。
+```
+./fabric-ca-client getcainfo -u http://localhost:7054 -M ./msp
+tree ./msp
+└── msp
+    ├── cacerts
+    │   └── localhost-7054.pem
+    ├── IssuerPublicKey
+    ├── IssuerRevocationPublicKey
+    ├── keystore
+    ├── signcerts
+    └── user
+```    
+> 获取的证书文件与后面获取每个账户的`cacerts`是一样的。
+
+获得ca证书后，若服务端已开户TLS，则后续的操作都转成https,且加上参数`--tls.certfiles=./msp/cacerts/localhost-7054.pem`则可。
+（后续的演示不再添加TLS）
+
 ### 生成管理员凭证
 在进行客户端的一系列操作前，首先需要获得管理员凭证,获取一个用户的凭证过程如下：
 ```
@@ -128,6 +147,12 @@ export FABRIC_CA_CLIENT_HOME=/home/vagrant/fabric-ca/client/ca-file
 ./fabric-ca-client affiliation add com.36sn       # 父联盟
 ./fabric-ca-client affiliation add com.36sn.org1  # 子联盟
 ./fabric-ca-client affiliation add com.36sn.org2  # 子联盟
+```
+
+### 生成联盟用户凭证
+前面强调过获取一个用户的凭证过程如下：
+```
+注册用户(register)->返回注册信息(password)->获取凭证(enroll)->通过凭证执行其它操作
 ```
 
 
