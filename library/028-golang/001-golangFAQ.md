@@ -180,3 +180,5 @@ go install net
 buf, e :=ioutil.ReadAll(Response.Body)
 Response.Body = ioutil.NopCloser(bytes.NewBuffer(buf))
 ```
+
+19. 
