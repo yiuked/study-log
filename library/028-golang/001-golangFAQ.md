@@ -173,3 +173,10 @@ cd $GOPATH/src/golang.org/x/
 git clone https://github.com/golang/net.git net
 go install net
 ```
+
+18. 如何恢复`http.Response.Body`
+`http.Response.Body`会调用后，会自动调用`Body.Close()`，导致`Response.Body`只能被读取一次
+```
+buf, e :=ioutil.ReadAll(Response.Body)
+Response.Body = ioutil.NopCloser(bytes.NewBuffer(buf))
+```
