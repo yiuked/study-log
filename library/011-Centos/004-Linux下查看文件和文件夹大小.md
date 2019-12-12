@@ -38,7 +38,7 @@ mkfs.ext4 /dev/vdb1
 ```
 vim /etc/fstab
 # <要挂载的分区> <挂载点> <格式类型> <挂载形式> <备份设置> <磁盘检查顺序>
-/dev/vdb1 /mnt ext4 defaults 0 0
+/dev/vdb1 /data ext4 defaults 0 0
 ```
 > 挂载形式:  
 > auto: 系统自动挂载，fstab默认就是这个选项  
@@ -54,5 +54,5 @@ vim /etc/fstab
 * mount
 将磁盘挂载到指定目录
 ```
-mount /dev/vdb1 /var/www
+mount /dev/vdb1 /data
 ```

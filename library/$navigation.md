@@ -260,6 +260,13 @@
     - [docker安装](?file=018-运维/0003-Docker/012-docker安装 "docker安装")
 - **分布式**
     - [服务治理](?file=018-运维/0004-分布式/001-服务治理 "服务治理")
+<<<<<<< HEAD
+=======
+- **Shell**
+- **阿里云**
+    - [阿里经典网络迁移专有网络](?file=018-运维/0006-阿里云/001-阿里经典网络迁移专有网络 "阿里经典网络迁移专有网络")
+    - [阿里云运维过程问题](?file=018-运维/0006-阿里云/002-阿里云运维过程问题 "阿里云运维过程问题")
+>>>>>>> aa324c7df3dbe5b840cec58e0d4af99448be4ab9
 - [Linux系统下ssh登陆很慢的解决办法](?file=018-运维/005-Linux系统下ssh登陆很慢的解决办法 "Linux系统下ssh登陆很慢的解决办法")
 - [mtr命令详解](?file=018-运维/006-mtr命令详解 "mtr命令详解")
 - [xshell下通过rz上传文件](?file=018-运维/008-xshell下通过rz上传文件 "xshell下通过rz上传文件")
@@ -276,7 +283,6 @@
 - [使用amWiki构建自己的文档系统](?file=018-运维/019-使用amWiki构建自己的文档系统 "使用amWiki构建自己的文档系统")
 - [supervisord进程守护](?file=018-运维/020-supervisord进程守护 "supervisord进程守护")
 - [FileZilla快速搭建FTP-Server](?file=018-运维/021-FileZilla快速搭建FTP-Server "FileZilla快速搭建FTP-Server")
-- [阿里经典网络迁移专有网络](?file=018-运维/022-阿里经典网络迁移专有网络 "阿里经典网络迁移专有网络")
 - [nc命令详解](?file=018-运维/023-nc命令详解 "nc命令详解")
 - [ubuntu维护模式](?file=018-运维/024-ubuntu维护模式 "ubuntu维护模式")
 - [putty](?file=018-运维/025-putty "putty")
