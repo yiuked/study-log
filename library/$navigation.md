@@ -260,7 +260,6 @@
     - [docker安装](?file=018-运维/0003-Docker/012-docker安装 "docker安装")
 - **分布式**
     - [服务治理](?file=018-运维/0004-分布式/001-服务治理 "服务治理")
-- **Shell**
 - [Linux系统下ssh登陆很慢的解决办法](?file=018-运维/005-Linux系统下ssh登陆很慢的解决办法 "Linux系统下ssh登陆很慢的解决办法")
 - [mtr命令详解](?file=018-运维/006-mtr命令详解 "mtr命令详解")
 - [xshell下通过rz上传文件](?file=018-运维/008-xshell下通过rz上传文件 "xshell下通过rz上传文件")
@@ -288,10 +287,10 @@
 ##### Java
 - **Servlet**
     - [过虑器](?file=020-Java/0001-Servlet/001-过虑器 "过虑器")
-- **Spring**
-    - [FAQ](?file=020-Java/0002-Spring/000-FAQ "FAQ")
-    - [0002-Spring之AOP](?file=020-Java/0002-Spring/001-0002-Spring之AOP "0002-Spring之AOP")
-    - [Spring注解](?file=020-Java/0002-Spring/002-Spring注解 "Spring注解")
+- **spring**
+    - [FAQ](?file=020-Java/0002-spring/000-FAQ "FAQ")
+    - [0002-Spring之AOP](?file=020-Java/0002-spring/001-0002-Spring之AOP "0002-Spring之AOP")
+    - [Spring注解](?file=020-Java/0002-spring/002-Spring注解 "Spring注解")
 - **Spring-boot**
     - [问题索引](?file=020-Java/0003-Spring-boot/00-问题索引 "问题索引")
     - [需要补充知识点](?file=020-Java/0003-Spring-boot/01-需要补充知识点 "需要补充知识点")
