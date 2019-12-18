@@ -148,6 +148,11 @@ tree ./msp
 ./fabric-ca-client affiliation add com.36sn.org2  # 子联盟
 ```
 
+
+```
+./fabric-ca-client getcacert -u http://localhost:7054 -M $FABRIC_CA_CLIENT_HOME/ca
+```
+
 ### 生成联盟用户凭证
 前面强调过获取一个用户的凭证过程如下：
 ```
