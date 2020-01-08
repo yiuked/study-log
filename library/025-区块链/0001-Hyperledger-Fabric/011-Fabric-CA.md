@@ -7,7 +7,22 @@ ORGS="\
 "
 ```
 设置FABRIC_CA_SERVER_HOME
-
 ```
 export FABRIC_CA_SERVER_HOME=crypto-config/ordererOrganizations/36sn.com/ca/root
+```
+启动`fabric-ca-server`
+```
+fabric-ca-server start -p 9100 -b admin:adminpw
+```
+此处会生成以下文件结构
+```
+crypto-config/ordererOrganizations/36sn.com/ca/root
+|-----------msp
+|--------------keystore
+```
+
+
+设置FABRIC_CA_CLIENT_HOME
+```
+export FABRIC_CA_CLIENT_HOME=$homeDir
 ```
