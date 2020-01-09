@@ -18,11 +18,13 @@ fabric-ca-server start -p 9100 -b admin:adminpw
 ```
 crypto-config/ordererOrganizations/36sn.com/ca/root
 |-----------msp
-|--------------keystore
+|-------------keystore
+|---------------*_sk
+|---------------IssuerRevocationPrivateKey
+|---------------IssuerSecretKey
 ```
-
 
 设置FABRIC_CA_CLIENT_HOME
 ```
-export FABRIC_CA_CLIENT_HOME=$homeDir
+export FABRIC_CA_CLIENT_HOME=crypto-config/ordererOrganizations/36sn.com/ca/root/tls
 ```
