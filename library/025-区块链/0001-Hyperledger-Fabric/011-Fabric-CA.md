@@ -46,6 +46,7 @@ crypto-config/ordererOrganizations/36sn.com/ca/root/tls/msp
 ```
 $srcMSP=crypto-config/ordererOrganizations/36sn.com/ca/root/tls/msp
 $tlsDir=crypto-config/ordererOrganizations/36sn.com/ca/root/tls
+$dstMSP=crypto-config/ordererOrganizations/36sn.com/ca/root/msp
 
 cp $srcMSP/signcerts/* $tlsDir/server.crt
 cp $srcMSP/keystore/* $tlsDir/server.key
@@ -61,4 +62,13 @@ else
    cp $srcMSP/tlscacerts/* $tlsDir/ca.crt
 fi
 rm -rf $srcMSP $homeDir/enroll.log $homeDir/fabric-ca-client-config.yaml
+```
+
+标准化MSP
+-------------------------------------------------
+如何生成一个组织的MSP？
+* 启动`fabric-ca-server`
+```
+export FABRIC_CA_SERVER_HOME=crypto-config/ordererOrganizations/36sn.com/ca/root
+fabric-ca-server start -p 9100 -b admin:adminpw
 ```
