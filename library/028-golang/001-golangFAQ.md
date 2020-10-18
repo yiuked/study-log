@@ -181,4 +181,19 @@ buf, e :=ioutil.ReadAll(Response.Body)
 Response.Body = ioutil.NopCloser(bytes.NewBuffer(buf))
 ```
 
-19. 
+19. 将`interface`类型转为指定类型
+```
+func Get(key string) (value interface{}, exists bool) {
+	value, exists = c.Keys[key]
+	return
+}
+
+```
+如代码所示`Get`返回一个`value interface{}`,如何转化为我们所需要的类型:
+```
+request, _ := c.Get("Request")
+if request != nil {
+  return request.(models.Request)
+}
+return models.Request{}
+```
