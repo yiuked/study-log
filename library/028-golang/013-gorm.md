@@ -19,3 +19,9 @@ type Project struct {
 ```
 * ForeignKey             外部表与本表关联的字段             
 * AssociationForeignKey  当前表用于与外部表关联的字段
+
+
+* 创建表时指定存储引擎
+```
+DB.Set("gorm:table_options","ENGINE=InnoDB").AutoMigrate(
+```
