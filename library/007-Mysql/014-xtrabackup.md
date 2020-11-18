@@ -104,3 +104,81 @@ sql-mode="NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
   　　· 对于非事务性存储引擎，如果错误出现在要插入或更新的第1行，将放弃语句。（在这种情况下，可以认为语句未改变表，就像事务表一样）。首行后出现的错误不会导致放弃语句。取而代之的是，将调整不良数据值，并给出告警，而不是错误。换句话讲，使用STRICT_TRANS_TABLES后，错误值会导致MySQL执行回滚操作，如果可以，所有更新到此为止。  
   　　要想执行更严格的检查，请启用STRICT_ALL_TABLES。除了非事务性存储引擎，它与STRICT_TRANS_TABLES等同，即使当不良数据出现在首行后的其他行，所产生的错误也会导致放弃语句。这意味着，如果错误出现在非事务性表多行插入或更新过程的中途，仅更新部分结果。前面的行将完成插入或更新，但错误出现点后面的行则不然。对于非事务性表，为了避免这种情况的发生，可使用单行语句，或者在能接受转换警告而不是错误的情况下使用STRICT_TRANS_TABLES。要想在第1场合防止问题的出现，不要使用MySQL来检查列的内容。最安全的方式（通常也较快）是，让应用程序负责，仅将有效值传递给数据库。  
   　　有了严格的模式选项后，可使用INSERT IGNORE或UPDATE IGNORE而不是不带IGNORE的INSERT或UPDATE，将错误当作告警对待。  
+
+
+
+一键脚本
+
+```
+#/bin/bash
+
+
+if [ ! -n "$1" ]; then
+	echo $1
+	echo "Option:"
+	echo "<xb file path>"
+	exit 1
+fi
+
+echo "Stop mysql service ..."
+service mysql stop
+
+set -x
+rm -rf /var/lib/mysql/*
+res=$?
+set +x
+
+if [ $res -ne 0 ];then
+	echo "Delete /var/lib/mysql fail"
+	exit 1
+fi
+
+cat $1 | xbstream -x -v -C /var/lib/mysql
+res=$?
+
+if [ $res -ne 0 ];then
+	echo "xbstream /var/lib/mysql fail"
+	exit 1
+fi
+
+innobackupex --decompress --remove-original /var/lib/mysql
+res=$?
+
+if [ $res -ne 0 ];then
+	echo "decompress /var/lib/mysql fail"
+	exit 1
+fi
+
+innobackupex --defaults-file=/var/lib/mysql/backup-my.cnf --apply-log /var/lib/mysql
+res=$?
+
+if [ $res -ne 0 ];then
+	echo "restore /var/lib/mysql fail"
+	exit 1
+fi
+
+
+chown -R mysql:mysql /var/lib/mysql
+
+mysqld_safe --defaults-file=/etc/mysql/conf.d/mysql.cnf --user=mysql --datadir=/var/lib/mysql &
+
+
+```
+
+
+
+启动出现以下错误
+
+```
+* Starting MySQL database server mysqld
+No directory, logging in with HOME=/
+mkdir: cannot create directory '//.cache': Permission denied
+-su: 19: /etc/profile.d/wsl-integration.sh: cannot create //.cache/wslu/integration: Directory nonexistent
+```
+
+设置账户初始目录
+
+```
+usermod -d /var/lib/mysql mysql
+```
+
