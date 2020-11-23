@@ -25,3 +25,44 @@ type Project struct {
 ```
 DB.Set("gorm:table_options","ENGINE=InnoDB").AutoMigrate(
 ```
+
+
+
+## 带条件的预加载
+
+GORM 允许带条件的 Preload 关联
+
+```
+// 带条件的预加载 Order
+db.Preload("Orders", "state NOT IN (?)", "cancelled").Find(&users)
+// SELECT * FROM users;
+// SELECT * FROM orders WHERE user_id IN (1,2,3,4) AND state NOT IN ('cancelled');
+
+db.Where("state = ?", "active").Preload("Orders", "state NOT IN (?)", "cancelled").Find(&users)
+// SELECT * FROM users WHERE state = 'active';
+// SELECT * FROM orders WHERE user_id IN (1,2) AND state NOT IN ('cancelled');
+```
+
+## 自定义预加载 SQL
+
+您可以通过 `func(db *gorm.DB) *gorm.DB` 实现自定义预加载 SQL，例如：
+
+```
+db.Preload("Orders", func(db *gorm.DB) *gorm.DB {
+  return db.Order("orders.amount DESC")
+}).Find(&users)
+// SELECT * FROM users;
+// SELECT * FROM orders WHERE user_id IN (1,2,3,4) order by orders.amount DESC;
+```
+
+## 嵌套预加载
+
+GORM 支持嵌套预加载，例如：
+
+```
+db.Preload("Orders.OrderItems.Product").Preload("CreditCard").Find(&users)
+
+// 自定义预加载 `Orders` 的条件
+// 这样，GORM 就不会加载不匹配的 order 记录
+db.Preload("Orders", "state = ?", "paid").Preload("Orders.OrderItems").Find(&users)
+```
