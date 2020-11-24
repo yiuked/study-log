@@ -87,12 +87,19 @@ PS C:\Users\yiuked> wsl --list -v
   wsl -d centos7
   ```
 
+
+* 重启时reboot时出现Failed to talk to init daemon
+
+  ```
+  reboot -f
+  ```
+
   
 
 ### 三、安装Liunx
 
-在Mircrosoft Store中搜索Linux安装则可,。
+在Mircrosoft Store中搜索Linux安装则可。
 
-###  Windows Terminal 终端工具
+###  四、Windows Terminal 终端工具
 
 在Mircrosoft Store中搜索Windows Terminal安装则可。

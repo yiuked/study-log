@@ -23,7 +23,7 @@ lxrunoffline e -n <WSL名称> -f <压缩包路径>.tar.gz
 ### 相关资源
 
 * [ubuntu不同版本镜像](https://mirrors.tuna.tsinghua.edu.cn/ubuntu-cloud-images/)
-* 
+* [LxRunOffline ](https://p3terx.com/archives/manage-wsl-with-lxrunoffline.html)
 
 
 

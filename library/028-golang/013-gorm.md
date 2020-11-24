@@ -1,4 +1,4 @@
-```
+```go
 type RepayMethod struct {
 	ID          uint   `gorm:"primary_key"`
 	Alias       string `gorm:"type:varchar(32) not null COMMENT '引用别名';primary_key"`
@@ -22,7 +22,7 @@ type Project struct {
 
 
 * 创建表时指定存储引擎
-```
+```go
 DB.Set("gorm:table_options","ENGINE=InnoDB").AutoMigrate(
 ```
 
@@ -32,7 +32,7 @@ DB.Set("gorm:table_options","ENGINE=InnoDB").AutoMigrate(
 
 GORM 允许带条件的 Preload 关联
 
-```
+```go
 // 带条件的预加载 Order
 db.Preload("Orders", "state NOT IN (?)", "cancelled").Find(&users)
 // SELECT * FROM users;
@@ -47,7 +47,7 @@ db.Where("state = ?", "active").Preload("Orders", "state NOT IN (?)", "cancelled
 
 您可以通过 `func(db *gorm.DB) *gorm.DB` 实现自定义预加载 SQL，例如：
 
-```
+```go
 db.Preload("Orders", func(db *gorm.DB) *gorm.DB {
   return db.Order("orders.amount DESC")
 }).Find(&users)
@@ -59,10 +59,22 @@ db.Preload("Orders", func(db *gorm.DB) *gorm.DB {
 
 GORM 支持嵌套预加载，例如：
 
-```
+```go
 db.Preload("Orders.OrderItems.Product").Preload("CreditCard").Find(&users)
 
 // 自定义预加载 `Orders` 的条件
 // 这样，GORM 就不会加载不匹配的 order 记录
 db.Preload("Orders", "state = ?", "paid").Preload("Orders.OrderItems").Find(&users)
+```
+
+### 更新选择的字段
+
+如果您只想在更新时更新或忽略某些字段，可以使用`Select`, `Omit`
+
+```go
+db.Model(&user).Select("name").Updates(map[string]interface{}{"name": "hello", "age": 18, "actived": false})
+//// UPDATE users SET name='hello', updated_at='2013-11-17 21:34:10' WHERE id=111;
+
+db.Model(&user).Omit("name").Updates(map[string]interface{}{"name": "hello", "age": 18, "actived": false})
+//// UPDATE users SET age=18, actived=false, updated_at='2013-11-17 21:34:10' WHERE id=111;
 ```
