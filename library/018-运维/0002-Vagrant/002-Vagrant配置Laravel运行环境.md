@@ -192,7 +192,10 @@ a start job is runing for raise netwrok interfaces
 ```
  ./VBoxManage.exe list vms
 ```
+> 此处不能通过`vagrant box list`获得的名称，需要在虚拟机中的查看，否则无法创建导出文件
+
 通过以下命令导出虚拟机的镜像文件:
+
 ```
 vagrant package --base homestaed-7 --output ./zsjr_task.box
 # --base 为要导出的镜像文件

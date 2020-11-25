@@ -1,5 +1,7 @@
 ##  WSL 详解
 
+WSL与WSL2在多开的情况下，IP地址都是一样的，因此不适用制作集群的情况，适合玩单个服务的情况
+
 ### 一、安装WSL2 
 
 #### 1.1 安装WSL2环境要求
@@ -102,4 +104,16 @@ PS C:\Users\yiuked> wsl --list -v
 
 ###  四、Windows Terminal 终端工具
 
-在Mircrosoft Store中搜索Windows Terminal安装则可。
+在Mircrosoft Store中搜索Windows Terminal安装则可。如果需要添加右键菜单中，复制以下命令，另存.reg文件，修改your_name后运行则可：
+
+```
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\wt]
+@="Windows terminal here"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\wt\command]
+@="C:\\Users\\your_name\\AppData\\Local\\Microsoft\\WindowsApps\\wt.exe -d ."
+
+```
+
