@@ -58,3 +58,7 @@ exit
 2016/06/08  09:54    <DIR>          WIRESH~1     Wireshark
 2016/11/14  09:27    <DIR>          YIWANP~1     yiwanplayer
  ```
+
+* Windows 下 TortoiseGit 不显示图标?
+
+  https://www.cnblogs.com/zhaoqingqing/p/7253879.html
