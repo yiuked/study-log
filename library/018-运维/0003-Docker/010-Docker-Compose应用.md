@@ -22,3 +22,49 @@ http://www.fig.sh/
 ```
 docker-compose -f 1.yaml -f 2.yaml up -d 2>&1
 ```
+
+* 模板
+
+  ```
+  version: '2.2'
+  
+  networks:
+      ocot:
+  
+  services:
+      api.core:
+          container_name: api.core
+          image: centos:centos7
+          volumes:
+           - /root/core/api:/var/api
+          environment:
+           - SET_CONTAINER_TIMEZONE=true
+           - CONTAINER_TIMEZONE=Asia/Shanghai
+          environment:
+           - TZ=Asia/Shanghai
+          working_dir: /var/api
+          command: ./ocot web
+          ports:
+           - 9080:8080
+          networks:
+           - ocot
+          restart: always
+      api.order:
+          container_name: api.order
+          image: centos:centos7
+          volumes:
+           - /root/core/api:/var/api
+          environment:
+           - SET_CONTAINER_TIMEZONE=true
+           - CONTAINER_TIMEZONE=Asia/Shanghai
+          environment:
+           - TZ=Asia/Shanghai
+          working_dir: /var/api
+          command: ./ocot order
+          networks:
+           - ocot
+          restart: always
+  
+  ```
+
+  
