@@ -49,3 +49,24 @@ $docker import centos_8d35.tar local/centos
 
 
 使用 docker network ls 查看docker容器中网络
+
+* docker 日志
+
+  ```
+  docker logs [OPTIONS] CONTAINER
+   
+  Options:
+   
+  --details 显示更多的信息
+   
+  -f, --follow 实时输出日志，最后一行为当前时间戳的日志
+   
+  --since string 输出日志开始日期，即只输出指定日期之后的日志。
+   
+  --tail string 显示最后多少行日志， 默认是all
+              （如： -tail=10 : 查看最后的 10 行日志。）
+   
+  -t, --timestamps 显示时间戳
+  ```
+
+  
