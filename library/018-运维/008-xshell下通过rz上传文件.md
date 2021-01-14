@@ -16,3 +16,7 @@ rz -y
 sz filename
 ```
 
+```
+scp /home/administrator/news.txt root@192.168.6.129:/etc/squid
+```
+
