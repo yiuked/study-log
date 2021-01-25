@@ -78,3 +78,17 @@ db.Model(&user).Select("name").Updates(map[string]interface{}{"name": "hello", "
 db.Model(&user).Omit("name").Updates(map[string]interface{}{"name": "hello", "age": 18, "actived": false})
 //// UPDATE users SET age=18, actived=false, updated_at='2013-11-17 21:34:10' WHERE id=111;
 ```
+
+### where条件另类用法
+```
+	// where条件
+	where := func(db *gorm.DB) *gorm.DB {
+		if !utils.IsEmpty(id) {
+			db.Where("id=?", id)
+		}
+		return db
+	}
+
+	var histories []models.User
+	inits.DB.Scopes(where).Count(&total)
+	```
