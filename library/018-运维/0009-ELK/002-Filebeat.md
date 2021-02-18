@@ -222,3 +222,10 @@ processors:
 ./filebeat -e -c filebeat.yml -d "publish"
 ```
 
+
+
+## 延伸
+
+* logstash 无法收集filebeat中的全部日志
+
+  > 删除 data/registry 与 data/registry.old，这两个文件记录了数据的偏移量
