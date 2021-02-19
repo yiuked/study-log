@@ -40,6 +40,8 @@ filter{
 		}
 	}
 }
+# 自定义正则，格式：(?<custom_feild>(.*)) 其中`<custom_feild>` 为字段，`(.*)`为字段对应的正则
+.*\[(?<custom_feild>(.*))\].*
 ```
 
 [grom格式在线测试](https://www.5axxw.com/tools/v2/grok.html)
