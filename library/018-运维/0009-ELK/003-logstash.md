@@ -44,6 +44,19 @@ filter{
 .*\[(?<custom_feild>(.*))\].*
 ```
 
+grok中如果有多咱日志类型，可以为match设置多个匹配，传递参数时需要传递一个包含偶数个数的数组，如下:
+
+```
+    grok {
+        match => [
+            "message","%{IPV4:ip} - \[%{DATA:timestamp}\] \"%{WORD:method} %{URIPATHPARAM:request_uri} HTTP\/%{DATA:http_version} %{NUMBER:status_code} %{NOTSPACE:duration} %{NUMBER:lenght}\" \"%{GREEDYDATA:agent}\" \"%{GREEDYDATA:error}\"",
+            "message","\[%{DATA:timestmp}\] %{DATA:source} \[%{NOTSPACE:drution}\] \[%{BASE10NUM:rows}\] %{GREEDYDATA:sql}"
+        ]
+    }
+```
+
+
+
 [grom格式在线测试](https://www.5axxw.com/tools/v2/grok.html)
 
 **date**
