@@ -229,3 +229,21 @@ processors:
 * logstash 无法收集filebeat中的全部日志
 
   > 删除 data/registry 与 data/registry.old，这两个文件记录了数据的偏移量
+
+* 采集docker日志是报错
+
+  ```
+  2021-02-22T16:41:29.812+0800	INFO	[crawler]	beater/crawler.go:71	Loading Inputs: 3
+  2021-02-22T16:41:29.812+0800	WARN	[cfgwarn]	docker/input.go:49	DEPRECATED: 'docker' input deprecated. Use 'container' input instead. Will be removed in version: 8.0.0
+  ```
+
+  > 从7.2.0版本开始，已取取消docker类型，可以使用以下格式采集
+  >
+  > ```
+  > filebeat.inputs:
+  > - type: container
+  >   paths: 
+  >     - '/var/lib/docker/containers/*/*.log'
+  > ```
+  >
+  > 
