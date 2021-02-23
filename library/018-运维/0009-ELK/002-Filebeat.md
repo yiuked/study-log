@@ -246,4 +246,21 @@ processors:
   >     - '/var/lib/docker/containers/*/*.log'
   > ```
   >
-  > 
+  
+* 连接出错
+
+  ```
+  2021-02-23T17:38:22.119+0800	ERROR	[publisher_pipeline_output]	pipeline/output.go:154	Failed to connect to backoff(async(tcp://148.70.118.28:5044)): dial tcp 148.70.118.28:5044: connect: connection refused
+  2021-02-23T17:38:22.119+0800	INFO	[publisher_pipeline_output]	pipeline/output.go:145	Attempting to reconnect to backoff(async(tcp://148.70.118.28:5044)) with 7 reconnect attempt(s)
+  ```
+
+  > telnet 试试是否能连通，登录logstash服务器，查看进程是否启动
+
+* 连接成功，但数据推送失败
+
+  ```
+  2021-02-23T17:56:17.266+0800	ERROR	[publisher_pipeline_output]	pipeline/output.go:180	failed to publish events: write tcp 172.16.215.82:60730->148.70.118.28:5044: write: connection reset by peer
+  2021-02-23T17:56:17.266+0800	INFO	[publisher_pipeline_output]	pipeline/output.go:143	Connecting to backoff(async(tcp://148.70.118.28:5044))
+  ```
+
+  

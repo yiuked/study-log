@@ -172,4 +172,56 @@ output{
 * 数据是否会重推
 
   https://elasticsearch.cn/question/4622
+  
+* 自定义输出模板
+
+    ```
+    output {
+        elasticsearch {
+            host => "127.0.0.1"
+            manage_template => true
+            template => "/etc/logstash/conf.d/single-line.tpl"
+            template_name => "single-line"
+        }
+    }
+    ```
+    
+    模板内容:
+    
+    ```
+    {  
+        "template": "single-line",  
+        "settings": {  
+            "index.number_of_shards": 3,  
+            "number_of_replicas": 0   
+        },  
+        "mappings" : {  
+          "logs" : {  
+            "properties" : {  
+              "@timestamp" : {
+                "type" : "date",  
+                "format" : "dateOptionalTime",  
+                "doc_values" : true  
+              },  
+              "@version" : {  
+                "type" : "string",  
+                "index" : "not_analyzed",  
+                "doc_values" : true      
+              },  
+              "id" : {  
+                "type" : "string",  
+                "index" : "not_analyzed"  
+              },  
+              "message" : {  
+                "type" : "string",  
+                "index" : "not_analyzed"  
+              }
+            }  
+          }  
+        }  
+      }  
+    }
+    ```
+    
+    
 
