@@ -93,3 +93,83 @@ output{
 .\logstash -f ..\config\test.yml -t // 测试配置文件是否正确
 ```
 
+
+
+### 扩展
+
+* 监听多个filebeat输入
+
+  filebeat.yml 
+
+  ```
+  
+  filebeat.inputs:
+  - type: log
+    enabled: true
+    backoff: "1s"
+    tail_files: false
+    paths:
+      - /usr/local/nginx/logs/access-json.log
+    fields:
+      filetype: log_nginxjson
+    fields_under_root: true
+  - type: log
+    enabled: true
+    backoff: "1s"
+    tail_files: false
+    paths:
+      - /var/log/messages
+    fields:
+      filetype: log_system
+    fields_under_root: true
+  output.logstash:
+    enabled: true
+  
+  ```
+
+  logstash.yml
+
+  ```
+  
+  input {
+     #从filebeat取数据，端口与filebeat配置文件一致
+     beats {
+       host => "0.0.0.0"
+       port => 5044
+     }
+  }
+  filter {
+      #只对nginx的json日志做json解析，系统message为其他格式，无需处理
+      if [filetype] == "log_nginxjson"{
+        json {
+           source => "message"
+           remove_field => ["beat","offset","tags","prospector"] #移除字段，不需要采集
+        }
+        date {
+          match => ["timestamp", "dd/MMM/yyyy:HH:mm:ss Z"] #匹配timestamp字段
+          target => "@timestamp"  #将匹配到的数据写到@timestamp字段中
+        }
+    }
+  }
+   
+  output {
+         # 输出es，这的filetype就是在filebeat那边新增的自定义字段名
+         if [filetype] == "log_nginxjson" {
+           elasticsearch {
+              hosts => ["wykd:9200"]
+              index => "nginx-%{+YYYY.MM.dd}"
+          }
+         } else if [filetype] == "log_system" {
+           elasticsearch {
+              hosts => ["wykd:9200"]
+              index => "msg-%{+YYYY.MM.dd}"
+          }
+         }
+   
+  
+  ```
+
+* 数据是否会重推
+
+  https://elasticsearch.cn/question/4622
+

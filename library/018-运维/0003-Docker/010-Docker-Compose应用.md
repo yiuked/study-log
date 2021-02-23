@@ -67,4 +67,39 @@ docker-compose -f 1.yaml -f 2.yaml up -d 2>&1
   
   ```
 
-  
+
+
+
+
+
+* 在docker-compose中配置日志:
+
+```
+version: '2.2'
+
+networks:
+    pms:
+
+services:
+    pms_api:
+        container_name: pms_api
+        image: centos:latest
+        logging:
+                driver: json-file
+                options:
+                        max-size: 1g
+        volumes:
+         - /home/www/pms/api:/var/api
+        environment:
+         - SET_CONTAINER_TIMEZONE=true
+         - CONTAINER_TIMEZONE=Asia/Shanghai
+        environment:
+         - TZ=Asia/Shanghai
+        working_dir: /var/api
+        command: ./ocot web
+        ports:
+         - 9083:9080
+        networks:
+         - pms
+
+```
