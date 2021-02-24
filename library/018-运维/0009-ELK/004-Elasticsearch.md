@@ -72,15 +72,13 @@ curl -H "Content-Type: application/json" -XPOST 'http://localhost:9200/index1/_m
 // 创建索引时，同时创建mapping
 curl -H "Content-Type: application/json" -XPUT 'http://localhost:9200/gogogo' -d '
 {
-  "mappings": {
-    "dynamic": false
-    "user":{
+    "mappings":{
+        "dynamic":"true",
         "properties": {
             "uid": {"type": "text"},
             "name":{"type": "text"}
         }
     }
-  }
 }
 '
 

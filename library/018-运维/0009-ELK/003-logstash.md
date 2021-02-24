@@ -93,6 +93,13 @@ output{
 .\logstash -f ..\config\test.yml -t // 测试配置文件是否正确
 ```
 
+```
+./bin/lagstash -f configfile.conf --config.reload.automatic  // 自动重载配置文件
+--config.reload.interval <second>                            // 自动重载间隔
+```
+
+
+
 
 
 ### 扩展
@@ -244,6 +251,43 @@ output{
 
     ![](../../../images/typora/image-20210224102328336.png)
 
-    
+* 根据内容重写
+
+    ```
+    filter{
+        if "aaa" in [message]{ // message 为输入信息
+             mutate {
+                add_field => {
+                    "log_type" => "[aaa]"
+                }
+            }
+        }else if  "bbb" in [message]{
+             mutate {
+                add_field => {
+                    "log_type" => "[bbb]"
+                }
+            }
+        }else{
+             mutate {
+                add_field => {
+                    "log_type" => "[ccc]"
+                }
+            }
+        }
+        
+        if ([message] =~ "正则表达式") { # 如果满足该正则
+    			drop{} # 丢弃这条数据，不写入output
+    	}
+     
+    }
+    ```
+
+
+
+
+
+
 
 http://doc.yonyoucloud.com/doc/logstash-best-practice-cn/index.html
+
+https://www.elastic.co/guide/en/logstash/2.1/plugins-filters-mutate.html
