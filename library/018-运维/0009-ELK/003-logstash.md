@@ -179,15 +179,15 @@ output{
     output {
         elasticsearch {
             host => "127.0.0.1"
-            manage_template => true
+            manage_template => false
             template => "/etc/logstash/conf.d/single-line.tpl"
             template_name => "single-line"
         }
     }
     ```
-    
+
     模板内容:
-    
+
     ```
     {  
         "template": "single-line",  
@@ -222,6 +222,28 @@ output{
       }  
     }
     ```
-    
+
     
 
+* 优化推送字段
+
+    除了源输入内容外，logstash会收集客户端的agent\contianner\host等信息，并附加到_source中，推送给elasticsearch，如果不想收集这些信息，可以通过mudate进行字段删除
+
+    ```
+    filter{
+    	mutate{
+    		remove_field => ["agent"]
+    		remove_field => ["host"]
+    		...
+    	}
+    }
+    
+    ```
+
+    
+
+    ![](../../../images/typora/image-20210224102328336.png)
+
+    
+
+http://doc.yonyoucloud.com/doc/logstash-best-practice-cn/index.html

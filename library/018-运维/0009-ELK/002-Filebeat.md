@@ -150,12 +150,18 @@ output.logstash:
   #ssl.key: "/etc/pki/client/cert.key"
 
 # ======== Processors =============
+# 采集器设置
 processors:
+ # 添加附加字段
   - add_host_metadata:
       when.not.contains.tags: forwarded
   - add_cloud_metadata: ~
   - add_docker_metadata: ~
   - add_kubernetes_metadata: ~
+ # 删除不必要字段
+ - drop_fields:
+    fields: ["input_type", "log.offset", "host.name", "input.type", "agent.hostname", "agent.type", "ecs.version", "agent.ephemeral_id", "agent.id", "agent.version", "fields.ics", "log.file.path", "log.flags" ]
+
 
 # ============== Logging =================
 
@@ -261,6 +267,111 @@ processors:
   ```
   2021-02-23T17:56:17.266+0800	ERROR	[publisher_pipeline_output]	pipeline/output.go:180	failed to publish events: write tcp 172.16.215.82:60730->148.70.118.28:5044: write: connection reset by peer
   2021-02-23T17:56:17.266+0800	INFO	[publisher_pipeline_output]	pipeline/output.go:143	Connecting to backoff(async(tcp://148.70.118.28:5044))
+  ```
+
+* 字段
+
+  filebeat会附加所需要收集机器的信息，而实际我们需要的信息只有message字段的内容
+
+  ```
+  {
+    "@timestamp": "2021-02-24T02:43:25.030Z",
+    "@metadata": {
+      "beat": "filebeat",
+      "type": "_doc",
+      "version": "7.11.1"
+    },
+    "host": {
+      "architecture": "x86_64",
+      "os": {
+        "kernel": "3.10.0-957.5.1.el7.x86_64",
+        "codename": "Core",
+        "platform": "centos",
+        "version": "7 (Core)",
+        "family": "redhat",
+        "name": "CentOS Linux"
+      },
+      "name": "iZbp1***t7Z",
+      "id": "20190215172108590907433256076310",
+      "containerized": false,
+      "ip": [
+        "172.16.215.82",
+        "172.17.0.1",
+        "172.18.0.1",
+        "172.19.0.1"
+      ],
+      "mac": [
+        "00:16:3e:08:d8:74",
+        "02:42:da:8e:cd:4c",
+        "02:42:fe:84:a3:ca",
+        "02:42:09:1e:67:40",
+        "be:27:c6:68:2b:02"
+      ],
+      "hostname": "iZbp1****w1t7Z"
+    },
+    "agent": {
+      "ephemeral_id": "3ce4e84d-b3ec-4202-8fea-87d292679cc5",
+      "id": "8a3d0020-e670-4250-8b38-90214d98df22",
+      "name": "iZbp1****w1t7Z",
+      "type": "filebeat",
+      "version": "7.11.1",
+      "hostname": "iZbp1****w1t7Z"
+    },
+    "ecs": {
+      "version": "1.6.0"
+    },
+    "container": {
+      "name": "pms_api",
+      "id": "d491a5e5024e0c6d2f0284e5cc9b96125ecdee9e8e8c755f696009644319a427",
+      "labels": {
+        "com_docker_compose_oneoff": "False",
+        "org_opencontainers_image_created": "2020-01-14 00:00:00-08:00",
+        "org_label-schema_build-date": "20200114",
+        "com_docker_compose_config-hash": "da95ed189f017e29f515da4f9cb1dca489cede5b1bb6670a6a8db4229566b99d",
+        "org_label-schema_vendor": "CentOS",
+        "org_opencontainers_image_licenses": "GPL-2.0-only",
+        "org_opencontainers_image_vendor": "CentOS",
+        "com_docker_compose_container-number": "1",
+        "com_docker_compose_service": "pms_api",
+        "org_opencontainers_image_title": "CentOS Base Image",
+        "org_label-schema_license": "GPLv2",
+        "org_label-schema_name": "CentOS Base Image",
+        "com_docker_compose_project": "pms",
+        "com_docker_compose_version": "1.18.0",
+        "org_label-schema_schema-version": "1.0"
+      },
+      "image": {
+        "name": "centos:latest"
+      }
+    },
+    "log": {
+      "offset": 1118528,
+      "file": {
+        "path": "/var/lib/docker/containers/d491a5e502***644319a427/d491a5e502***755f696009644319a427-json.log"
+      }
+    },
+    "stream": "stdout",
+    "message": "172.19.0.1 - [2021-02-24 10:43:25] \"GET /admin/etf/templates?page=1 HTTP/1.0 200 2.984831ms 1109\" \"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36\" \"\"",
+    "input": {
+      "type": "container"
+    }
+  }
+  
+  ```
+
+  可以修改配置文件去除冗余数据
+
+  ```
+  # ================================= Processors =================================
+  processors:
+  #  - add_host_metadata:
+  #      when.not.contains.tags: forwarded
+  #  - add_cloud_metadata: ~
+  #  - add_docker_metadata: ~
+  #  - add_kubernetes_metadata: ~
+   - drop_fields:
+      fields: ["input_type", "stream","log", "host","input", "agent", "ecs"]
+  
   ```
 
   

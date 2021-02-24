@@ -51,7 +51,63 @@ Changed password for user elastic
 PASSWORD elastic = ahpWMK9wIm0VAIfHifHe
 ```
 
-   
+4. 数据操作接口
+
+ ```
+curl -XPUT http://localhost:9200/index1     // 创建索引index1
+curl -XGET http://localhost:9200/index1     // 获取索引index1信息
+curl -XDELETE http://localhost:9200/index1  // 删除索引index1
+
+// 为索引添加mapping
+curl -H "Content-Type: application/json" -XPOST 'http://localhost:9200/index1/_mapping/user?include_type_name=true' -d '
+{
+    "user":{
+        "properties": {
+            "uid": {"type": "text"},
+            "name":{"type": "text"}
+        }
+    }
+}'
+
+// 创建索引时，同时创建mapping
+curl -H "Content-Type: application/json" -XPUT 'http://localhost:9200/gogogo' -d '
+{
+  "mappings": {
+    "dynamic": false
+    "user":{
+        "properties": {
+            "uid": {"type": "text"},
+            "name":{"type": "text"}
+        }
+    }
+  }
+}
+'
+
+
+
+// 写入数据
+curl -H 'Content-Type: application/json' -XPOST http://localhost:9200/index1/user -d '
+{
+    "uid": "abcdef",
+    "name": "isname"
+}
+'
+
+curl -XGET http://localhost:9200/index1/_search // 读取写入数据
+// 更新数据
+curl -H 'Content-Type: application/json' -XPOST http://localhost:9200/index1/user/rVSnz3cB7IZm39X_xjQA/_update -d '
+{
+	"doc":{
+		"uid": "111111111"
+	}
+}
+'
+// 删除数据
+curl -XDELETE http://localhost:9200/index1/user/rVSnz3cB7IZm39X_xjQA
+ ```
+
+
 
 
 
