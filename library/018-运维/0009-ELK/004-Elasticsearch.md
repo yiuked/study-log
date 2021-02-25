@@ -105,7 +105,24 @@ curl -H 'Content-Type: application/json' -XPOST http://localhost:9200/index1/use
 curl -XDELETE http://localhost:9200/index1/user/rVSnz3cB7IZm39X_xjQA
  ```
 
+5. 通过nginx建立安全访问
 
+   ```
+   htpasswd -c nginx/config/conf.d/passwd elk
+   
+   server {
+       listen       80;
+       server_name  localhost;
+   
+       #charset koi8-r;
+       #access_log  /var/log/nginx/host.access.log  main;
+   
+       auth_basic "Please input password:";
+       auth_basic_user_file /etc/nginx/conf.d/passwd;
+   
+   ```
+
+   
 
 
 

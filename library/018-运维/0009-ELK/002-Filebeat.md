@@ -26,7 +26,7 @@ filebeat.inputs:
   # 排除日志中特定的行，支持正则表达式
   #exclude_lines: ['^DBG']
 
-  # 排除日志中特定的行，支持正则表达式
+  # 包含日志中特定的行，支持正则表达式
   #include_lines: ['^ERR', '^WARN']
 
   # 排除日志中特定的文件，支持正则表达式
@@ -36,6 +36,7 @@ filebeat.inputs:
   #fields:
   #  level: debug
   #  review: 1
+  #   log_type: mysql
 
   # 多行匹配
   # 开始匹配字符 
@@ -225,7 +226,7 @@ processors:
 ## 启动
 
 ```
-./filebeat -e -c filebeat.yml -d "publish"
+./filebeat -e -c filebeat.yml -d "*"
 ```
 
 
