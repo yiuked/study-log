@@ -1,3 +1,5 @@
+
+
 ## MySQL binlog详解
 
 ### binlog目的
