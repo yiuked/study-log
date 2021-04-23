@@ -6,6 +6,12 @@ protobuf
 
 protoc
 
+### Protocol Buffers 简介
+
+protobuf 即 Protocol Buffers，是一种轻便高效的结构化数据存储格式，与语言、平台无关，可扩展可序列化。protobuf 性能和效率大幅度优于 JSON、XML 等其他的结构化数据格式。protobuf 是以二进制方式存储的，占用空间小，但也带来了可读性差的缺点。protobuf 在通信协议和数据存储等领域应用广泛。
+
+Protobuf 在 `.proto` 定义需要处理的结构化数据，可以通过 `protoc` 工具，将 `.proto` 文件转换为 C、C++、Golang、Java、Python 等多种语言的代码，兼容性好，易于使用。
+
 ### 编写.protc文件
 
 ```
@@ -67,4 +73,8 @@ message HelloReply {
 ```
 protoc --go_out=plugins=grpc:./ ./spider.proto
 ```
+
+
+
+[1.Go Protobuf 简明教程](https://geektutu.com/post/quick-go-protobuf.html)
 
