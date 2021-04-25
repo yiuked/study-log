@@ -18,12 +18,11 @@ Protobuf 在 `.proto` 定义需要处理的结构化数据，可以通过 `proto
 # 协议版本
 syntax = "proto3";
 
-# go 引用包名
+# go 引用包名（！！包名至少包含一个“/”，如包名为 “order”，也需要写成"order/"或者"./order"）
 option go_package = "google.golang.org/grpc/examples/helloworld/helloworld";
 
-# 包名
-package helloworld;
-
+# proto 文件包名，和输出文件包名无关，仅在proto文件内部引用
+package Helloworld;
 // 定义服务.
 service Greeter {
   // 在服务中定义 rpc 方法，指定请求的和响应类型。gRPC 允许定义4种类型的 service 方法:
@@ -77,4 +76,34 @@ protoc --go_out=plugins=grpc:./ ./spider.proto
 
 
 [1.Go Protobuf 简明教程](https://geektutu.com/post/quick-go-protobuf.html)
+
+
+
+#### 常见错误信息
+
+1. protoc-gen-go: unable to determine Go import path for "student.proto"
+
+   ```
+   protoc --go_out=plugins=grpc:./ .\student.proto
+   protoc-gen-go: unable to determine Go import path for "student.proto"
+   
+   Please specify either:
+           • a "go_package" option in the .proto source file, or
+           • a "M" argument on the command line.
+   
+   See https://developers.google.com/protocol-buffers/docs/reference/go-generated#package for more information.
+   
+   --go_out: protoc-gen-go: Plugin failed with status code 1.
+   ```
+
+   > 需要在`.proto`文件中指定`go_package`属性,格式如下：
+   >
+   > ```
+   > # 协议版本
+   > syntax = "proto3";
+   > 
+   > # go 引用包名（！！包名至少包含一个“/”，如包名为 “order”，也需要写成"order/"）
+   > option go_package = "google.golang.org/grpc/examples/helloworld/helloworld";
+   > 
+   > ```
 
