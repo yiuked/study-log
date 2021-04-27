@@ -2,7 +2,6 @@
 POST http://example.com/upload
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 
-Name
 --WebAppBoundary
 Content-Disposition: form-data; name="data"; filename="test.jpg"
 Content-Type: multipart/form-data
