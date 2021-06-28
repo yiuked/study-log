@@ -123,4 +123,17 @@ mysql> SET GLOBAL binlog_format = 'MIXED';
 使用 `statement` 模式后，能处理很多原先出现的主键重复问题；  
 
 
+
+### 分析日志文件
+
+```
+SHOW master STATUS; // 查询日志文件状态
+SHOW BINLOG EVENTS IN 'mysql-bin.00001';
+```
+
+
+
+
+
+
 参考文档：https://dev.mysql.com/doc/refman/5.6/en/binary-log-setting.html
