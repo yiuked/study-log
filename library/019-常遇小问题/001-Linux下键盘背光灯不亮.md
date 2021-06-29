@@ -6,3 +6,4 @@ xset led on #开
 xset led off #关
 ```
 也不排除不同版本的LINUX指令有差异。
+
