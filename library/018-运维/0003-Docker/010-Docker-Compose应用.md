@@ -10,13 +10,25 @@ yum install docker-compose
 如果修改了docker-compose.yml文件，需要运行`docker-compose down`后，再运行`docker-compose up -d`来进行重构。
 
 #### 问题
-如果在运行过程中，提示
+1. 如果在运行过程中，提示
+
 ```
 docker-compose cannot execute binary file
 ```
 请检查docker的版本，可能是docker的版本与compose不一匹配导致，更新一下docker则可。
 fig可取代compose
 http://www.fig.sh/
+
+2. 如何容器运行后，马上退出
+
+   ```
+   tty: true
+   stdin_open: true
+   ```
+
+   
+
+
 
 #### 合并yaml文件，并启动合并后的内容
 ```
