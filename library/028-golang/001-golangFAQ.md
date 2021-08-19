@@ -197,3 +197,40 @@ if request != nil {
 }
 return models.Request{}
 ```
+
+20. json marshal json string时的转义问题
+> json提供了一种RawMessage类型，本质上就是[]byte，我们将json string转换成RawMessage后再传给json.Marshal就可以解决掉这个问题了
+
+```
+func marshalResponse1(code int, msg string, result interface{}) (string, error) {
+    s, ok := result.(string)
+    var m = map[string]interface{}{
+        "code": 0,
+        "msg":  "ok",
+    }
+
+    if ok {
+        rawData := json.RawMessage(s)
+        m["result"] = rawData
+    } else {
+        m["result"] = result
+    }
+
+    b, err := json.Marshal(&m)
+    if err != nil {
+        return "", err
+    }
+
+    return string(b), nil
+}
+
+func main() {
+    s, err = marshalResponse1(0, "ok", `{"name": "tony", "city": "shenyang"}`)
+    if err != nil {
+        fmt.Println("marshal response1 error:", err)
+        return
+    }
+    fmt.Println(s)
+}
+```
+
