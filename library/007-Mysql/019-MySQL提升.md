@@ -77,7 +77,7 @@ mysql默认存储引擎innodb只显式支持B-Tree( 从技术上来说是B+Tree)
 
 * 环形多主
 
-
+https://www.mycookies.cn/mysql
 
 #### 中间件
 
