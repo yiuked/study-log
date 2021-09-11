@@ -15,7 +15,7 @@ func WithValue(parent Context, key, val interface{}) Context
 
 ### WithCancel
 
-我们以一个简单的游戏开始,游戏规则：10个人抽奖，每人随机抽10次，**只要有人抽到一等奖就通知其他人退出**，当然你可能会发现有些问题，因为程序是并发的，因此可能会有多个人抽到一等奖，但这对本次测试并没有什么影响。
+我们以一个简单的游戏开始,游戏规则：10个人抽奖，每人随机抽10次，**只要有人抽到一等奖就通知其他人退出**。
 
 ```go
 ctx, cancel := context.WithCancel(context.Background())
@@ -50,6 +50,8 @@ for c := 0; c < 10; c++ {
 wg.Wait()
 ```
 
+>  当然你可能会发现有些问题，因为程序是并发的，因此可能会有多个人抽到一等奖，但这对本次测试并没有什么影响。
+>
 >  运行程序可以看到当有人抽到一等奖时，会调用 `cancel()`方法，该方法是`context.WithCancel`的返回值，而让协程退出的是对`<-ctx.Done()`监听，大体我们可以猜测，`cancel()`一定是向`<-ctx.Done()` channel 发送信息，又或者是`cancel()`关闭了`channel`,只有这两种情况`<-ctx.Done()`对应的阻塞会结束。
 
 来看看`WithCancel`的源代码:
