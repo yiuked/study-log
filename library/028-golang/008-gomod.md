@@ -62,7 +62,8 @@ go env -w GOSUMDB="sum.golang.org"
 使用比较的多的代理有:
 ```
 https://mirrors.aliyun.com/goproxy/
-https://goproxy.io/
+
+
 https://goproxy.cn/
 ```
 
