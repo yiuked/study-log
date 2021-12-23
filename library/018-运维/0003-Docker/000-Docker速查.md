@@ -69,4 +69,12 @@ $docker import centos_8d35.tar local/centos
   -t, --timestamps 显示时间戳
   ```
 
-  
+
+**对日志进行过虑**
+
+通过`docker logs cfb|grep test`会输出所有日志, 这是因为管道仅对stdout有效，如果容器将日志记录到stderr，这种情况就会发生，这时可以尝试这样写:
+
+```
+docker logs cfb 2>&1|grep 'test'
+```
+
