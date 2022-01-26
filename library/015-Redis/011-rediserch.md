@@ -34,3 +34,5 @@ redis-search 是一款基于 [Redis](http://www.oschina.net/p/redis) 的高效�
 ```
 
 > redisearch 镜像已带了rejson模块,启动时加载进去则可
+
+> redis
