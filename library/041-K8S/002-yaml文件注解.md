@@ -75,3 +75,36 @@ spec:                            #specification of the resource content 指定�
     #nfs
 ```
 
+yaml中加入参数
+
+```yaml
+# SOURCE: https://cloud.google.com/kubernetes-engine/docs/tutorials/guestbook
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redisearch
+  labels:
+    app: redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+      - name: leader
+        image: "redislabs/redisearch:latest"
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort: 6379
+        command: ["/bin/bash","-c","redis-server --requirepass liveapp3306 --appendonly yes --loadmodule /usr/lib/redis/modules/redisearch.so --loadmodule /usr/lib/redis/modules/rejson.so"]
+
+```
+
