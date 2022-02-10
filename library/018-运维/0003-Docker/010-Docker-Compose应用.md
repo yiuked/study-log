@@ -82,8 +82,6 @@ docker-compose -f 1.yaml -f 2.yaml up -d 2>&1
 
 
 
-
-
 * 在docker-compose中配置日志:
 
 ```
@@ -115,3 +113,51 @@ services:
          - pms
 
 ```
+
+#### 跨文件访问服务
+
+在需要相互访问的yaml文件中定义`basic_component`网络,设置`external`属性为`true`
+
+```yaml
+version: "3"
+
+services:
+  mysql:
+    image: mysql:8.0.26
+    container_name: mysql
+    restart: always
+    ports:
+      - 3306:3306
+    networks:
+      - basic_component
+networks:
+  basic_component:
+    external: true
+```
+
+```yaml
+version: "3"
+
+services:
+  pl_srv_api:
+    container_name: pl_srv_api
+    image: centos
+    volumes:
+      - ./depoly/srv:/var/api
+    working_dir: /var/api
+    command: /var/api/bin/srv_api -c /var/api/config/config.yaml
+    ports:
+      - 7003:7003
+    restart: always
+    networks:
+      - basic_component
+
+networks:
+  basic_component:
+    external: true
+
+```
+
+创建网络
+
+> docker network create basic_component --driver bridge
