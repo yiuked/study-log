@@ -11,3 +11,5 @@ windows与安装,需要先安装`choco`,安装流程:https://www.jianshu.com/p/5
 ### 使用
 
 参照:https://www.jianshu.com/p/25ca410b1efd
+
+http://www.coderdocument.com/docs/helm/v2/using_helm/using_helm.html

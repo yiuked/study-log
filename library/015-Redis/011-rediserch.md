@@ -36,3 +36,25 @@ redis-search 是一款基于 [Redis](http://www.oschina.net/p/redis) 的高效�
 > redisearch 镜像已带了rejson模块,启动时加载进去则可
 
 > redis
+
+### 查询语句
+
+```
+FT.SEARCH idx "@title|body:(hello world) @url|image:mydomain"
+```
+
+| SQL表达式                                | 对应Redis表达式                    | 描述                                     |
+| ---------------------------------------- | ---------------------------------- | ---------------------------------------- |
+| WHERE x='foo' AND y='bar'                | @x:foo @y:bar                      | for less ambiguity use (@x:foo) (@y:bar) |
+| WHERE x='foo' AND y!='bar'               | @x:foo -@y:bar                     |                                          |
+| WHERE x='foo' OR y='bar'                 | (@x:foo)\|(@y:bar)                 |                                          |
+| WHERE x IN ('foo', 'bar','hello world')  | @x:(foo\|bar\|"hello world")       | quotes mean exact phrase                 |
+| WHERE y='foo' AND x NOT IN ('foo','bar') | @y:foo (-@x:foo) (-@x:bar)         |                                          |
+| WHERE x NOT IN ('foo','bar')             | -@x:(foo\|bar)                     |                                          |
+| WHERE num BETWEEN 10 AND 20              | @num:[10 20]                       |                                          |
+| WHERE num >= 10                          | @num:[10 +inf]                     |                                          |
+| WHERE num > 10                           | @num:[(10 +inf]                    |                                          |
+| WHERE num < 10                           | @num:[-inf (10]                    |                                          |
+| WHERE num <= 10                          | @num:[-inf 10]                     |                                          |
+| WHERE num < 10 OR num > 20               | @num:[-inf (10] \| @num:[(20 +inf] |                                          |
+| WHERE name LIKE 'john%'                  | @name:john*                        |                                          |
