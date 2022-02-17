@@ -1,3 +1,5 @@
+## 基础
+
 1. 创建命名空间
 
     ```
@@ -184,6 +186,8 @@
    helm install jenkins -n jenkins -f .\jenkins-values.yaml jenkinsci/jenkins
    ```
 
+   > 如果安装后,需要修改配置信息 `helm install jenkins -n jenkins -f .\jenkins-values.yaml jenkinsci/jenkins`
+   
    安装完成后会输出以下内容:
    
    ```
@@ -211,3 +215,17 @@
    > - 通过`kubectl --namespace jenkins port-forward svc/jenkins 8080:8080`可以将jenkins的8080访问端口映射出来
 
 更多安装方式:https://www.jenkins.io/doc/book/installing/kubernetes/
+
+## 应用
+
+### **Pipeline** 
+
+##### 概述
+
+   Jenkins 2.x的精髓是Pipeline as Code，那为什么要用Pipeline呢？jenkins1.0也能实现自动化构建，但Pipeline能够将以前project中的配置信息以steps的方式放在一个脚本里，将原本独立运行于单个或者多个节点的任务连接起来，实现单个任务难以完成的复杂流程，形成流水式发布，构建步骤视图化。简单来说，Pipeline适用的场景更广泛，能胜任更复杂的发布流程。举个例子，job构建工作在master节点，自动化测试脚本在slave节点，这时候jenkins1.0就无法同时运行两个节点，而Pipeline可以。
+
+##### 组件
+
+- Stage: 阶段，一个Pipeline可以划分为若干个Stage，每个Stage代表一组操作。注意，Stage是一个逻辑分组的概念，可以跨多个Node。
+- Node: 节点，一个Node就是一个Jenkins节点，或者是Master，或者是slave，是执行Step的具体运行期环境。
+- Step: 步骤，Step是最基本的操作单元，小到创建一个目录，大到构建一个Docker镜像，由各类Jenkins Plugin提供
