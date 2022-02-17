@@ -237,3 +237,4 @@ func main() {
 20. go的init函数什么时候会被执行
 
 > 只要package被引用就会被执行
+
