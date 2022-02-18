@@ -186,7 +186,7 @@
    helm install jenkins -n jenkins -f .\jenkins-values.yaml jenkinsci/jenkins
    ```
 
-   > 如果安装后,需要修改配置信息 `helm install jenkins -n jenkins -f .\jenkins-values.yaml jenkinsci/jenkins`
+   > 如果安装后,需要修改配置信息 `helm upgrade jenkins -n jenkins -f .\jenkins-values.yaml jenkinsci/jenkins`
    
    安装完成后会输出以下内容:
    
