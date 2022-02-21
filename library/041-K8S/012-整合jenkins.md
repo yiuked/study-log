@@ -229,3 +229,14 @@
 - Stage: 阶段，一个Pipeline可以划分为若干个Stage，每个Stage代表一组操作。注意，Stage是一个逻辑分组的概念，可以跨多个Node。
 - Node: 节点，一个Node就是一个Jenkins节点，或者是Master，或者是slave，是执行Step的具体运行期环境。
 - Step: 步骤，Step是最基本的操作单元，小到创建一个目录，大到构建一个Docker镜像，由各类Jenkins Plugin提供
+
+
+
+### 问题
+
+```
+$ kubectl logs jenkins-0 -n jenkins
+error: a container name must be specified for pod jenkins-0, choose one of: [jenkins config-reload] or one of the init containers: [init]
+```
+
+> `kubectl logs jenkins-0 -n jenkins -c jenkins`
