@@ -240,3 +240,153 @@ error: a container name must be specified for pod jenkins-0, choose one of: [jen
 ```
 
 > `kubectl logs jenkins-0 -n jenkins -c jenkins`
+
+
+
+K8S 地址:
+
+```
+<service-name>.<namespace-name>.svc.cluster.local
+```
+
+
+
+
+
+
+
+
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins-svc
+  labels:
+    app: jenkins
+spec:
+  ports:
+    - name: http
+      port: 8080  
+    - name: agent
+      port: 50000
+  selector:
+    app: jenkins
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins
+  template:
+    metadata:
+      labels:
+        app: jenkins
+    spec:
+      serviceAccountName: jenkins
+      containers:
+      - name: jenkins
+        image: jenkins/jenkins:lts-jdk11
+        ports:
+        - containerPort: 8080
+          name: web
+          protocol: TCP
+        - containerPort: 50000
+          name: agent
+          protocol: TCP
+        volumeMounts:
+        - name: jenkins-home
+          mountPath: /var/jenkins_home
+      volumes:
+      - name: jenkins-home
+        hostPath:
+          path: /run/desktop/mnt/host/d/v/data/jenkins_home
+          type: DirectoryOrCreate
+```
+
+
+
+```
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: jenkins
+  namespace: jenkins
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+    rbac.authorization.kubernetes.io/autoupdate: "true"
+  labels:
+    kubernetes.io/bootstrapping: rbac-defaults
+  name: jenkins
+rules:
+- apiGroups:
+  - '*'
+  resources:
+  - statefulsets
+  - services
+  - replicationcontrollers
+  - replicasets
+  - podtemplates
+  - podsecuritypolicies
+  - pods
+  - pods/log
+  - pods/exec
+  - podpreset
+  - poddisruptionbudget
+  - persistentvolumes
+  - persistentvolumeclaims
+  - jobs
+  - endpoints
+  - deployments
+  - deployments/scale
+  - daemonsets
+  - cronjobs
+  - configmaps
+  - namespaces
+  - events
+  - secrets
+  verbs:
+  - create
+  - get
+  - watch
+  - delete
+  - list
+  - patch
+  - update
+- apiGroups:
+  - ""
+  resources:
+  - nodes
+  verbs:
+  - get
+  - list
+  - watch
+  - update
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  annotations:
+    rbac.authorization.kubernetes.io/autoupdate: "true"
+  labels:
+    kubernetes.io/bootstrapping: rbac-defaults
+  name: jenkins
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: jenkins
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: Group
+  name: system:serviceaccounts:jenkins
+```
+
