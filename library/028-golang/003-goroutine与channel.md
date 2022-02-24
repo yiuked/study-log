@@ -40,6 +40,8 @@ x =
 //从Channel c接收一个值并将其存储到x中
 x, ok = <- c         //从Channel接收一个值，如果channel关闭了或没有数据，那么ok将被置为false
 ```
+
+
 ```
 x := true
 c := make(chan bool) //创建一个无缓冲的bool型Channel 
@@ -80,3 +82,7 @@ var recvCh <-chan int = ch
 ```
 通道实例 := make(chan 通道类型, 缓冲大小)
 ```
+
+### 实现一个协程池
+
+> [深入浅出Golang的协程池设计 - Go语言中文网 - Golang中文社区 (studygolang.com)](https://studygolang.com/articles/15477)
