@@ -390,3 +390,60 @@ subjects:
   name: system:serviceaccounts:jenkins
 ```
 
+
+
+```
+pipeline{
+
+      environment{
+	    // 定义变量,或从Jenkins传入进来的变量
+      }
+
+      agent{
+        node{
+          // 选择 k8s 集群节点
+        }
+      }
+
+      stages{
+ 
+            stage('获取代码'){
+                steps{
+                 // 拉取项目程序源码
+               }
+            }
+            
+            stage('代码编译打包'){
+              steps{
+                 container("maven") {
+                 // 使用 maven 容器,编译打包
+                 }
+              }
+            }
+
+            stage('镜像构建推送'){
+              steps{ 
+              	container("kaniko") { 
+                    // 使用 kaniko 容器, docker镜像编译与推送到镜像仓库
+                }
+              }
+            }
+
+            stage('获取部署配置'){
+              steps{
+                 // 拉取 yaml 部署文件
+               }
+              }
+             
+            stage('应用部署到K8S集群') {
+              steps {
+                container('kubectl') {
+                // 使用 kubectl 容器, 执行 yaml 部署文件，部署应用到 k8s集群
+                }	
+              }  
+            }
+			
+        }
+    }
+```
+
