@@ -251,7 +251,7 @@ K8S 地址:
 
 
 
-
+basic-docker-resitry.default.svc.cluster.local
 
 
 
