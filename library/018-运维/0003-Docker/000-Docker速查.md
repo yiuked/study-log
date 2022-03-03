@@ -78,3 +78,40 @@ $docker import centos_8d35.tar local/centos
 docker logs cfb 2>&1|grep 'test'
 ```
 
+```
+# 基于当前文件夹下的 dockerfile 创建一个镜像
+docker build -t helloworld .      
+# 上面指令的全写
+docker build --tag=helloworld .
+# 运行这个镜像，并将本机 4000 端口映射到容器对外暴露的 80 端口，外部通过 4000端口访问 
+docker run -p 4000:80 helloworld 
+# 使 container 在后台运行
+docker run -d -p 4000:80 helloworld 
+# 所有正在运行的容器列表
+docker container ls                        
+# 所有容器列表
+docker container ls -a  
+# 停用一个容器
+docker container stop <hash>
+# 强制停止一个容器
+docker container kill <hash>
+# 移除一个容器
+docker container rm <hash>  
+# 移除所有容器
+docker container rm $(docker container ls -a -q)
+# 所有镜像列表
+docker image ls -a 
+# 移除一个镜像
+docker image rm <image id> 
+# 移除所有镜像
+docker image rm $(docker image ls -a -q) 
+# 登录注册过的 docker hub
+docker login 
+# 为镜像打标签
+docker tag <image> username/repository:tag
+# 将镜像推送至远程仓库
+docker push username/repository:tag 
+# 运行这个镜像
+docker run username/repository:tag
+```
+
