@@ -251,7 +251,7 @@ K8S 地址:
 
 
 
-
+basic-docker-resitry.default.svc.cluster.local
 
 
 
@@ -391,7 +391,6 @@ subjects:
 ```
 
 
-
 ```
 pipeline{
 
@@ -446,4 +445,12 @@ pipeline{
         }
     }
 ```
+
+#### 问题
+
+- ``` 
+  inbound-agent 是做什么用的
+  ```
+
+[Kaniko 在构建大量图像时被 OOM 杀死 ·问题 #1680 ·GoogleContainerTools/kaniko (github.com)](https://github.com/GoogleContainerTools/kaniko/issues/1680)
 
