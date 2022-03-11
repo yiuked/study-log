@@ -106,3 +106,34 @@ pipeline {
 
 
 Agent大概分两种。 一是基于SSH的，需要把Master的SSH公钥配置到所有的Agent宿主机上去。 二是基于JNLP的，走HTTP协议，每个Agent需要配置一个独特的密码。 基于SSH的，可以由Master来启动；基于JNLP的，需要自己启动。
+
+
+
+### 推荐插件
+
+- Kubernetes 
+
+- ~~Kubernetes Continuous Deploy~~ 官方已停止维护,新版经测试有问题,不建议使用
+
+- Kubernetes cli
+
+  > https://updates.jenkins.io/current/update-center.json 插件集合地址(有可能Jenkins后台不会显示所有插件,可以在这个地址中找到hpi文件下载地址后台手动安装)
+  >
+  > https://mirrors.tuna.tsinghua.edu.cn/jenkins/plugins/kubernetes-cli/1.10.3/kubernetes-cli.hpi
+  >
+  > 安装后可能仍会出现`/var/jenkins_home/workspace/Blindbox@tmp/durable-a7eba168/script.sh: 1: kubectl: not found`,可能是因外网的原因`kubectl`没下载下来,可以登录到容器手动下载,文件路径在以下文件中
+  >
+  > https://github.com/jenkinsci/kubernetes-cli-plugin/blob/master/Jenkinsfile
+
+- 在Goland中安装Jenkins Contrl插件
+
+  > http://127.0.0.1:8080/configure 配置 JENKINS_URL
+  >
+  > `jenkins——CSRF enabled->Missing or bad crumb data`
+  >
+  > 解决方法:http://127.0.0.1:8080/user/admin/configure在里面添加API TOKEN
+  >
+  > 出现`11:00	URL is malformed`问题,访问以下链接检测URL是否已设置
+  >
+  > http://127.0.0.1:8080/api/json?tree=url,nodeDescription
+
