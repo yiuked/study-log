@@ -109,6 +109,34 @@ Agent大概分两种。 一是基于SSH的，需要把Master的SSH公钥配置�
 
 
 
+### 推荐插件
+
+- Kubernetes 
+
+- ~~Kubernetes Continuous Deploy~~ 官方已停止维护,新版经测试有问题,不建议使用
+
+- Kubernetes cli
+
+  > https://updates.jenkins.io/current/update-center.json 插件集合地址(有可能Jenkins后台不会显示所有插件,可以在这个地址中找到hpi文件下载地址后台手动安装)
+  >
+  > https://mirrors.tuna.tsinghua.edu.cn/jenkins/plugins/kubernetes-cli/1.10.3/kubernetes-cli.hpi
+  >
+  > 安装后可能仍会出现`/var/jenkins_home/workspace/Blindbox@tmp/durable-a7eba168/script.sh: 1: kubectl: not found`,可能是因外网的原因`kubectl`没下载下来,可以登录到容器手动下载,文件路径在以下文件中
+  >
+  > https://github.com/jenkinsci/kubernetes-cli-plugin/blob/master/Jenkinsfile
+
+- 在Goland中安装Jenkins Contrl插件
+
+  > http://127.0.0.1:8080/configure 配置 JENKINS_URL
+  >
+  > `jenkins——CSRF enabled->Missing or bad crumb data`
+  >
+  > 解决方法:http://127.0.0.1:8080/user/admin/configure在里面添加API TOKEN
+  >
+  > 出现`11:00	URL is malformed`问题,访问以下链接检测URL是否已设置
+  >
+  > http://127.0.0.1:8080/api/json?tree=url,nodeDescription
+
 ## Pipeline 是什么
 
 Jenkins Pipeline 实际上是基于 Groovy 实现的 CI/CD 领域特定语言（DSL），主要分为两类，一类叫做 `Declarative Pipeline`，一类叫做 `Scripted Pipeline`。
@@ -496,5 +524,4 @@ stage('Compile') {
 
 Jenkins 作为使用最为广泛的 CI/CD 平台，网上流传着无数的脚本和攻略，在学习和开发的时候一定要从基本出发，了解内部原理，多看官方的文档，不要拿到一段代码就开始用，这样才能不会迷失在各式各样的脚本之中。
 
-更重要的是要结合自己的业务需求，开发和定制属于自己的流程，不要被 Jenkins 的框架限制住。比如我们是否可以定义一个自己的 YAML 配置文件，然后根据 YAML 来生成 Pipeline，不需要业务自己写 Pipeline 脚本，规范使用，提前检查不合法的脚本，核心的模块共同升级，避免了一个流程小改动需要所有项目组同步更新。这是我现在正在做的事情，有机会再跟大家分享～
-
+更重要的是要结合自己的业务需求，开发和定制属于自己的流程，不要被 Jenkins 的框架限制住。比如我们是否可以定义一个自己的 YAML 配置文件，然后根据 YAML 来生成 Pipeline，不需要业务自己写 Pipeline 脚本，规范使用，提前检查不合法的脚本，核心的模块共同升级，避免了一个流程小改动需要所有项目组同步更新。
