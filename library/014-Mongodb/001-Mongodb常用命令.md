@@ -120,3 +120,10 @@ dbOwner 包含了dbAdmin、userAdmin、read、readWrite所有权限
 userAdminAnyDatabase
 dbAdminAnyDatabase
 ```
+
+#### 更新
+
+```
+db.books.update( { _id: { $eq: 50000 } },{$set:{"book_chapter_last_id":32,"book_chapter_last_name":"dddd"}})
+```
+
