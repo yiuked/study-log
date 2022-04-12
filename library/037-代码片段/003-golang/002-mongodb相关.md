@@ -1,3 +1,5 @@
+- 连接器
+
 ```go
 package database
 
@@ -57,5 +59,26 @@ func NewMongoClient() *MongoClient {
 	return mongoClient
 }
 
+```
+
+- 联表分页查询
+
+```go
+	pipeline := mongo.Pipeline{
+		{{"$match", bson.D{{"user_id", loginUserID}}}},
+		{{"$lookup", bson.D{
+			{"from", model.BookCollect},
+			{"localField", "book_id"},
+			{"foreignField", "_id"},
+			{"as", "book"},
+		}}},
+		{{"$unwind", "$book"}},
+		{{"$sort", bson.D{{"last_read_at", -1}}}},
+		{{"$skip", offset}},
+		{{"$limit", limit}},
+	}
+	cursor, err := database.NewMongoClient().GetDB().
+		Collection(model.BookshelfCollect).
+		Aggregate(c, pipeline)
 ```
 

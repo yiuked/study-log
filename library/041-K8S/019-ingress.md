@@ -10,13 +10,19 @@
 - 请求速率limit
 - rewrite 规则
 
-### 二、组成
+工作原理图：
 
-Ingress 主要分为两部分：
+![Nginx Ingress工作原理](..\..\images\041\8-200910161P9135.gif)
 
-- Ingress Controller 是流量的入口，是一个实体软件， 一般是Nginx 和 Haproxy 。
 
-- Ingress 描述具体的路由规则。
+
+### 二、组成原理
+
+Nginx Ingress 由资源对象 Ingress、Ingress 控制器、Nginx 三部分组成，Ingress 控制器用以将 Ingress 资源实例组装成 Nginx 配置文件（nginx.conf），并重新加载 Nginx 使变更的配置生效。当它监听到 Service 中 Pod 变化时通过动态变更的方式实现 Nginx 上游服务器组配置的变更，无须重新加载 Nginx 进程。工作原理如下图所示。
+
+- Ingress，一组基于域名或 URL 把请求转发到指定 Service 实例的访问规则，是 Kubernetes 的一种资源对象，Ingress 实例被存储在对象存储服务 etcd 中，通过接口服务被实现增、删、改、查的操作。
+- Ingress 控制器（Ingress controller），用以实时监控资源对象 Ingress、Service、End-point、Secret（主要是 TLS 证书和 Key）、Node、ConfigMap 的变化，自动对 Nginx 进行相应的操作。
+- Nginx，实现具体的应用层负载均衡及访问控制。
 
 
 
