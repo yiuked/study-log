@@ -14,7 +14,7 @@
 
 ![Nginx Ingress工作原理](..\..\images\041\8-200910161P9135.gif)
 
-
+![clipboard.png](..\..\images\041\ingress-2.jpg)
 
 ### 二、组成原理
 
