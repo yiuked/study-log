@@ -29,3 +29,4 @@ Nginx Ingress 由资源对象 Ingress、Ingress 控制器、Nginx 三部分组�
 参数文献：
 
 - https://kubernetes.io/zh/docs/concepts/services-networking/ingress/
+- https://kubernetes.github.io/ingress-nginx/deploy/#quick-start
