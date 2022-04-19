@@ -58,3 +58,49 @@ FT.SEARCH idx "@title|body:(hello world) @url|image:mydomain"
 | WHERE num <= 10                          | @num:[-inf 10]                     |                                          |
 | WHERE num < 10 OR num > 20               | @num:[-inf (10] \| @num:[(20 +inf] |                                          |
 | WHERE name LIKE 'john%'                  | @name:john*                        |                                          |
+
+索引操作
+
+```
+FT.DROPINDEX idx
+
+FT.CREATE idx ON JSON PREFIX 1 blog:post: SCHEMA $.sku AS sku_text TEXT
+FT.CREATE idx1 ON JSON PREFIX 1 blog:tag: SCHEMA $.sku AS sku_text TEXT
+
+FT.CREATE idx ON JSON PREFIX 1 blog:post: SCHEMA $.sku AS sku_tag TAG
+
+
+JSON.SET blog:post:1 $ '{"sku":"a,b,c"}'
+JSON.SET blog:tag:1 $ '{"sku":"a,b,c"}'
+
+
+FT.SEARCH idx '@sku_text:a,b,c'
+
+
+FT.CREATE userIdx ON JSON SCHEMA $.user.name AS name TEXT $.user.tag AS country TAG
+JSON.SET myDoc $ '{"user":{"name":"John Smith","tag":"foo,bar","hp":1000, "dmg":150}}'
+FT.SEARCH userIdx '@name:(John)'
+
+
+FT.CREATE musicItem_idx ON JSON SCHEMA
+ $.id AS id NUMERIC SORTABLE
+ $.data_type AS data_type TEXT
+ $.name AS name TEXT
+ $.singer AS singer TEXT
+ $.duration AS duration NUMERIC SORTABLE
+ $.play_total AS play_total NUMERIC SORTABLE
+ $.collect_total AS collect_total NUMERIC SORTABLE
+ $.hot_value AS hot_value NUMERIC SORTABLE
+ $.tag_ids[0] AS tag1 TEXT
+ $.tag_ids[1] AS tag2 TEXT
+ $.tag_ids[2] AS tag3 TEXT
+ $.tag_ids[3] AS tag4 TEXT
+ $.tag_ids[4] AS tag5 TEXT
+ $.tag_ids[5] AS tag6 TEXT
+ $.tag_ids[6] AS tag7 TEXT
+ $.tag_ids[7] AS tag8 TEXT
+ $.tag_ids[8] AS tag9 TEXT
+ $.tag_ids[9] AS tag10 TEXT
+ 
+```
+
