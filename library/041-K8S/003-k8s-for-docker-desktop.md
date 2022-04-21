@@ -97,6 +97,7 @@ spec:
           path: /run/desktop/mnt/host/d/v/k8s/data
 ```
 
-# windows docker desktop 设置2375端口远程访问
-
+#### windows docker desktop 设置2375端口远程访问
+```
 netsh interface portproxy add v4tov4 listenport=2375 connectaddress=127.0.0.1 connectport=2375 listenaddress=<your-public-ip> protocol=tcp
+```
