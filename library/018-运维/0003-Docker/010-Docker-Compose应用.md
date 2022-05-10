@@ -161,3 +161,7 @@ networks:
 创建网络
 
 > docker network create basic_component --driver bridge
+
+#### nginx无法获取宿主机IP
+采用host模式
+

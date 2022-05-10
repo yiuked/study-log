@@ -208,5 +208,30 @@ type SvUserDevice struct {
 	AppVersion      string `gorm:"type:varchar(32) default null COMMENT 'App版本'"`
 }
 
+
+// SvOrder 订单表
+type SvOrder struct {
+	gorm.Model
+	UID             int64             `gorm:"type:bigint(16) unsigned not null COMMENT '用户ID';index:idx_uid"`
+	OrderNo         string            `gorm:"type:varchar(100) default '' not null COMMENT '订单号';unique_index:order_no_unique"`
+	ThirdOrderNo    string            `gorm:"type:char(255) default '' not null COMMENT '第三方订单号'"`
+	OrderStatus     uint              `gorm:"type:tinyint(1) default 1 not null COMMENT '支付状态：1-未支付，2-支付中,3-支付成功，4-支付失败，5-已取消'"`
+	DeviceType      string            `gorm:"type: varchar(128) default null COMMENT '设备类型'"`
+	DeviceBrand     string            `gorm:"type: varchar(128) default null COMMENT '设备品牌'"`
+	Platform        int32             `gorm:"type:tinyint(1) default null COMMENT '操作系统 iOS 1, Android 2, Windows 3, OSX 4, WEB 5, 小程序 6，linux 7'"`
+	PlatformVersion string            `gorm:"type:varchar(32) default null COMMENT '操作系统版本'"`
+	AppVersion      string            `gorm:"type:varchar(32) default null COMMENT 'App版本'"`
+	LastIP          string            `gorm:"type:varchar(128) default null COMMENT '最后登录IP'"`
+	PackageType     int               `gorm:"type:int(1) default 1 not null COMMENT '类型：1-vip，2-金币'"`
+	Price           string            `gorm:"type:decimal(10,2) default 0.0 not null COMMENT '价格'"`
+	OrderPayPackage SvOrderPayPackage `gorm:"foreignKey:OrderID"`
+}
+
+// SvOrderPayPackage 订单记录
+type SvOrderPayPackage struct {
+	SvPayPackage
+	OrderID uint `gorm:"type:int(10) default 0 not null COMMENT '订单id';index:idx_order_id"`
+}
+
 ````
 
