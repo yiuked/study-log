@@ -1,9 +1,0 @@
-1.编译文件
-gcc test.c -o test
-如果不加 -o [编译输出文件] 则默认生成 a.out
-
-2.分开编译
-gcc -c max.c -o max.o
-gcc -c min.c -o min.o
-gcc max.o min.o main.c
-当文件多的时候，可以先把子文件编译成.o的静态文件，编译软件的时候，调用静态文件来编译主文件会大大提升效率.

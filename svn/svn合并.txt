@@ -1,9 +1,0 @@
-将开发环境代码合并到生产环境
-
-1.切换到生产环境.
-2.发起合并(Merge..)
-3.选择第一项(Merge a range of revisions)
-4.填写开发环境地址(URL to merge from)
-5.选择你要合并的提交(Specific range)
-6.测试合并，确认无误后发起正式合并.
-7.合并成功后，提交合并后的代码(Commit)

@@ -1,3 +1,4 @@
+```
 http://wiki.diahosting.com
 http://wiki.diahosting.com/linux_extend/pptpd_for_centos6
 
@@ -44,3 +45,4 @@ service iptables start
 service pptpd start
 
 echo "VPN service is installed, your VPN username is vpn, VPN password is ${pass}"
+```

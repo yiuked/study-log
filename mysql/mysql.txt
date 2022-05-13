@@ -1,4 +1,0 @@
-二进制日志文件转文本：（转出来的结果似乎也并没有什么用呢）
-mysqlbinlog binlog.000001
-或者
-mysqlbinlog binlog.000004 > /path/to/filename.txt 

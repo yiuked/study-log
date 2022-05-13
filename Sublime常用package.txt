@@ -1,2 +1,0 @@
-1.package control
-https://packagecontrol.io/installation#st2
