@@ -41,6 +41,10 @@ geth --syncmode light --http --http.api --rpc --rpcapi "eth,debug"
 geth --syncmode light --datadir="/Users/mac/Documents/eth/light-data" -verbosity 6 --http --ws console 2>>/Users/mac/Documents/eth/log/light-data.log
 ```
 
+```
+geth --syncmode light --datadir="D:\dev\eth\data\light-data" -verbosity 6 --http --ws console 2>>D:\dev\eth\data\log\light-data.log
+```
+
 
 ### 节点信息
 1. 查看当前节点信息
