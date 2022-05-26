@@ -67,3 +67,11 @@ geth attach http://127.0.0.1:8545
 ```
 
 ### 备份与恢复
+
+```
+geth --datadir="/geth/eth/data" -verbosity 6 --ipcdisable --http --ws console 2>>/geth/eth/log/geth.log
+```
+
+```
+abigen -sol ewomtoken.sol -pkg ewom -out ewomtoken.go
+```
