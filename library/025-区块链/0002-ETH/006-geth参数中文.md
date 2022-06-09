@@ -223,3 +223,88 @@ GAS 价格预言机选项:
 COPYRIGHT:
    Copyright 2013-2021 The go-ethereum Authors
 ```
+
+TOML 文件
+```
+[Eth]
+NetworkId = 1
+SyncMode = "fast"
+NoPruning = false
+LightPeers = 100
+DatabaseCache = 512
+TrieCleanCache = 256
+TrieDirtyCache = 256
+TrieTimeout = 3600000000000
+MinerGasFloor = 8000000
+MinerGasCeil = 8000000
+MinerGasPrice = 1000000000
+MinerRecommit = 3000000000
+MinerNoverify = false
+EnablePreimageRecording = false
+EWASMInterpreter = ""
+EVMInterpreter = ""
+
+[Eth.Ethash]
+CacheDir = "ethash"
+CachesInMem = 2
+CachesOnDisk = 3
+DatasetDir = "/Users/ahmadwilson/.ethash"
+DatasetsInMem = 1
+DatasetsOnDisk = 2
+PowMode = 0
+
+[Eth.TxPool]
+Locals = []
+NoLocals = false
+Journal = "transactions.rlp"
+Rejournal = 3600000000000
+PriceLimit = 1
+PriceBump = 10
+AccountSlots = 16
+GlobalSlots = 4096
+AccountQueue = 64
+GlobalQueue = 1024
+Lifetime = 10800000000000
+
+[Eth.GPO]
+Blocks = 20
+Percentile = 60
+
+[Shh]
+MaxMessageSize = 1048576
+MinimumAcceptedPOW = 2e-01
+RestrictConnectionBetweenLightClients = true
+
+[Node]
+DataDir = "/Users/ahmadwilson/Library/Ethereum"
+IPCPath = "geth.ipc"
+HTTPPort = 8545
+HTTPVirtualHosts = ["localhost"]
+HTTPModules = ["net", "web3", "eth", "shh"]
+WSPort = 8546
+WSModules = ["net", "web3", "eth", "shh"]
+
+[Node.P2P]
+MaxPeers = 25
+NoDiscovery = false
+BootstrapNodes = ["enode://456@52.16.188.185:30303", "enode://456@13.93.211.84:30303", "enode://456@191.235.84.50:30303", "enode://456@13.75.154.138:30303", "enode://456@52.74.57.123:30303", "enode://456@5.1.83.226:30303"]
+BootstrapNodesV5 = ["enode://45@35.177.226.168:30303", "enode://456@40.118.3.223:30304", "enode://456@40.118.3.223:30306", "enode://456@40.118.3.223:30307"]
+StaticNodes = []
+TrustedNodes = []
+ListenAddr = ":30303"
+EnableMsgEvents = false
+
+[Node.HTTPTimeouts]
+ReadTimeout = 30000000000
+WriteTimeout = 30000000000
+IdleTimeout = 120000000000
+
+[Dashboard]
+Host = "localhost"
+Port = 8080
+Refresh = 5000000000
+```
+
+FAQ
+1. 启动节点时报`Fatal: Account unlock with HTTP access is forbidden!`
+> 启动时添加`--allow-insecure-unlock`参数，该函数禁止采用http形式来解锁账户
