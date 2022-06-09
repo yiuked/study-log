@@ -24,9 +24,94 @@ Nginx Ingress 由资源对象 Ingress、Ingress 控制器、Nginx 三部分组�
 - Ingress 控制器（Ingress controller），用以实时监控资源对象 Ingress、Service、End-point、Secret（主要是 TLS 证书和 Key）、Node、ConfigMap 的变化，自动对 Nginx 进行相应的操作。
 - Nginx，实现具体的应用层负载均衡及访问控制。
 
+### 三、Ingress Controller
+Ingress本身不提供服务，它依赖Ingress Controller，Ingress Controller以Pod的形式部署在Kubernetes集群内，实质上我们无法从外面直接访问，依然要将其暴露出来，暴露方式有几种：
+
+-   通过NodePort形式暴露，前面需接一个负载均衡
+-   通过LoadBalancer形式暴露，云产商默认就是这种方式
+-   直接在Pod中使用hostport，前面需接一个负载均衡
+
+ingress的实现方式更智能、更友好，相对的配置就略微复杂，它一个IP可以暴露多个应用，支持同域名不同uri，支持证书等功能。
+
+目前Ingress暴露集群内服务的行内公认最好的方式，不过由于其重要地位，世面上有非常多的Ingres Controller，常见的有：
+
+-   Kubernetes Ingress
+-   Nginx Ingress
+-   Kong Ingress
+-   Traefik Ingress
+-   HAProxy Ingress
+-   Istio Ingress
+-   APISIX Ingress
+
+除了上面列举的这些，还有非常多的Ingress Controller，面对如此多的Ingress Controller，我们该如何选择呢？参考的标准是什么？
+
+一般情况下可以从以下几个维度进行判断：
+
+-   支持的协议：是否支持除HTTP(S)之外的协议
+-   路由的规则：有哪些转发规则，是否支持正则
+-   部署策略：是否支持ab部署、金丝雀部署、蓝绿部署等
+-   upstream探针：通过什么机制判定应用程序正常与否，是否有主动和被动检查，重试，熔断器，自定义运行状况检查等解决方案
+-   负载均衡算法：支持哪些负载均衡算法，Hash、会话保持、RR、WRR等
+-   鉴权方式：支持哪些授权方案？基本，摘要，OAuth，外部身份验证等
+-   DDoS防护能力：是否支持基本的限速、白名单等
+-   全链路跟踪：能否正常接入全链路监控
+-   JWT验证：是否有内置的JSON Web令牌验证，用于对最终应用程序的用户进行验证和验证
+-   图像界面：是否需要图形界面
+-   定制扩展性：是否方便扩展
+-   
+[ingress控制器那么多，到底该选哪一个？累觉不爱。 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/302452502)
+![[Pasted image 20220606223607.png]]
+
+
+```
+apiVersion: networking.k8s.io/v1 
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: 
+    http:
+      paths:
+      - pathType: Prefix
+        path: /g(/|$)(.*)
+        backend:
+          service:
+            name: basic-nginx
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /a(/|$)(.*)
+        backend:
+          service:
+            name: otel-collector
+            port:
+              number: 4317
+      - pathType: Prefix
+        path: /b(/|$)(.*)
+        backend:
+          service:
+            name: otel-collector
+            port:
+              number: 4318
+      - pathType: Prefix
+        path: /c(/|$)(.*)
+        backend:
+          service:
+            name: otel-collector
+            port:
+              number: 8888
+```
+> - 默认如果指定为 pathType 为 Prefix ，那么 path的路径与访问的资源的路径一至。即当访问 `/a`时会到对应服务下的`/a`目录下找对应的资源
+> - ingressClassName的获取访问 `kubectl get ingressclass`
 
 
 参数文献：
 
 - https://kubernetes.io/zh/docs/concepts/services-networking/ingress/
 - https://kubernetes.github.io/ingress-nginx/deploy/#quick-start
+- https://blog.csdn.net/qq_39218530/article/details/121374602
