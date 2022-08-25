@@ -308,3 +308,6 @@ Refresh = 5000000000
 FAQ
 1. 启动节点时报`Fatal: Account unlock with HTTP access is forbidden!`
 > 启动时添加`--allow-insecure-unlock`参数，该函数禁止采用http形式来解锁账户
+
+2. 启动节点时报`no UPnP or NAT-PMP router discovered`
+> 添加`--nat=none`参数s

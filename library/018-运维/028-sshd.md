@@ -18,3 +18,6 @@ ssh -CqTfnN -R :11111:localhost:22 root@example.com
 ssh -p 2222 httpd@localhost
 ```
 > httpd 为本地机的用户名
+
+3. ssh总是超时
+> termius的设置中可以配置连接的心跳保持功能，默认是关系的，打开则可

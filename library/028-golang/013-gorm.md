@@ -91,4 +91,16 @@ db.Model(&user).Omit("name").Updates(map[string]interface{}{"name": "hello", "ag
 
 	var histories []models.User
 	inits.DB.Scopes(where).Count(&total)
-	```
+```
+
+设置表别名
+```
+db.Table("?", clause.Table{Name: "wom_sys_channel_type", Alias: "t"})
+```
+
+设置中国时区
+```
+# 数据库  
+dns: root:123456@(192.168.1.168:8090)/test_db?charset=utf8mb4&parseTime=true&loc=PRC
+```
+> loc中的值不能乱写，可以查看系统目录下有哪些： ls /usr/share/zoneinfo/

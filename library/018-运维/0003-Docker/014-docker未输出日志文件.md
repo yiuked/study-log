@@ -41,7 +41,10 @@ services:
 ```
 
 
-
+快速备份日志
+```
+tar zcvf $(date +%F).tar.gz /var/lib/docker/containers/*/*.log
+```
 
 
 引用

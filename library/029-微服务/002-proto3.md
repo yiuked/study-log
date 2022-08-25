@@ -112,3 +112,9 @@ github.com/golang/protobuf/protoc-gen-go
 google.golang.org/grpc
 google.golang.org/protobuf
 ```
+
+
+```
+(\w+)\s+(\w+)\s*=\s*(\d+); ===> $1 \u$2 = $3;
+
+```

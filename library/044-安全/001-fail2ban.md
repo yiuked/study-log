@@ -110,6 +110,10 @@ mta 使用哪个发送邮件命令，可以选mail或sendmail
 
 > https://www.gaoyaxuan.net/blog/335.html
 
+```
+# 查看规则是否生效
+fail2ban-regex /var/log/gorm.log /etc/fail2ban/filter.d/gogs.conf --print-all-matched
+```
 ### 状态
 
 1. **查看启用的监狱列表**

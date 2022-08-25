@@ -36,3 +36,21 @@ protobuf-go经历了两个大版本修订，第一个版本在2010年公开发�
 
   > 1. 需要在 `Tools>Configure GenProtobuf >Quick Gen`中选择 Go
   > 2. 选中 *.proto 文件，右键选择`quick gen protobuf here`
+
+
+### 在proto文件中引入timestamp格式
+```
+syntax = "proto3";  
+  
+option go_package = "./pb";  
+  
+package pb;  
+  
+import public "google/protobuf/timestamp.proto";
+
+// DetailResp 订单信息  
+message DetailResp{  
+  google.protobuf.Timestamp CreatedAt = 1;        // 创建时间  
+}
+```
+> 需要下载https://github.com/protocolbuffers/protobuf/releases，解压后，找到src目录，把里面的 google文件夹得到的$GOPATH/include目录下
