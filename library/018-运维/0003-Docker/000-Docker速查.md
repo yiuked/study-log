@@ -116,3 +116,8 @@ docker run username/repository:tag
 ```
 
 清理已停用的网络\容器等 `docker system prune -a`
+
+
+```
+docker rm $(docker ps -a|grep golang|awk '{print $1}')
+```
