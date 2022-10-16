@@ -117,3 +117,7 @@ Windows Registry Editor Version 5.00
 
 ```
 
+
+- 查看wsl目录 
+
+`可以通过cmd命令 \\wsl$ 来打开wsl的物理路径`
