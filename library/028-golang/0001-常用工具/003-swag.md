@@ -34,3 +34,28 @@ func (customerApi *CustomerApi) FindCustomer(c *gin.Context) {
    }  
 }
 ```
+
+有时候有些类型不好生成如`database.SqlNullString`、`datatypes.JSON` 可以通过以下方法处理
+`.swaggo`:
+
+```
+// Replace all NullInt64 with int
+replace database/sql.NullInt64 int
+
+// Don't include any fields of type database/sql.NullString in the swagger docs
+skip    database/sql.NullString
+```
+示例
+```
+// 替换类型  
+replace preorder/admin/server/model/core/response.DinnerJson preorder/common/model.Dinner
+```
+
+忽略某个字段
+```
+type Account struct {
+    ID   string    `json:"id"`
+    Name string     `json:"name"`
+    Ignored int     `swaggerignore:"true"`
+}
+```
