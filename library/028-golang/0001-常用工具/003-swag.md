@@ -59,3 +59,14 @@ type Account struct {
     Ignored int     `swaggerignore:"true"`
 }
 ```
+
+如果出现一些第三方引用类型无法加载，可以加上`--parseDependency --parseInternal`
+```
+ swag init --parseDependency --parseInternal -g mch/server/main.go -o mch/server/docs --exclude admin/,app/
+
+```
+
+变更类型：
+```
+Enable int `json:"enable" swaggertype:"string" example:"int 是否启用"` // 员工是否被冻结 1正常 2冻结
+```

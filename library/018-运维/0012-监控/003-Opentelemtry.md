@@ -48,6 +48,10 @@ A[应用]
 
 ```
                                           -----> Jaeger (trace)
-App + SDK ---> OpenTelemetry Collector ---|
+App + SDK ---> OpenTelemetry Collecto
+r ---|
                                           -----> Prometheus (metrics)
 ```
+
+
+https://opentelemetry.io/
