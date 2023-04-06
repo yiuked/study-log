@@ -1,0 +1,15 @@
+Transformers 是一个自然语言处理（NLP）框架，由Hugging Face开发和维护，用于训练和使用各种预训练的深度学习模型。它基于PyTorch和TensorFlow等深度学习框架，并提供了易于使用的API，方便研究人员和开发者在NLP领域进行模型的训练和推理。
+
+Transformers框架最初基于Google的BERT（Bidirectional Encoder Representations from Transformers）模型，但现在已扩展到包括GPT、RoBERTa、DistilBERT、XLNet、T5等许多其他预训练模型。使用Transformers框架，您可以轻松地使用这些预训练模型进行文本分类、情感分析、命名实体识别、问答和生成等NLP任务的处理，同时还可以根据自己的需求，进行模型的微调和训练。
+
+Transformers 框架提供了包括Tokenizer、Model、Trainer和Pipeline等模块，可用于构建和使用各种深度学习模型，以及进行训练和推理的相关操作。除此之外，Transformers还提供了许多示例代码和文档，方便用户了解如何使用这些模块来构建和使用模型。
+
+PyTorch和TensorFlow都是目前深度学习领域最为流行的开源深度学习框架之一，都由业界知名的公司或组织（PyTorch由Facebook，TensorFlow由Google）开发和维护。
+
+### PyTorch
+PyTorch是一个基于Python的科学计算库，同时也是一个深度学习框架，它提供了动态图机制，方便用户进行模型的构建、调试和迭代，同时还支持GPU加速，能够快速进行模型的训练和推理。PyTorch广泛应用于计算机视觉、自然语言处理、语音处理等领域，并且由于其简单易用的API和灵活性，受到许多研究人员和开发者的喜爱。
+
+### TensorFlow
+TensorFlow是一个跨平台的开源机器学习框架，由Google开发和维护。它提供了静态图和动态图两种模式，可以方便用户进行模型的构建和调试，并支持GPU加速，能够快速进行模型的训练和推理。TensorFlow广泛应用于计算机视觉、自然语言处理、语音处理等领域，并且由于其强大的功能和高效性能，被广泛用于生产环境中。
+
+PyTorch和TensorFlow都具有优秀的功能和性能，而且都有强大的社区支持和生态系统，用户可以根据自己的需求和偏好选择使用其中之一。
