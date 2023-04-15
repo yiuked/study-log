@@ -80,7 +80,7 @@ db.Model(&user).Omit("name").Updates(map[string]interface{}{"name": "hello", "ag
 ```
 
 ### where条件另类用法
-```
+```go
 	// where条件
 	where := func(db *gorm.DB) *gorm.DB {
 		if !utils.IsEmpty(id) {
@@ -94,13 +94,47 @@ db.Model(&user).Omit("name").Updates(map[string]interface{}{"name": "hello", "ag
 ```
 
 设置表别名
-```
+```go
 db.Table("?", clause.Table{Name: "wom_sys_channel_type", Alias: "t"})
 ```
 
 设置中国时区
-```
+```go
 # 数据库  
 dns: root:123456@(192.168.1.168:8090)/test_db?charset=utf8mb4&parseTime=true&loc=PRC
 ```
 > loc中的值不能乱写，可以查看系统目录下有哪些： ls /usr/share/zoneinfo/
+
+### 使用Preload问题
+```go
+// 用户 
+type User struct {  
+   ID uint  
+}
+
+// Refund 结构体  
+type Refund struct {  
+   ID uint  
+   UserId uint                                   
+   // 如果要求查询结果User未找到，仍然会返回一个空的User,omitempty会失效，如果想要User不存在
+   // 需要设置成 *User
+   User User `json:"User,omitempty"`  
+}
+
+var refund Refund
+db.Preload("User").First(&refund)
+```
+
+#### many2many的情况下重写键名
+```go
+// DealSummary 用于不便对外展示全部信息时使用  
+type DealSummary struct {  
+   ID          uint  
+   Unit        uint      `json:"unit" form:"unit"`                                                                                              // 单位  
+   Name        string    `json:"name" form:"name"`                                                                                              // 名称  
+   Description string    `json:"description" form:"description"`                                                                                // 描述  
+   Price       float64   `json:"price" form:"price"`                                                                                            // 价格  
+   Status      int       `json:"status" form:"status"`                                                                                          // 上下架状态（1已上架 2已下架）  
+   DealService []Service `json:"DealService" gorm:"many2many:deal_service_compat;foreignKey:ID;joinForeignKey:ServiceID;joinReferences:DealID"` // 套餐服务  
+}
+```

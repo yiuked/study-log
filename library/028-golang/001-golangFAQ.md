@@ -239,3 +239,4 @@ func main() {
 > 只要package被引用就会被执行
 
 21. `json.Marshal(v)`解析时，如果结构体中添加`json:"nickname,omitempty"`，那么为空时会被忽略
+22. ### go:embed

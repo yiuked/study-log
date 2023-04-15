@@ -19,3 +19,27 @@ xdebug.remote_handler = dbgp
 xdebug.profiler_output_dir="C:\php\tmp\xdebug"
 xdebug.trace_output_dir="C:\php\tmp\xdebug"
 ```
+
+将日志输出到标准的输出
+```
+zend_extension=xdebug.so
+xdebug.mode=debug
+xdebug.start_with_request=yes
+xdebug.client_host=127.0.0.1
+xdebug.log=/dev/stdout
+```
+
+如果php是在docker启动，需要在宿主机调用，需要将host改为
+```
+# docker-compose.yaml添加以下代码
+extra_hosts:
+  - "host.docker.internal:host-gateway"
+
+zend_extension=xdebug.so
+xdebug.mode=debug
+xdebug.start_with_request=yes
+xdebug.client_host=host.docker.internal
+xdebug.log=/dev/stdout
+```
+
+是IDE监听9000端口，php中的xdebug向IDE上报调试信息
