@@ -8,3 +8,10 @@ https://docs.ultralytics.com/yolov5/tutorials/train_custom_data/
 
 [新手也能彻底搞懂的目标检测Anchor是什么？怎么科学设置？[附代码]](https://aijishu.com/a/1060000000100813)
 https://aijishu.com/a/1060000000100813
+
+
+```
+Traceback (most recent call last):
+  File "<string>", line 1, in <lambda>
+BufferError: memoryview has 1 exported buffer
+```
