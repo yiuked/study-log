@@ -8,7 +8,7 @@ backup_dir=/data/mysql_backup/sql
 backup_file=catering_$(date +%Y%m%d_%H%M%S).sql
 
 # 进入 mysql 容器，并执行备份命令
-docker exec mysql sh -c "exec mysqldump -uroot -p'RedisRds2020' catering" > ${backup_dir}/${backup_file}
+docker exec mysql sh -c "exec mysqldump -uroot -p'abc123' catering" > ${backup_dir}/${backup_file}
 
 # 压缩备份文件
 cd ${backup_dir}
