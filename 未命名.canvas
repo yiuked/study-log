@@ -1,6 +1,6 @@
 {
 	"nodes":[
-		{"id":"028d9f4fc615e276","x":-241,"y":-193,"width":400,"height":400,"type":"file","file":"library/045-AI/004-OpenAI/001-模型.md"}
+		{"type":"file","file":"library/045-AI/004-OpenAI/001-模型.md","id":"028d9f4fc615e276","x":-400,"y":-193,"width":820,"height":593}
 	],
 	"edges":[]
 }
