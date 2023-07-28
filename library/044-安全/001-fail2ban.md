@@ -167,3 +167,10 @@ firewall-cmd --reload
 firewall-cmd --zone=public --list-ports
 
 ```
+
+
+常用命令：
+检测配置文件是否正确
+```
+fail2ban-client -d 
+```
