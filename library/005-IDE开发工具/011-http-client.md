@@ -28,3 +28,23 @@ Content-Disposition: inline
 Content-Disposition: attachment
 Content-Disposition: attachment; filename="filename.jpg"
 ```
+
+
+上传文件的过程，如果有多个字段怎么办？
+```
+--WebAppBoundary
+Content-Disposition: form-data; name="field1"
+
+value1
+--WebAppBoundary
+Content-Disposition: form-data; name="field2"
+
+value2
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="example.txt"
+Content-Type: text/plain
+
+[contents of the file]
+--WebAppBoundary--
+
+```
