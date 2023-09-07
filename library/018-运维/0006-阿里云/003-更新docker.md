@@ -1,3 +1,5 @@
+TAG:docker升级，docker更新
+
 删除已安装的Docker
 ```
 # Uninstall installed docker
