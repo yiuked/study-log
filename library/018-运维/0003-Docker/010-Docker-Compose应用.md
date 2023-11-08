@@ -165,3 +165,11 @@ networks:
 #### nginx无法获取宿主机IP
 采用host模式
 
+
+注：
+docker compose的down与up是根据项目名来操作容器的，默认的项目名以当前文件夹的名称作为项目名，因此如果有文件夹一样时，可以使用-p命令指定项目名：
+```
+docker-compose -p object1 down
+docker-compose -p object1 up -d
+```
+如果不指定，只要文件夹名相同会被视为同一个项目，在执行down或up命令时会一同并操作。
