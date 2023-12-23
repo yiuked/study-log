@@ -29,7 +29,7 @@ yum list docker-ce --showduplicates
 安装指定版本
 ```
 sudo yum install docker-ce-18.03.0.ce
-yum install docker-ce-24.0.5
+yum install docker-ce-24.0.7
 ```
 设置镜像加速：
 https://cr.console.aliyun.com/cn-chengdu/instances/mirrors
