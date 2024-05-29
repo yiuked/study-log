@@ -24,5 +24,14 @@ func main() {
 如果是Mac下打包windows程序，需要先安装 mingw-w64
 ```shell
 brew install mingw-w64
-CGO_ENABLED=1 CC=x86_64-w64-mingw32-gcc CXX=x86_64-w64-mingw32-g++ GOOS=windows GOARCH=amd64 go build -o test.exe main.go
+CGO_ENABLED=1 CC=x86_64-w64-mingw32-gcc CXX=x86_64-w64-mingw32-g++ GOOS=windows GOARCH=amd64 go build -ldflags="-H windowsgui" -o test.exe main.go
+```
+
+`-ldflags="-H windowsgui"` 不加这项，打包时会出现一个控制台窗口
+
+
+mac下如果有控制台窗口：
+```shell
+go install github.com/machinebox/appify@latest
+appify your_app your_app_name
 ```
