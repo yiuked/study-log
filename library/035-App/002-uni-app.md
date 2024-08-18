@@ -1,5 +1,9 @@
 # uni-app
 
+相关文档：
+[离线打包教程](https://nativesupport.dcloud.net.cn/AppDocs/usesdk/appkey.html)
+[微信开放平台创建移动应用获取签名](https://developers.weixin.qq.com/doc/oplatform/Downloads/Android_Resource.html)
+
 ### 一、开发环境
 
 * HBuilderX：[官方IDE下载地址](https://www.dcloud.io/hbuilderx.html)
@@ -55,14 +59,28 @@ Android Studio http://www.android-studio.org/
 * [申请Appkey](https://nativesupport.dcloud.net.cn/AppDocs/usesdk/appkey)
 
   > https://nativesupport.dcloud.net.cn/AppDocs/usesdk/appkey
+  
+
+##### 3生成证书
+
+```shell
+
+# 生成keystore文件
+keytool -genkey -v -keystore abc.keystore -alias abc -keyalg RSA -keysize 2048 -validity 100000
+
+# 计算sha1值
+keytool -list -v -keystore abc.keystore -alias abc
+
+keytool -list -v -keystore cihai_mxsd.keystore -alias cihai_mxsd
+```
 
 
 
 
 
-
-
-
+### FAQ
+1. Installed Build Tools revision 30.0.3 is corrupted. Remove and install again using the SDK Manager.
+2. 
 
 
 
