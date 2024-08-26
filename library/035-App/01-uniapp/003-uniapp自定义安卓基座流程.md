@@ -36,6 +36,8 @@ keytool -list -v -keystore abc.keystore -alias abc
 一定要下载和你当前使用的HbuilderX版本一致的
 
 ##### 4、配置项目
+##### 4.1、修改build.gradle
+文件路径：app/build.gradle
 ```kotlin
 defaultConfig {  
     applicationId "com.example.app1" // 修改点1：应用包名  
@@ -66,3 +68,80 @@ signingConfigs {
     }  
 }
 ```
+
+##### 4.2 修改AndroidManifest.xml
+文件中的配置信息会被打包到基座文件中
+文件路径：app/src/main/AndroidManifest.xml
+```xml
+
+<meta-data  
+    android:name="WX_SECRET"  
+    android:value="34c6**********cf" />  
+<meta-data  
+    android:name="WX_APPID"  
+    android:value="wx********ce" />  
+<!-- 微信分享 配置begin -->    
+<activity  
+    android:name="com.example.shop.wxapi.WXEntryActivity"  
+    android:exported="true"  
+    android:label="@string/app_name"  
+    android:launchMode="singleTop">  
+    <intent-filter>        
+	    <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />  
+        <data android:scheme="wx********ce" />  
+    </intent-filter>
+</activity>  
+<!-- 微信分享 配置 end -->  
+<!-- 微信支付配置 start -->
+<activity  
+    android:name="com.example.shop.wxapi.WXPayEntryActivity"  
+    android:exported="true"  
+    android:launchMode="singleTop" />
+...
+<meta-data  
+    android:name="dcloud_appkey"  
+    android:value="**********" />
+```
+
+##### 4.3、修改 dcloud_control.xml
+文件路径：app/src/main/assets/data/dcloud_control.xml
+```xml
+<apps>  
+    <app appid="__UNI__XXXX" appver=""/>  
+</apps>
+```
+
+##### 4.4、更新图标与启动图
+```
+ls app/src/main/res/drawable-xxhdpi
+icon.png      # 图标
+push.png      # 推送图标
+splash.png    # 启动图
+```
+
+##### 4.5、修改APP名称
+文件路径：app/src/main/res/values/strings.xml
+```xml
+<hbuilder debug="true" syncDebug="true">  
+<apps>  
+    <app appid="__UNI__xxx" appver=""/>  
+</apps>  
+</hbuilder>
+```
+https://ask.dcloud.net.cn/article/35482
+
+#### 5、准备打包文件
+HuiderX中打包好的资源包，一般路径为：
+```
+unpackage/resources/__UNI__B05E216/www
+```
+复制到安卓项目中，路径为：
+```shell
+app/src/main/assets/apps/__UNI__XXX/www
+```
+
+
+## 签名生成工具
+
+用于获取安装到手机的第三方应用签名的apk包。点击下载 [签名生成工具](https://res.wx.qq.com/wxdoc/dist/assets/media/Gen_Signature_Android.e481f889.zip)
