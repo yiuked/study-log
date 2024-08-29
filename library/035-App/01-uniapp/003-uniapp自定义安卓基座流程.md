@@ -103,7 +103,7 @@ signingConfigs {
     android:name="dcloud_appkey"  
     android:value="**********" />
 ```
-
+> 签名证书文件和`dcloud_appkey` 一定要替换且配对， 否则会提示appkey未配置问题。
 ##### 4.3、修改 dcloud_control.xml
 文件路径：app/src/main/assets/data/dcloud_control.xml
 ```xml
